@@ -1,0 +1,17 @@
+body {
+    padding: 5%;
+    color: white;
+    font-family: Verdana, sans-serif;
+  }
+
+#DarkBG {
+  background-color: rgb(29, 35, 58);
+}
+
+#Shown {
+  color: white;
+  font-family: Verdana, sans-serif;
+}
+
+
+
