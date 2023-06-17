@@ -3,43 +3,76 @@
 
     <style>
         ul.Nav {
-        list-style-type: none;
-        height: 50px;
-        background-image: linear-gradient(rgb(52, 60, 94), rgb(89, 99, 148), rgb(52, 60, 94));
-        box-shadow: 0px 5px  #363636;
-        border-radius: 20px;
+            position: sticky;
+            list-style-type: none;
+            height: 50px;
+            background-image: linear-gradient(rgb(52, 60, 94), rgb(89, 99, 148), rgb(52, 60, 94));
+            box-shadow: 0px 5px  #363636;
+            border-radius: 20px;
         }
 
-        ul.Nav li {
-        float: left;
+        ul.Nav #Heading {
+            float: left;
         }
 
         ul.Nav li a {
-        display: block;
-        text-align: center;
-        padding: 14px 16px;
-        color: white;
-        font-family: Verdana, sans-serif;
+            display: block;
+            text-align: center;
+            padding: 14px 16px;
+            color: rgb(0, 0, 0);
+            font-family: Verdana, sans-serif;
         }
 
         ul.Nav li a:hover {
-        background-image: linear-gradient(rgb(159, 173, 233), rgb(159, 173, 233), rgb(159, 173, 233));
+            background-image: linear-gradient(rgb(89, 99, 148), rgb(159, 173, 233), rgb(89, 99, 148));
+        }
+
+        #HiddenNavHTML, #HiddenNavCSS {
+            display: inline;
+            position: relative;
+            top: -18px;
+            left: auto;
+            list-style-type: none;
+            list-style-position: inside;
+            transition: visibility 0.5s;
+            visibility: hidden;
+        }
+
+        #HiddenNavButton {
+            background-image: linear-gradient(rgb(52, 60, 94), rgb(89, 99, 148), rgb(52, 60, 94));
         }
 
         #WebName {
-        font-family: andalé Mono,monospace;
-        font-size: 300%;
-        text-align: center;
+            font-family: andalé Mono,monospace;
+            font-size: 300%;
+            text-align: center;
         }
     </style>
+
+
+    <script src="MouseOverMtd.js"></script>
 
     <h1 id="WebName">WEB APP TEST APPLICATION</h1>
 
     <ul class="Nav">
-        <li><a href="index.htm">HOME</a></li>
-        <li><a href="HTML_01.htm">HTML</a></li>
-        <li><a href="CSS_01.htm">CSS</a></li>
-        <li><a href="PHP_01_login.htm">PHP</a></li>
+        <li id="Heading"><a href="index.htm">HOME</a></li>
+        <li id="Heading">
+            <a onmouseover="mOverHTML()" onmouseout="mOutHTML()" href="HTML_01.htm">HTML</a>
+            <ul id="HiddenNavHTML" onmouseover="mOverHTML()" onmouseout="mOutHTML()"> <!--id="HiddenNav"-->
+                <li id="HiddenNavButton"><a href="HTML_01.htm">HTML text elements</a></li>
+                <li id="HiddenNavButton"><a href="HTML_02_visual.htm">HTML visual elements</a></li>
+                <li id="HiddenNavButton"><a href="HTML_03_audio.htm">HTML audio elements</a></li>
+            </ul>
+        </li>
+        <li id="Heading">
+            <a onmouseover="mOverCSS()" onmouseout="mOutCSS()" href="CSS_01_position.htm">CSS</a>
+            <ul id="HiddenNavCSS" onmouseover="mOverCSS()" onmouseout="mOutCSS()">
+                <li id="HiddenNavButton"><a href="CSS_02_dimension.htm">CSS positional</a></li>
+                <li id="HiddenNavButton"><a href="HTML_02_visual.htm">CSS dimension</a></li>
+                <li id="HiddenNavButton"><a href="HTML_03_audio.htm">HTML audio elements</a></li>
+            </ul>
+        </li>
+        <li id="Heading"><a href="PHP_01_login.htm">PHP</a></li>
     </ul>
 
 </html>
