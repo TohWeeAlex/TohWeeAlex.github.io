@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html>
 
-<style>
-    <?php 
-        require "styles.css";
-    ?>
-</style>
-
     <title>
         WEB_APP_LANDING_PAGE
     </title>
 
     <head>
-        <?php
-            require 'NavBar.htm';
-        ?>
+        <link rel="stylesheet" href="StylesCSS/styles.css">
+
+        <script>
+            window.addEventListener('DOMContentLoaded', function() {
+              fetch('Elements/NavBar.htm')
+                .then(response => response.text())
+                .then(html => {
+                  document.getElementById('NavBar').innerHTML = html;
+                });
+            });
+        </script>
     </head>
 
     
