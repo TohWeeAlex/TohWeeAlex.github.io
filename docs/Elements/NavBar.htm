@@ -49,46 +49,54 @@
         }
     </style>
 
-    <script>
-        function mOverHTML() {
-            document.getElementById("HiddenNavHTML").style.visibility = "visible";
-        }
+    <head>
+        
+    </head>
 
-        function mOutHTML() {
-            document.getElementById("HiddenNavHTML").style.visibility = "hidden";
-        }
-
-        function mOverCSS() {
-            document.getElementById("HiddenNavCSS").style.visibility = "visible";
-        }
-
-        function mOutCSS() {
-            document.getElementById("HiddenNavCSS").style.visibility = "hidden";
-        }
-    </script>
+    <body>
+        <script>
+            function mOverHTML() {
+                document.getElementById("HiddenNavHTML").style.visibility = "visible";
+            }
     
+            function mOutHTML() {
+                document.getElementById("HiddenNavHTML").style.visibility = "hidden";
+            }
+    
+            function mOverCSS() {
+                document.getElementById("HiddenNavCSS").style.visibility = "visible";
+            }
+    
+            function mOutCSS() {
+                document.getElementById("HiddenNavCSS").style.visibility = "hidden";
+            }
+        </script>
+        
+    
+        <h1 id="WebName">WEB APP TEST APPLICATION</h1>
+    
+        <ul class="Nav">
+            <li id="Heading"><a href="index.htm">HOME</a></li>
+            <li id="Heading">
+                <a onmouseover="mOverHTML()" onmouseout="mOutHTML()" href="HTML_01.htm">HTML</a>
+                <ul id="HiddenNavHTML" onmouseover="mOverHTML()" onmouseout="mOutHTML()"> <!--id="HiddenNav"-->
+                    <li id="HiddenNavButton"><a href="HTML_01.htm">HTML text elements</a></li>
+                    <li id="HiddenNavButton"><a href="HTML_02_visual.htm">HTML visual elements</a></li>
+                    <li id="HiddenNavButton"><a href="HTML_03_audio.htm">HTML audio elements</a></li>
+                </ul>
+            </li>
+            <li id="Heading">
+                <a onmouseover="mOverCSS()" onmouseout="mOutCSS()" href="CSS_01_position.htm">CSS</a>
+                <ul id="HiddenNavCSS" onmouseover="mOverCSS()" onmouseout="mOutCSS()">
+                    <li id="HiddenNavButton"><a href="CSS_02_dimension.htm">CSS positional</a></li>
+                    <li id="HiddenNavButton"><a href="HTML_02_visual.htm">CSS dimension</a></li>
+                    <li id="HiddenNavButton"><a href="HTML_03_audio.htm">HTML audio elements</a></li>
+                </ul>
+            </li>
+            <li id="Heading"><a href="PHP_01_login.htm">PHP</a></li>
+        </ul>
+    </body>
 
-    <h1 id="WebName">WEB APP TEST APPLICATION</h1>
 
-    <ul class="Nav">
-        <li id="Heading"><a href="index.htm">HOME</a></li>
-        <li id="Heading">
-            <a onmouseover="mOverHTML()" onmouseout="mOutHTML()" href="HTML_01.htm">HTML</a>
-            <ul id="HiddenNavHTML" onmouseover="mOverHTML()" onmouseout="mOutHTML()"> <!--id="HiddenNav"-->
-                <li id="HiddenNavButton"><a href="HTML_01.htm">HTML text elements</a></li>
-                <li id="HiddenNavButton"><a href="HTML_02_visual.htm">HTML visual elements</a></li>
-                <li id="HiddenNavButton"><a href="HTML_03_audio.htm">HTML audio elements</a></li>
-            </ul>
-        </li>
-        <li id="Heading">
-            <a onmouseover="mOverCSS()" onmouseout="mOutCSS()" href="CSS_01_position.htm">CSS</a>
-            <ul id="HiddenNavCSS" onmouseover="mOverCSS()" onmouseout="mOutCSS()">
-                <li id="HiddenNavButton"><a href="CSS_02_dimension.htm">CSS positional</a></li>
-                <li id="HiddenNavButton"><a href="HTML_02_visual.htm">CSS dimension</a></li>
-                <li id="HiddenNavButton"><a href="HTML_03_audio.htm">HTML audio elements</a></li>
-            </ul>
-        </li>
-        <li id="Heading"><a href="PHP_01_login.htm">PHP</a></li>
-    </ul>
 
 </html>
