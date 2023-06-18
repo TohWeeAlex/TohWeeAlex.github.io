@@ -49,13 +49,28 @@
         }
     </style>
 
+    <script>
+        function mOverHTML() {
+            document.getElementById("HiddenNavHTML").style.visibility = "visible";
+        }
 
+        function mOutHTML() {
+            document.getElementById("HiddenNavHTML").style.visibility = "hidden";
+        }
+
+        function mOverCSS() {
+            document.getElementById("HiddenNavCSS").style.visibility = "visible";
+        }
+
+        function mOutCSS() {
+            document.getElementById("HiddenNavCSS").style.visibility = "hidden";
+        }
+    </script>
     
 
     <h1 id="WebName">WEB APP TEST APPLICATION</h1>
 
     <ul class="Nav">
-        <script src="MouseOverMtd.js"></script>
         <li id="Heading"><a href="index.htm">HOME</a></li>
         <li id="Heading">
             <a onmouseover="mOverHTML()" onmouseout="mOutHTML()" href="HTML_01.htm">HTML</a>
