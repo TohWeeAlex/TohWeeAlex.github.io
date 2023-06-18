@@ -8,14 +8,15 @@
         <link rel="stylesheet" href="StylesCSS/styles.css">
 
         <script>
-            window.addEventListener('DOMContentLoaded', function() {
-                fetch('Elements/NavBar.htm')
-                .then(response => response.text())
-                .then(html => {
-                    document.getElementById('NavBar').innerHTML = html;
-                });
-            });
+            getText("Elements/NavBar.htm");
+            async function getText(file) {
+                let myObject = await fetch(file);
+                let myText = await myObject.text();
+                document.getElementById("NavBar").innerHTML = myText;
+            }
         </script>
+
+        <div id="NavBar"></div>
 
     </head>
 
