@@ -58,22 +58,19 @@
             function mOverHTML() {
                 document.getElementById("HiddenNavHTML").style.visibility = "visible";
             }
-            document.getElementById("HiddenNavHTML").onmouseover = function() {mOverHTML()};
     
             function mOutHTML() {
                 document.getElementById("HiddenNavHTML").style.visibility = "hidden";
             }
-            document.getElementById("HiddenNavHTML").onmouseout = function() {mOutHTML()};
     
             function mOverCSS() {
                 document.getElementById("HiddenNavCSS").style.visibility = "visible";
             }
-            document.getElementById("HiddenNavCSS").onmouseover = function() {mOverCSS()};
     
             function mOutCSS() {
                 document.getElementById("HiddenNavCSS").style.visibility = "hidden";
             }
-            document.getElementById("HiddenNavCSS").onmouseout = function() {mOutCSS()};
+
         </script>
         
     
@@ -82,7 +79,7 @@
         <ul class="Nav">
             <li id="Heading"><a href="index.htm">HOME</a></li>
             <li id="Heading">
-                <a href="HTML_01.htm">HTML</a> <!--onmouseover="mOverHTML()" onmouseout="mOutHTML()"-->
+                <a onmouseover="mOverHTML()" onmouseout="mOutHTML()" href="HTML_01.htm">HTML</a> <!--onmouseover="mOverHTML()" onmouseout="mOutHTML()"-->
                 <ul id="HiddenNavHTML" onmouseover="mOverHTML()" onmouseout="mOutHTML()"> <!--id="HiddenNav"-->
                     <li id="HiddenNavButton"><a href="HTML_01.htm">HTML text elements</a></li>
                     <li id="HiddenNavButton"><a href="HTML_02_visual.htm">HTML visual elements</a></li>
@@ -90,7 +87,7 @@
                 </ul>
             </li>
             <li id="Heading">
-                <a href="CSS_01_position.htm">CSS</a> <!--onmouseover="mOverCSS()" onmouseout="mOutCSS()"-->
+                <a onmouseover="mOverCSS()" onmouseout="mOutCSS()" href="CSS_01_position.htm">CSS</a> <!--onmouseover="mOverCSS()" onmouseout="mOutCSS()"-->
                 <ul id="HiddenNavCSS" onmouseover="mOverCSS()" onmouseout="mOutCSS()">
                     <li id="HiddenNavButton"><a href="CSS_02_dimension.htm">CSS positional</a></li>
                     <li id="HiddenNavButton"><a href="HTML_02_visual.htm">CSS dimension</a></li>
