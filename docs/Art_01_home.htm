@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="StylesCSS/styles.css">
+
+        <script>
+            window.addEventListener('DOMContentLoaded', function() {
+              fetch('Elements\\NavBar.htm')
+                .then(response => response.text())
+                .then(html => {
+                  document.getElementById('NavBar').innerHTML = html;
+                });
+            });
+        </script>
+        <script src="/Elements/MouseOverMtd.js"></script>
+    </head>
+    <body>
+        <div>
+            <img src="/Elements/Artworks_Display/portrait/hakos_final.jpg">
+        </div>
+    </body>
+</html>
