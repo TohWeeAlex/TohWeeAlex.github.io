@@ -13,5 +13,9 @@ body {
   font-family: Verdana, sans-serif;
 }
 
+#form {
+  display: block;
+  position: absolute;
+}
 
 

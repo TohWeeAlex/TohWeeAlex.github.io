@@ -3,9 +3,15 @@
 
     <style>
         ul.Nav {
-            position: sticky;
+            display: inline;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            margin: 0;
+            padding: 0;
             list-style-type: none;
-            height: 50px;
+            height: 45px;
+            width: 90%;
             background-image: linear-gradient(rgb(52, 60, 94), rgb(89, 99, 148), rgb(52, 60, 94));
             box-shadow: 0px 5px  #363636;
             border-radius: 20px;
@@ -13,12 +19,15 @@
 
         ul.Nav #Heading {
             float: left;
+            height: auto;
+            width: auto;
+            padding: 0;
         }
 
         ul.Nav li a {
             display: block;
             text-align: center;
-            padding: 14px 16px;
+            padding: 14px 10px;
             color: rgb(255, 255, 255);
             font-family: Verdana, sans-serif;
         }
@@ -28,13 +37,11 @@
         }
 
         #HiddenNavHTML, #HiddenNavCSS {
-            display: inline;
-            position: relative;
-            top: -18px;
-            left: auto;
+            padding: 0;
+            z-index: 100;
             list-style-type: none;
             list-style-position: inside;
-            transition: visibility 0.5s;
+            transition: visibility 0.1s;
             visibility: hidden;
         }
 
@@ -44,35 +51,32 @@
 
         #WebName {
             font-family: andalé Mono,monospace;
-            font-size: 300%;
+            font-size: 400%;
+            margin: auto;
+            padding-bottom: 5%;
             text-align: center;
         }
     </style>
 
-    <head>
+    <h1 id="WebName">WEB APP TEST APPLICATION</h1>
 
-    </head>
-
-    <body>   
-    
-        <h1 id="WebName">WEB APP TEST APPLICATION</h1>
-    
+    <div style="padding-bottom: 100px;">
         <ul class="Nav">
             <li id="Heading"><a href="index.htm">HOME</a></li>
             <li id="Heading">
                 <a onmouseover="mOverHTML()" onmouseout="mOutHTML()" href="HTML_01.htm">HTML</a> <!--onmouseover="mOverHTML()" onmouseout="mOutHTML()"-->
                 <ul id="HiddenNavHTML" onmouseover="mOverHTML()" onmouseout="mOutHTML()"> <!--id="HiddenNav"-->
-                    <li id="HiddenNavButton"><a href="HTML_01.htm">HTML text elements</a></li>
-                    <li id="HiddenNavButton"><a href="HTML_02_visual.htm">HTML visual elements</a></li>
-                    <li id="HiddenNavButton"><a href="HTML_03_audio.htm">HTML audio elements</a></li>
+                    <li id="HiddenNavButton"><a href="HTML_01.htm">Text Elements</a></li>
+                    <li id="HiddenNavButton"><a href="HTML_02_visual.htm">Visual Elements</a></li>
+                    <li id="HiddenNavButton"><a href="HTML_03_audio.htm">Audio Elements</a></li>
                 </ul>
             </li>
             <li id="Heading">
                 <a onmouseover="mOverCSS()" onmouseout="mOutCSS()" href="CSS_01_position.htm">CSS</a> <!--onmouseover="mOverCSS()" onmouseout="mOutCSS()"-->
                 <ul id="HiddenNavCSS" onmouseover="mOverCSS()" onmouseout="mOutCSS()">
-                    <li id="HiddenNavButton"><a href="CSS_02_dimension.htm">CSS positional</a></li>
-                    <li id="HiddenNavButton"><a href="HTML_02_visual.htm">CSS dimension</a></li>
-                    <li id="HiddenNavButton"><a href="HTML_03_audio.htm">HTML audio elements</a></li>
+                    <li id="HiddenNavButton"><a href="CSS_02_dimension.htm">Positional</a></li>
+                    <li id="HiddenNavButton"><a href="HTML_02_visual.htm">Dimension</a></li>
+                    <li id="HiddenNavButton"><a href="HTML_03_audio.htm">Audio elements</a></li>
                 </ul>
             </li>
             <li id="Heading"><a href="PHP_01_login.htm">PHP</a></li>
@@ -80,9 +84,5 @@
                 <a href="Art_01_home.htm">Miscellaneous</a>
             </li>
         </ul>
-
-    </body>
-
-
-
+    </div>
 </html>

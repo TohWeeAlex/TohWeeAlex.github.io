@@ -8,13 +8,13 @@
 
     <style>
         .art {
-            border-radius: 18px;
+            object-fit: cover;
+            border-radius: 10px;
             width: 100%;
             height: auto;
-            margin: auto;
-            object-fit: fill;
             z-index: -100;
             transition: transform 0.1s;
+
         }
 
         #landscapeZoom:hover {
@@ -28,12 +28,13 @@
         }
 
         div.grid-container {
+            position: static;
             display: grid;
             grid-template-columns: auto auto auto;
-            gap: 40px;
+            gap: 0.4% 1.2%;
             height: auto;
-            width: 70%;
-            margin: auto;
+            margin: 0;
+            padding: 0px 20%;
         }
 
         div.landscape {
@@ -47,17 +48,21 @@
 
         <script>
             window.addEventListener('DOMContentLoaded', function() {
-              fetch('Elements\\NavBar.htm')
+            fetch('Elements/NavBar.htm')
                 .then(response => response.text())
                 .then(html => {
-                  document.getElementById('NavBar').innerHTML = html;
+                document.getElementById('NavBar').innerHTML = html;
                 });
             });
         </script>
-        <script src="Elements/MouseOverMtd.js"></script>
+
+        <script src="/Elements/MouseOverMtd.js"></script>
     </head>
 
     <body id="DarkBG">
+
+        <div id="NavBar"></div>
+
         <div class="grid-container">
             <div class="landscape">
                 <a target="_blank" href="Elements/Artworks_Display/landscape/Zentreya_final.jpg">
