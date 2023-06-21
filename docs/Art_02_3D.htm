@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+
+    <title>
+        WEB_APP_LANDING_PAGE
+    </title>
+
+    <style>
+        .art {
+            object-fit: cover;
+            border-radius: 10px;
+            width: 100%;
+            height: auto;
+            z-index: -100;
+            transition: transform 0.1s;
+
+        }
+
+        #landscapeZoom:hover {
+            z-index: 100;
+            transform: scale(1.2);
+        }
+
+        #portraitZoom:hover {
+            z-index: 100;
+            transform: scale(1.5);
+        }
+
+        div.grid-container {
+            position: static;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            gap: 0.4% 1.2%;
+            height: auto;
+            margin: 0;
+            padding: 0px 20%;
+        }
+
+        div.landscape {
+            grid-column: 1 / span 3;
+        }
+
+        model-viewer {
+            margin: auto;
+            width: 1500px;
+            height: 500px;
+            border: 2px solid rgb(255, 255, 255);
+            border-radius: 10px;
+        }
+    </style>
+
+    <head>
+        <link rel="stylesheet" href="StylesCSS/styles.css">
+
+        <script>
+            window.addEventListener('DOMContentLoaded', function() {
+            fetch('Elements/NavBar.htm')
+                .then(response => response.text())
+                .then(html => {
+                document.getElementById('NavBar').innerHTML = html;
+                });
+            });
+        </script>
+
+        <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"></script>
+
+        <script src="/Elements/MouseOverMtd.js"></script>
+
+        
+    </head>
+
+    <body id="DarkBG">
+
+        <div id="NavBar"></div>
+
+        <div>
+            <model-viewer src="Elements/3DModels/CrownClownSOE.glb" ar environment-image="Elements/3DModels/colorful_studio_4k.hdr" shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+        </div>
+
+        <div>
+            <model-viewer src="Elements/3DModels/CrownClownMask.glb" ar environment-image="Elements/3DModels/colorful_studio_4k.hdr" shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+        </div>
+
+    </body>
+</html>
