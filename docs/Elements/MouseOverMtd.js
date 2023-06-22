@@ -25,3 +25,11 @@ function mOutMics() {
     document.getElementById("HiddenNavMics").style.visibility = "hidden";
 }
 
+// Java
+function mOverJava() {
+    document.getElementById("HiddenNavJava").style.visibility = "visible";
+}
+
+function mOutJava() {
+    document.getElementById("HiddenNavJava").style.visibility = "hidden";
+}

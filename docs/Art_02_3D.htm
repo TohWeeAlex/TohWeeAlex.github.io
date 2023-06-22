@@ -42,11 +42,26 @@
         }
 
         model-viewer {
-            margin: auto;
-            width: 1500px;
+            margin: 0;
+            padding: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
             height: 500px;
             border: 2px solid rgb(255, 255, 255);
             border-radius: 10px;
+        }
+
+        #model-container {
+            padding: 0;
+            margin: 0;
+        }
+
+        #art-title {
+            margin: 0;
+            padding-top: 5%;
+            padding-bottom: 5px;
+            text-align: center;
         }
     </style>
 
@@ -67,19 +82,20 @@
 
         <script src="/Elements/MouseOverMtd.js"></script>
 
-        
     </head>
 
     <body id="DarkBG">
 
         <div id="NavBar"></div>
 
-        <div>
-            <model-viewer src="Elements/3DModels/CrownClownSOE.glb" ar environment-image="Elements/3DModels/colorful_studio_4k.hdr" shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+        <div id="model-container">
+            <h1 id="art-title">Crown Clown(Mask)</h1>
+            <model-viewer src="Elements/3DModels/CrownClownMask.glb" ar environment-image="Elements/3DModels/colorful_studio_4k.hdr" shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
         </div>
 
-        <div>
-            <model-viewer src="Elements/3DModels/CrownClownMask.glb" ar environment-image="Elements/3DModels/colorful_studio_4k.hdr" shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+        <div id="model-container">
+            <h1 id="art-title">Sword of exorcism</h1>
+            <model-viewer src="Elements/3DModels/CrownClownSOE.glb" ar environment-image="Elements/3DModels/colorful_studio_4k.hdr" shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
         </div>
 
     </body>

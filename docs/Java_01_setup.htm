@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <title>
+        WEB_APP_LANDING_PAGE
+    </title>
+
+    <head>
+        <link rel="stylesheet" href="StylesCSS/styles.css">
+
+        <script>
+            window.addEventListener('DOMContentLoaded', function() {
+              fetch('Elements/NavBar.htm')
+                .then(response => response.text())
+                .then(html => {
+                  document.getElementById('NavBar').innerHTML = html;
+                });
+            });
+        </script>
+
+        <script src="/Elements/MouseOverMtd.js"></script>
+
+    </head>
+
+    
+    <body id="DarkBG">
+
+        <div id="NavBar"></div>
+
+        <div>
+            <h1 id="headlines">Essentials</h1>
+            <h3 id="title">Naming conventions</h3>
+            <p id="text">
+                All java programmes need to contain a .CLASS file with the same name as the class in the .java file as shown in the example below.
+            </p>
+            <img src="Elements/Examples/Java/JavaFiles.PNG" alt="image showing that .CLASS file and .Java file have the same name HelloWorld">
+            <div>
+                <p id="text">
+                    Shown below is the code in the HelloWorld.java file.
+                </p>
+                <pre>
+                    <code>
+    public class HelloWorld {
+        public static void main(String[] args) {
+            System.out.println("Hello World!!");
+        }
+    }
+                    </code>
+                </pre>
+            </div>
+        </div>
+
+    </body>
+
+</html>
