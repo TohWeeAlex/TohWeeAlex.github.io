@@ -1,99 +1,42 @@
 <!DOCTYPE html>
 <html>
 
-    <style>
-        ul.Nav {
-            display: inline;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            margin: 0;
-            padding: 0px, 10%;
-            list-style-type: none;
-            height: 45px;
-            width: 90%;
-            background-image: linear-gradient(rgb(52, 60, 94), rgb(89, 99, 148), rgb(52, 60, 94));
-            box-shadow: 0px 5px  #363636;
-            border-radius: 20px;
-        }
-
-        ul.Nav #Heading {
-            float: left;
-            height: auto;
-            width: auto;
-            padding: 0;
-        }
-
-        ul.Nav li a {
-            display: block;
-            text-align: center;
-            padding: 14px 10px;
-            color: rgb(255, 255, 255);
-            font-family: Verdana, sans-serif;
-        }
-
-        ul.Nav li a:hover {
-            background-image: linear-gradient(rgb(89, 99, 148), rgb(159, 173, 233), rgb(89, 99, 148));
-        }
-
-        #HiddenNavHTML, #HiddenNavCSS, #HiddenNavJava, #HiddenNavMics {
-            padding: 0;
-            z-index: 100;
-            list-style-type: none;
-            list-style-position: inside;
-            transition: visibility 0.1s;
-            visibility: hidden;
-        }
-
-        #HiddenNavButton {
-            background-image: linear-gradient(rgb(52, 60, 94), rgb(89, 99, 148), rgb(52, 60, 94));
-        }
-
-        #WebName {
-            font-family: andalé Mono,monospace;
-            font-size: 400%;
-            margin: auto;
-            padding-bottom: 5%;
-            text-align: center;
-        }
-    </style>
-
     <h1 id="WebName">WEB APP TEST APPLICATION</h1>
 
     <div style="padding-bottom: 100px;">
-        <ul class="Nav">
-            <li id="Heading"><a href="index.htm">HOME</a></li>
+        <ul class="navbar-nav">
+            <li class="" id="Heading"><a href="index.htm">HOME</a></li>
             <li id="Heading">
                 <a onmouseover="mOverHTML()" onmouseout="mOutHTML()">HTML</a> <!--onmouseover="mOverHTML()" onmouseout="mOutHTML()"-->
-                <ul id="HiddenNavHTML" onmouseover="mOverHTML()" onmouseout="mOutHTML()"> <!--id="HiddenNav"-->
-                    <li id="HiddenNavButton"><a href="HTML_01.htm">Text Elements</a></li>
-                    <li id="HiddenNavButton"><a href="HTML_02_visual.htm">Visual Elements</a></li>
-                    <li id="HiddenNavButton"><a href="HTML_03_audio.htm">Audio Elements</a></li>
+                <ul class="dropdown-menu" id="HiddenNavHTML" onmouseover="mOverHTML()" onmouseout="mOutHTML()"> <!--id="HiddenNav"-->
+                    <li class="dropdown-item" id="HiddenNavButton"><a href="HTML_01.htm">Text Elements</a></li>
+                    <li class="dropdown-item" id="HiddenNavButton"><a href="HTML_02_visual.htm">Visual Elements</a></li>
+                    <li class="dropdown-item" id="HiddenNavButton"><a href="HTML_03_audio.htm">Audio Elements</a></li>
+                    <li class="dropdown-item" id="HiddenNavButton"><a href="HTML_04_login.htm">Login Page Elements</a></li>
+                    <li class="dropdown-item" id="HiddenNavButton"><a href="nav.htm">Login Page Elements</a></li>
                 </ul>
             </li>
             <li id="Heading">
                 <a onmouseover="mOverCSS()" onmouseout="mOutCSS()">CSS</a> <!--onmouseover="mOverCSS()" onmouseout="mOutCSS()"-->
                 <ul id="HiddenNavCSS" onmouseover="mOverCSS()" onmouseout="mOutCSS()">
-                    <li id="HiddenNavButton"><a href="CSS_02_dimension.htm">Positional</a></li>
-                    <li id="HiddenNavButton"><a href="HTML_02_visual.htm">Dimension</a></li>
-                    <li id="HiddenNavButton"><a href="HTML_03_audio.htm">Audio elements</a></li>
+                    <li class="dropdown-item" id="HiddenNavButton"><a href="CSS_02_dimension.htm">Positional</a></li>
+                    <li class="dropdown-item" id="HiddenNavButton"><a href="HTML_02_visual.htm">Dimension</a></li>
+                    <li class="dropdown-item" id="HiddenNavButton"><a href="HTML_03_audio.htm">Audio elements</a></li>
                 </ul>
             </li>
-            <li id="Heading"><a href="PHP_01_login.htm">PHP</a></li>
             <li id="Heading">
                 <a onmouseover="mOverJava()" onmouseout="mOutJava()">Java</a>
                 <ul id="HiddenNavJava" onmouseover="mOverJava()" onmouseout="mOutJava()">
-                    <li id="HiddenNavButton"><a href="Java_01_setup.htm">Illustrations</a></li>
-                    <li id="HiddenNavButton"><a href="Art_02_3D.htm">3D Models</a></li>
-                    <li id="HiddenNavButton"><a href="HTML_03_audio.htm">Game projects</a></li>
+                    <li class="dropdown-item" id="HiddenNavButton"><a href="Java_01_setup.htm">Java</a></li>
+                    <li class="dropdown-item" id="HiddenNavButton"><a href="Java_02_NodeJS.htm">NodeJS</a></li>
                 </ul>
             </li>
             <li id="Heading">
                 <a onmouseover="mOverMics()" onmouseout="mOutMics()">Miscellaneous</a>
                 <ul id="HiddenNavMics" onmouseover="mOverMics()" onmouseout="mOutMics()">
-                    <li id="HiddenNavButton"><a href="Art_01_2D.htm">Illustrations</a></li>
-                    <li id="HiddenNavButton"><a href="Art_02_3D.htm">3D Models</a></li>
-                    <li id="HiddenNavButton"><a href="HTML_03_audio.htm">Game projects</a></li>
+                    <li class="dropdown-item" id="HiddenNavButton"><a href="Art_01_2D.htm">Illustrations</a></li>
+                    <li class="dropdown-item" id="HiddenNavButton"><a href="Art_02_3D.htm">3D Models</a></li>
+                    <li class="dropdown-item" id="HiddenNavButton"><a href="HTML_03_audio.htm">Game projects</a></li>
                 </ul>
             </li>
         </ul>
