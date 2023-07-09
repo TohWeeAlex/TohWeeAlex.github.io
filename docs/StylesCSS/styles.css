@@ -1,19 +1,21 @@
-*{
+@charset "UTF-8";
+* {
   margin: 0;
   padding: 0;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 body {
-    padding: 5% 10%;
-    color: white;
-    font-family: Verdana, sans-serif;
-  }
+  padding: 5% 10%;
+  color: white;
+  font-family: Verdana, sans-serif;
+}
 
 pre {
   width: auto;
-  margin: 10px 0px;
-  padding: 0px 0px;
   background-color: rgb(0, 0, 0);
   border: 2px solid rgb(255, 255, 255);
   /*Word warp properties*/
@@ -29,14 +31,17 @@ ul.Nav {
   display: inline;
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
   margin: auto;
   padding: 0px, 10%;
   list-style-type: none;
   height: 45px;
   width: 90%;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(52, 60, 94)), color-stop(rgb(89, 99, 148)), to(rgb(52, 60, 94)));
   background-image: linear-gradient(rgb(52, 60, 94), rgb(89, 99, 148), rgb(52, 60, 94));
-  box-shadow: 0px 5px  #363636;
+  -webkit-box-shadow: 0px 5px #363636;
+          box-shadow: 0px 5px #363636;
   border-radius: 20px;
 }
 
@@ -56,7 +61,8 @@ ul.Nav li a {
 }
 
 ul.Nav li a:hover {
-  background-image: linear-gradient(rgb(89, 99, 148), rgb(159, 173, 233), rgb(89, 99, 148));
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(52, 60, 94)), color-stop(rgb(89, 99, 148)), to(rgb(52, 60, 94)));
+  background-image: linear-gradient(rgb(52, 60, 94), rgb(89, 99, 148), rgb(52, 60, 94));
 }
 
 #HiddenNavHTML, #HiddenNavCSS, #HiddenNavJava, #HiddenNavMics {
@@ -64,17 +70,19 @@ ul.Nav li a:hover {
   z-index: 100;
   list-style-type: none;
   list-style-position: inside;
+  -webkit-transition: visibility 0.1s;
   transition: visibility 0.1s;
   visibility: hidden;
 }
 
 #HiddenNavButton {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(52, 60, 94)), color-stop(rgb(89, 99, 148)), to(rgb(52, 60, 94)));
   background-image: linear-gradient(rgb(52, 60, 94), rgb(89, 99, 148), rgb(52, 60, 94));
   z-index: 100;
 }
 
 #WebName {
-  font-family: andalé Mono,monospace;
+  font-family: andalé Mono, monospace;
   font-size: 400%;
   margin: auto;
   padding-bottom: 5%;
@@ -99,7 +107,7 @@ ul.Nav li a:hover {
 
 #text {
   margin: 0px;
-  padding: 0px;  
+  padding: 0px;
   font-size: 14px;
 }
 
@@ -124,35 +132,41 @@ ul.Nav li a:hover {
 
 /* ============ desktop view NavBar ============ */
 #nav-desktop, #nav-toggle-mobile {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(52, 60, 94)), color-stop(rgb(89, 99, 148)), to(rgb(52, 60, 94)));
   background-image: linear-gradient(rgb(52, 60, 94), rgb(89, 99, 148), rgb(52, 60, 94));
 }
 
 .navbar .nav-item .dropdown-menu {
-    display:block;
-    opacity: 0; 
-    visibility: hidden;
-    transition:.3s;
-    margin-top:0;  
+  display: block;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  margin-top: 0;
 }
 
-.navbar .dropdown-menu.fade-down { 
-  top:80%;
-  transform: rotateX(-75deg);
-  transform-origin: 0% 0%;
+.navbar .dropdown-menu.fade-down {
+  top: 80%;
+  -webkit-transform: rotateX(-75deg);
+          transform: rotateX(-75deg);
+  -webkit-transform-origin: 0% 0%;
+          transform-origin: 0% 0%;
 }
 
 .navbar .nav-item:hover .dropdown-menu {
-  transition: .3s;
-  opacity:1;
-  visibility:visible;
-  top:100%;
-  transform: rotateX(0deg); 
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  opacity: 1;
+  visibility: visible;
+  top: 100%;
+  -webkit-transform: rotateX(0deg);
+          transform: rotateX(0deg);
 }
+
 /* ============ desktop view .end// ============ */
-
 /* ============ mobile view NavBar ============ */
-
 #nav-toggle-mobile {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(52, 60, 94)), color-stop(rgb(89, 99, 148)), to(rgb(52, 60, 94)));
   background-image: linear-gradient(rgb(52, 60, 94), rgb(89, 99, 148), rgb(52, 60, 94));
 }
 
@@ -162,11 +176,14 @@ ul.Nav li a:hover {
 
 /*changing the orientation of the arrow of the accordion before collapse*/
 .accordion-button::after {
-  transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
 }
 
 /*changing the orientation of the arrow of the accordion after collapse*/
 .accordion-button:not(.collapsed)::after {
-  transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
 }
+
 /* ============ mobile view .end// ============ */
