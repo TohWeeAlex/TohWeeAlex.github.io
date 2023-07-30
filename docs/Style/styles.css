@@ -27,7 +27,7 @@ pre {
 }
 
 .light-mode {
-  background-color: #fff4e3;
+  background-color: hsl(55, 100%, 97%);
   color: rgb(0, 0, 0);
 }
 
@@ -35,7 +35,7 @@ nav.light-mode {
   background-image: -webkit-gradient(linear, left top, left bottom, from(#cfcfcf), color-stop(#ffffff), to(#cfcfcf));
   background-image: linear-gradient(#cfcfcf, #ffffff, #cfcfcf);
   color: black;
-  border: 2px solid black;
+  border: 1px solid black;
 }
 
 .dark-mode {
@@ -47,7 +47,7 @@ nav.dark-mode {
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(52, 60, 94)), color-stop(rgb(89, 99, 148)), to(rgb(52, 60, 94)));
   background-image: linear-gradient(rgb(52, 60, 94), rgb(89, 99, 148), rgb(52, 60, 94));
   color: white;
-  border: 2px solid rgb(255, 255, 255);
+  border: 1px solid rgb(255, 255, 255);
 }
 
 ul.Nav {
@@ -174,11 +174,6 @@ ul.Nav li a:hover {
 
 /* ============ desktop view .end// ============ */
 /* ============ mobile view NavBar ============ */
-#nav-toggle-mobile {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(52, 60, 94)), color-stop(rgb(89, 99, 148)), to(rgb(52, 60, 94)));
-  background-image: linear-gradient(rgb(52, 60, 94), rgb(89, 99, 148), rgb(52, 60, 94));
-}
-
 .nav-accordion-bg {
   background-color: rgb(54, 54, 71);
 }

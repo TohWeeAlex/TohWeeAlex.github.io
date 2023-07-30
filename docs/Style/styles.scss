@@ -4,7 +4,7 @@ $myBG-dark: rgb(29, 35, 58);
 
 $myGraident-light: linear-gradient(#cfcfcf, #ffffff, #cfcfcf);
 $myGraident-hover-light: linear-gradient(rgb(255, 255, 255), rgb(255, 237, 187), rgb(255, 255, 255));
-$myBG-light: #fff4e3;
+$myBG-light: hsl(55, 100%, 97%);
 
 *{
   margin: 0;
@@ -38,7 +38,7 @@ pre {
 nav.light-mode {
   background-image: $myGraident-light;
   color: black;
-  border: 2px solid black;
+  border: 1px solid black;
 }
 
 .dark-mode {
@@ -49,7 +49,7 @@ nav.light-mode {
 nav.dark-mode {
   background-image: $myGraident-dark;
   color: white;
-  border: 2px solid rgb(255, 255, 255);
+  border: 1px solid rgb(255, 255, 255);
 }
 
 ul.Nav {
@@ -166,11 +166,6 @@ ul.Nav li a:hover {
 /* ============ desktop view .end// ============ */
 
 /* ============ mobile view NavBar ============ */
-
-#nav-toggle-mobile {
-  background-image: linear-gradient(rgb(52, 60, 94), rgb(89, 99, 148), rgb(52, 60, 94));
-}
-
 .nav-accordion-bg {
   background-color: rgb(54, 54, 71);
 }

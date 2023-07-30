@@ -20,10 +20,9 @@
             }
 
             #introduction {
-                position: fixed;
-                left: 50%;
-                top: 50%;
-                transform: translate(-50%, -50%);
+                margin: auto;
+                padding-top: 25%;
+                padding-bottom: 25%;
             }
 
             @media screen and (max-width: 768px) {
@@ -34,17 +33,17 @@
        </style> 
     </head>
     
-    <body>
+    <body onpageshow="initialMode()">
 
     <div id="NavBar"></div>
 
-    <div class="container-fluid p-5" id="introduction">
+    <div class="container-fluid" id="introduction">
         <div>
             <h1 class="display-1 lead intro">
                 Hello, I'm Alex
             </h1>
             <p class="display-6 intro" id="secondary">
-                Welcome to my website where i showcase what i have done.
+                Welcome to my website, where i showcase what i've done.
             </p> 
         </div>     
     </div>
