@@ -110,6 +110,7 @@ async function apiFetch() {
   let data = await fetch("https://valorant-api.com/v1/agents?isPlayableCharacter=true");
   // Parse the response to JSON
   let agents = await data.json();
+  console.log(agents);
   // Get all Agent names
   for (let i = 0; i < agents.data.length; i++) {
     //console.log("from apiFetch: " + i + " " + agents.data[i].displayName + " class: " + agents.data[i].role.displayName );

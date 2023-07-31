@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+    <title>PHP_LANDING_PAGE</title>
+
+    <head>
+        <link rel="stylesheet" href="Style/styles.css">
+
+        <script>
+            window.addEventListener('DOMContentLoaded', function() {
+              fetch('Elements/NavBar.htm')
+                .then(response => response.text())
+                .then(html => {
+                  document.getElementById('NavBar').innerHTML = html;
+                });
+            });
+        </script>
+    </head>
+
+
+    <body id="DarkBG">
+        <h1>New account details</h1>
+        <form action="PHP_01_03.php" method="post">
+            <!--FIRST NAME INPUT-->
+            <lable for="fname">First Name:</lable>
+            <br></br>
+            <input type="text" name="fname" value=""/>
+            <br></br>
+            <!--LAST NAME INPUT-->
+            <lable for="lname">Last Name:</lable>
+            <br></br>
+            <input type="text" name="lname" value=""/>
+            <br></br>
+            <!--USERNAME INPUT-->
+            <lable for="username">Username:</lable>
+            <br></br>
+            <input type="text" name="username" value=""/>
+            <br></br>
+            <!--GENDER INPUT (MALE)-->
+            <input type="radio" id="male" name="gender" value="male" onclick="document.getElementById('genderOthers').style.display='none'"/>
+            <lable for="male">Male</lable>
+            <!--GENDER INPUT (FEMALE)-->
+            <input type="radio" id="female" name="gender" value="female" onclick="document.getElementById('genderOthers').style.display='none'"/>
+            <lable for="female">Female</lable>
+            <!--GENDER INPUT (OTHERS)-->
+            <input type="radio" id="others" name="gender" value="" onclick="document.getElementById('genderOthers').style.display='inline'"/>
+            <lable for="others">Others</lable><span id="genderOthers" style="display:none"> (Please specify):<input type="text" name="gender" value=""/></span> 
+            <br></br>
+            <!--PASSWORD 1ST INPUT-->
+            <lable for="password">Password:</lable>
+            <br></br>
+            <input type="password" id="password" name="password" value=""/>
+            <br></br>
+            <!--PASSWORD 2ND INPUT-->
+            <lable for="password2nd">Re-type password:</lable>
+            <br></br>
+            <input type="password" id="password2nd" name="password2nd" value=""/>
+            <br></br>
+            <!--FORM SUBMISSION-->
+            <input type="submit">
+        </form>
+        <p>Don't have an account, make one <a id="Shown" href="PHP_01_1.php">here</a>
+    </body>
+
+</html>

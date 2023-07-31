@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+    <title>PHP_LANDING_PAGE</title>
+
+    <head>
+
+        <meta charset="utf-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--Bootstrap CDN link for CSS-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        
+        <!--Bootstrap CDN link for Javascript-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+        <!--Bootstrap CDN link for icons-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+        <link rel="stylesheet" href="Style/styles.css">
+
+        <script>
+            getText("Elements/nav.htm");
+            async function getText(file) {
+                let myObject = await fetch(file);
+                let myText = await myObject.text();
+                document.getElementById("NavBar").innerHTML = myText;
+            }
+        </script>
+
+        <script src="Javascript/MouseOverMtd.js"></script>
+
+        <style>
+
+            @media screen and (min-width: 414px) {
+                #divider {
+                    border-right: 1px solid;
+                }
+            }
+
+            @media screen and (max-width: 414px) {
+                #divider {
+                    border-bottom: 1px solid;
+                }
+            }
+        </style>
+
+    </head>
+
+    <body id="DarkBG">
+
+        <div class="pb-5" id="NavBar"></div>
+        
+        <div class="container rounded-4 border border-light position-relative">
+            <div class="row">
+                <div class="col p-4" id="divider">
+                    <form>
+                        <div class="p-3">
+                            <lable class="form-label" for="user-email">Email:</lable>
+                            <input class="form-control" type="email" name="user-email">
+                        </div>
+                        <div class="p-3">
+                            <lable class="form-label" for="password">Password:</lable>
+                            <input class="form-control" type="password" name="password" value=""/>
+                        </div>
+                        <div class="p-3">
+                            <button type="submit" class="btn btn-primary">Sign in</button>
+                        </div>
+                        <div class="invalid-feedback">
+                            The username or password you have entered is incorrect.
+                        </div>
+                        <p class="p-3">If you don't have an account, make one <a id="Shown" href="PHP_01_02.php">here.</a></p>
+                    </form>
+                </div>
+                <div class="col p-4">
+                    <h3 class="p-3">Other login options</h3>
+                    <div class="d-grid gap-4 col-10 mx-auto">
+                        <button class="btn btn-primary" type="button">
+                            <i class="bi bi-meta"></i> Meta
+                        </button>
+                        <button class="btn btn-info text-light" type="button">
+                            <i class="bi bi-twitter"></i> Twitter
+                        </button>
+                        <button class="btn btn-light" type="button">
+                            <i class="bi bi-google text-danger"></i> Google
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
