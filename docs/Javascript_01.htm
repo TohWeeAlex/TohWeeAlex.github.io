@@ -49,14 +49,17 @@
             .roulette-wrapper .wheel .row .card{
                 height:75px;
                 width:75px;
-                margin:3px;
+                margin: 7px 3.5px;
                 border-radius:8px;
                 border-bottom:3px solid rgba(0,0,0,0.2);
                 display:flex;
                 align-items:center;
                 justify-content:center;
                 color:white;
-                font-size:1.5em;
+            }
+
+            .row>* {
+                padding: 0px;
             }
 
             .card.red{
@@ -91,11 +94,11 @@
                 <div class='wheel'></div>
             </div>
         
-            <div class="pt-3">
-                <input placeholder='outcome'>
-                <button>
+            <div class="d-grid gap-2 pt-3">
+                <button class="btn btn-primary" id="spin-wheel">
                     Spin Wheel
                 </button>
+            </div>
         </div>
 
         <div id="valorant-names">
