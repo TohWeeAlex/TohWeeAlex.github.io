@@ -30,6 +30,11 @@ pre {
   word-wrap: break-word;
 }
 
+footer {
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  margin-top: 50px;
+}
+
 .light-mode {
   background-color: $myBG-light;
   color: rgb(0, 0, 0);
@@ -166,10 +171,6 @@ ul.Nav li a:hover {
 /* ============ desktop view .end// ============ */
 
 /* ============ mobile view NavBar ============ */
-.nav-accordion-bg {
-  background-color: rgb(54, 54, 71);
-}
-
 /*changing the orientation of the arrow of the accordion before collapse*/
 .accordion-button::after {
   transform: rotate(-90deg);

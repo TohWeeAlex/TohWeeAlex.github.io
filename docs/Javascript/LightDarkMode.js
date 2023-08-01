@@ -1,58 +1,70 @@
 function darkMode() {
     // Add Dark classes
-    // Navbar
+    $(".view-mode-display").text("Dark Mode");
+    // Navbar desktop
     $("nav.navbar").addClass("dark-mode");
     $("a.nav-link").addClass("text-light");
-    $("#nav-accordion").addClass("dark-mode");
+    // Navbar mobile
+    $("button.accordion-button").css("background-image", "linear-gradient(rgb(52, 60, 94), rgb(89, 99, 148), rgb(52, 60, 94))");
+    $("button.accordion-button").addClass("text-light");
+    $("a.list-group-item").addClass("dark-mode");
     // Body elements
     $("body").addClass("dark-mode");
     $(".border").addClass("border-light");
 
     // Remove light class
-    //Navbar
+    //Navbar desktop
     $("nav.navbar").removeClass("light-mode");
     $("a.nav-link").removeClass("text-dark");
-    $("#nav-toggle-mobile").css("background-image", "linear-gradient(#cfcfcf, #ffffff, #cfcfcf)");
+    //NavBar mobile
+    $("button.accordion-button").removeClass("text-dark");
+    $("button.accordion-button").removeClass("light-mode");
     // Body elements
     $("body").removeClass("light-mode");
     $(".border").removeClass("border-dark");
     // Change session item value
-    sessionStorage.setItem("viewMode", "dark");
+    localStorage.setItem("viewMode", "dark");
 }
 
 function lightMode() {
     // Add Light classes
-    // Navbar
+    $(".view-mode-display").text("Light Mode");
+    // Navbar desktop
     $("nav.navbar").addClass("light-mode");
     $("a.nav-link").addClass("text-dark");
-    $("#nav-accordion").addClass("light-mode");
-    $("#nav-toggle-mobile").css("background-image", "linear-gradient(#cfcfcf, #ffffff, #cfcfcf)");
+    // Navbar mobile
+    $("button.accordion-button").css("background-image", "linear-gradient(#cfcfcf, #ffffff, #cfcfcf)");
+    $("button.accordion-button").addClass("text-dark");
+    $("a.list-group-item").addClass("light-mode");
+    
     // Body elements
     $("body").addClass("light-mode");
     $(".border").addClass("border-dark");
 
     // Remove Dark classes
-    // Navbar
+    // Navbar desktop
     $("nav.navbar").removeClass("dark-mode");
     $("a.nav-link").removeClass("text-light");
-    $("#nav-accordion").removeClass("dark-mode");
+    // Navbar mobile
+    $("a.list-group-item").removeClass("dark-mode");
+    $("a.list-group-item").removeClass("text-light");
     // Body elements
     $("body").removeClass("dark-mode");
     $(".border").removeClass("border-light");
     // Change session item value
-    sessionStorage.setItem("viewMode", "light");
+    localStorage.setItem("viewMode", "light");
 }
 
 function viewChange() {
     // View mode indicator
-    if (($("#mode-text").text()) === "Light Mode") {
-        $("#mode-text").text("Dark Mode");
+    if (($(".view-mode-display").text()) === "Light Mode") {
+        $(".view-mode-display").text("Dark Mode");
     }
     else {
-        $("#mode-text").text("Light Mode");
+        $(".view-mode-display").text("Light Mode");
     }
 
-    switch (sessionStorage.getItem("viewMode")) {
+    switch (localStorage.getItem("viewMode")) {
         case null:
             darkMode();
             console.log("click: dark");
@@ -69,22 +81,24 @@ function viewChange() {
 }
 
 function initialMode() {
-    switch (sessionStorage.getItem("viewMode")) {
+    switch (localStorage.getItem("viewMode")) {
         case null:
             lightMode();
-            console.log("initial:" + sessionStorage.getItem("viewMode"));
+            $(".view-mode-display").text("Light Mode");
+            console.log("initial:" + localStorage.getItem("viewMode"));
             break;
         case "light":
             lightMode();
-            console.log("initial:" + sessionStorage.getItem("viewMode"));
+            $(".view-mode-display").text("Light Mode");
+            console.log("initial:" + localStorage.getItem("viewMode"));
             break;
         case "dark":
             darkMode();
             document.getElementById("view-mode").setAttribute("checked", "");
-            $("#mode-text").text("Dark Mode");
-            console.log("initial:" + sessionStorage.getItem("viewMode"));
+            $(".view-mode-display").text("Dark Mode");
+            console.log("initial:" + localStorage.getItem("viewMode"));
             break;
     }
 }
 
-console.log("on LDmode script load: " + sessionStorage.getItem("viewMode"));
+console.log("on LDmode script load: " + localStorage.getItem("viewMode"));

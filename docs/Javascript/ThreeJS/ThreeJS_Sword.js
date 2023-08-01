@@ -12,7 +12,7 @@ render();
 function init() {
 	// This initiates the 'div' element
 	var container = document.createElement( 'div' );
-	container.className = "container-fluid p-5"
+	container.className = "container-fluid pt-3 pb-3"
 	document.body.appendChild( container );
 	// Add title to the artwork
 	var title = document.createElement( 'h1' );

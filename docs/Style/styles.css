@@ -26,6 +26,11 @@ pre {
   word-wrap: break-word;
 }
 
+footer {
+  background-color: rgba(0, 0, 0, 0.5);
+  margin-top: 50px;
+}
+
 .light-mode {
   background-color: hsl(55, 100%, 97%);
   color: rgb(0, 0, 0);
@@ -174,10 +179,6 @@ ul.Nav li a:hover {
 
 /* ============ desktop view .end// ============ */
 /* ============ mobile view NavBar ============ */
-.nav-accordion-bg {
-  background-color: rgb(54, 54, 71);
-}
-
 /*changing the orientation of the arrow of the accordion before collapse*/
 .accordion-button::after {
   -webkit-transform: rotate(-90deg);
@@ -191,3 +192,4 @@ ul.Nav li a:hover {
 }
 
 /* ============ mobile view .end// ============ */
+/*# sourceMappingURL=styles.css.map */

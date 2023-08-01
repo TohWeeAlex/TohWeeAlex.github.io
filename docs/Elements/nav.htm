@@ -20,10 +20,10 @@
     <!-- Links -->
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link text-dark" href="index.htm">Home</a>
+        <a class="nav-link" href="index.htm">Home</a>
       </li>
       <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-dark" data-bs-toggle="dropdown">HTML</a>
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">HTML</a>
           <ul class="dropdown-menu fade-down">
               <li><a class="dropdown-item" href="HTML_04_login.htm">Login page</a></li>
               <li><a class="dropdown-item" href="Art_01_2D.htm">Image Gallary</a></li>
@@ -43,13 +43,13 @@
       </li>
       -->
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle text-dark" data-bs-toggle="dropdown">ThreeJS</a>
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">ThreeJS</a>
         <ul class="dropdown-menu fade-down">
             <li><a class="dropdown-item" href="ThreeJS_01.htm">ThreeJS test demo</a></li>
         </ul>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle text-dark" data-bs-toggle="dropdown">Javascript</a>
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Javascript</a>
         <ul class="dropdown-menu fade-down">
             <li><a class="dropdown-item" href="Javascript_01.htm">Agent Randomizer</a></li>
         </ul>
@@ -57,7 +57,7 @@
     </ul>
     <div class="form-check form-switch float-end">
       <input onclick="viewChange()" class="form-check-input" type="checkbox" name="darkmode" id="view-mode" value="yes">
-      <label class="form-check-label" id="mode-text" for="view-mode">Light Mode</label>
+      <label class="form-check-label view-mode-display" id="mode-text" for="view-mode">Light Mode</label>
     </div>
   </div>
 </nav>
@@ -65,46 +65,58 @@
 <nav class="accordion d-sm-none d-block" id="nav-accordion">
   <div class="accordion-item">
     <h2 class="accordion-header">
-      <button class="accordion-button collapsed text-dark shadow-none" id="nav-toggle-mobile" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePersonal" aria-expended="true" aria-controls="collapsePersonal">
-        Personal
+      <button class="accordion-button collapsed shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePersonal" aria-expended="true" aria-controls="collapsePersonal">
+        Home/View mode
       </button>
     </h2>
     <div id="collapsePersonal" class="accordion-collapse collapse">
       <div class="accordion-body p-0">
-        <div class="list-group list-group-flush">
-          <a class="list-group-item nav-accordion-bg text-dark" href="HTML_04_login.htm">About me</a>
-          <a class="list-group-item nav-accordion-bg text-dark" href="Art_01_2D.htm">Link 2</a>
-          <a class="list-group-item nav-accordion-bg text-dark" href="Art_02_3D.htm">Link 3</a>
+        <div class="list-group list-group-flush nav-accordion-bg">
+          <a class="list-group-item" href="index.htm">Home page</a>
+          <a onclick="viewChange()" class="list-group-item view-mode-display">Light Mode</a>
         </div>
       </div>
     </div>
   </div>
   <div class="accordion-item">
     <h2 class="accordion-header">
-      <button class="accordion-button collapsed text-dark shadow-none" id="nav-toggle-mobile" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHTML" aria-expended="false" aria-controls="collapseHTML">
+      <button class="accordion-button collapsed shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHTML" aria-expended="false" aria-controls="collapseHTML">
         HTML
       </button>
     </h2>
     <div id="collapseHTML" class="accordion-collapse collapse">
       <div class="accordion-body p-0">
-        <div class="list-group list-group-flush">
-          <a class="list-group-item nav-accordion-bg text-dark" href="HTML_04_login.htm">Login page</a>
-          <a class="list-group-item nav-accordion-bg text-dark" href="Art_01_2D.htm">Image Gallary</a>
-          <a class="list-group-item nav-accordion-bg text-dark rounded-bottom-3" href="Art_02_3D.htm">3D Model viewer</a>
+        <div class="list-group list-group-flush nav-accordion-bg">
+          <a class="list-group-item" href="HTML_04_login.htm">Login page</a>
+          <a class="list-group-item" href="Art_01_2D.htm">Image Gallary</a>
         </div>
       </div>
     </div>
   </div>
   <div class="accordion-item">
     <h2 class="accordion-header">
-      <button class="accordion-button collapsed text-dark shadow-none" id="nav-toggle-mobile" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThreeJS" aria-expended="false" aria-controls="collapseThreeJS">
+      <button class="accordion-button collapsed text-dark shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThreeJS" aria-expended="false" aria-controls="collapseThreeJS">
         ThreeJS
       </button>
     </h2>
     <div id="collapseThreeJS" class="accordion-collapse collapse">
       <div class="accordion-body p-0">
-        <div class="list-group list-group-flush">
-          <a class="list-group-item nav-accordion-bg text-dark" href="ThreeJS_01.htm">ThreeJS test Demo</a>
+        <div class="list-group list-group-flush nav-accordion-bg">
+          <a class="list-group-item" href="ThreeJS_01.htm">ThreeJS test Demo</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed text-dark shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseJS" aria-expended="false" aria-controls="collapseJS">
+        Javascript
+      </button>
+    </h2>
+    <div id="collapseJS" class="accordion-collapse collapse">
+      <div class="accordion-body p-0">
+        <div class="list-group list-group-flush nav-accordion-bg">
+          <a class="list-group-item rounded-bottom-3" href="Javascript_01.htm">Agent Randomizer</a>
         </div>
       </div>
     </div>

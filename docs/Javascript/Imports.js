@@ -1,9 +1,10 @@
 // External resources importer
 
 // Function to load an external JavaScript file
-function loadScript(url) {
+function loadScript(url, co) {
   var script = document.createElement('script');
   script.src = url;
+  script.crossOrigin = co;
   document.head.appendChild(script);
 }
 
@@ -35,8 +36,9 @@ async function getNavBar(filePath) {
 loadMeta()
 
 // Load external scripts
-loadScript("https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js");
-loadScript("https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js");
+loadScript("https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js", "");
+loadScript("https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js", "");
+loadScript("https://kit.fontawesome.com/17a7db9b22.js", "anonymous");
 
 // Load CDNs
 loadCSS("https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css");
