@@ -64,6 +64,10 @@ function viewChange() {
         $(".view-mode-display").text("Light Mode");
     }
 
+    // if ($('shylily-light').length) {
+    //     shylilyMode();
+    // }
+
     switch (localStorage.getItem("viewMode")) {
         case null:
             darkMode();
@@ -78,6 +82,10 @@ function viewChange() {
             //console.log("click: light");
             break;
     }
+
+    if (($('#shylily-light').length) || ($('#shylily-dark').length)) {
+        shylilyMode();
+	}
 }
 
 function initialMode() {
@@ -97,6 +105,29 @@ function initialMode() {
             document.getElementById("view-mode").setAttribute("checked", "");
             $(".view-mode-display").text("Dark Mode");
             //console.log("initial:" + localStorage.getItem("viewMode"));
+            break;
+    }
+}
+
+function shylilyMode() {
+    switch (localStorage.getItem("viewMode")) {
+        case null:
+            //Light mode ON
+            $("#shylily-light").show();
+            //Dark mode OFF
+            $("#shylily-dark").hide();
+            break;
+        case "light":
+            //Light mode ON
+            $("#shylily-light").show();
+            //Dark mode OFF
+            $("#shylily-dark").hide();
+            break;
+        case "dark":
+            //Dark mode ON
+            $("#shylily-dark").show();
+            //Light mode OFF
+            $("#shylily-light").hide();
             break;
     }
 }

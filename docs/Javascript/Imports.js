@@ -45,9 +45,11 @@ loadCSS("https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css
 loadCSS("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
 loadCSS("Style/styles.css");
 
+getNavBar("Elements/nav.htm");
+
 // Load external Javascripts after DOM has finished loading
 document.addEventListener('DOMContentLoaded', function() {
-  getNavBar("Elements/nav.htm");
+  //getNavBar("Elements/nav.htm");
   loadScript("Javascript/MouseOverMtd.js");
   loadScript("Javascript/LightDarkMode.js");
 });
