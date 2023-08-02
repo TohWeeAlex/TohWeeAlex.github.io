@@ -33,7 +33,7 @@ async function getNavBar(filePath) {
 }
 
 // Load metadata
-loadMeta()
+loadMeta();
 
 // Load external scripts
 loadScript("https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js", "");
@@ -50,10 +50,9 @@ document.addEventListener('DOMContentLoaded', function() {
   getNavBar("Elements/nav.htm");
   loadScript("Javascript/MouseOverMtd.js");
   loadScript("Javascript/LightDarkMode.js");
-  loadScript("Javascript/RouletteWheel.js")
 });
 
-console.log("on import script load: " + sessionStorage.getItem("viewMode"));
+//console.log("on import script load: " + sessionStorage.getItem("viewMode"));
 
 
 

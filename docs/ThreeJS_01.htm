@@ -20,11 +20,22 @@
             }
         </script>
 
+        <script defer type="module" src="Javascript/ThreeJS/ThreeJS_Mask.js"></script>
+
+        <script defer type="module" src="Javascript/ThreeJS/ThreeJS_Sword.js"></script>
+
         <style>
             canvas {
                 overflow: clip;
                 border-radius: 20px;
                 border: 1px solid white;
+                margin: auto;
+            }
+
+            .loading-icon {
+                height: 50px;
+                width: 50px;
+                position: absolute;
                 margin: auto;
             }
         </style>
@@ -34,14 +45,6 @@
     <body onpageshow="initialMode()">
 
         <div id="NavBar"></div>
-
-        <div class="mx-auto">
-            <script type="module" src="Javascript/ThreeJS/ThreeJS_Mask.js"></script>
-        </div>
-
-        <div class="mx-auto">
-            <script type="module" src="Javascript/ThreeJS/ThreeJS_Sword.js"></script>
-        </div>
         
     </body>
 

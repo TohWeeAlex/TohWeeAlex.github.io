@@ -4,28 +4,61 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
 
+const manager = new THREE.LoadingManager();
+manager.onStart = function ( url, itemsLoaded, itemsTotal ) {
+	// console log output
+	//console.log( 'Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
+};
+
+manager.onLoad = function ( ) {
+	document.getElementById("loading-icon-mask").remove();
+	// console log output
+	//console.log( 'Loading complete!');
+};
+
+manager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
+	// console log output
+	//console.log( 'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
+};
+
+manager.onError = function ( url ) {
+	// console log output
+	//console.log( 'There was an error loading ' + url );
+};
+
 let camera, scene, renderer;
 
 init();
 render();
 
 function init() {
-	// This initiates the 'div' element
-	var container = document.createElement( 'div' );
-	container.className = "container-fluid pt-3 pb-3"
-	document.body.appendChild( container );
+	// This initiates the main 'div' element
+	var mainContainer = document.createElement( 'div' )
+	mainContainer.className = "container-fluid pt-3 pb-3"
+	document.body.appendChild( mainContainer );
 	// Add title to the artwork
 	var title = document.createElement( 'h1' );
 	title.innerHTML = "Crown Clown(Mask)";
-	title.className = "display-5 text-center"
-	container.appendChild( title );
+	title.className = "display-5 text-center";
+	mainContainer.appendChild( title );
+	// This initiates the 'div' element containing the rendering canvas
+	var container = document.createElement( 'div' );
+	container.className = "container-fluid d-flex justify-content-center align-items-center";
+	container.setAttribute("id", "mask");
+	mainContainer.appendChild( container );
+	// This initiates Loading 'img' 
+	var loadingIcon = document.createElement( 'img' );
+	loadingIcon.src = "Elements/cupertino_activity_indicator.gif";
+	loadingIcon.setAttribute("id", "loading-icon-mask");
+	loadingIcon.className = "loading-icon";
+	document.getElementById("mask").appendChild(loadingIcon);
 
 	camera = new THREE.PerspectiveCamera( 30, (window.innerWidth/2) / (window.innerHeight/2), 0.01, 20 );
 	camera.position.set( 0, 0.2, 0.5 );
 
 	scene = new THREE.Scene();
 
-	new RGBELoader()
+	new RGBELoader(manager)
 		.setPath( 'Elements/3DModels/' )
 		.load( 'colorful_studio_4k.hdr', function ( texture ) {
 
@@ -37,8 +70,7 @@ function init() {
 			render();
 
 			// model
-
-			const loader = new GLTFLoader().setPath( 'Elements/3DModels/' );
+			const loader = new GLTFLoader(manager).setPath( 'Elements/3DModels/' );
 			loader.load( 'CrownClownMask.glb', function ( gltf ) {
 
 				scene.add( gltf.scene );
@@ -80,10 +112,10 @@ function onWindowResize() {
 
 }
 
-//
-
 function render() {
 
 	renderer.render( scene, camera );
 
 }
+
+

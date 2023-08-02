@@ -67,15 +67,15 @@ function viewChange() {
     switch (localStorage.getItem("viewMode")) {
         case null:
             darkMode();
-            console.log("click: dark");
+            //console.log("click: dark");
             break;
         case "light":
             darkMode();
-            console.log("click: dark");
+            //console.log("click: dark");
             break;
         case "dark":
             lightMode();
-            console.log("click: light");
+            //console.log("click: light");
             break;
     }
 }
@@ -85,20 +85,20 @@ function initialMode() {
         case null:
             lightMode();
             $(".view-mode-display").text("Light Mode");
-            console.log("initial:" + localStorage.getItem("viewMode"));
+            //console.log("initial:" + localStorage.getItem("viewMode"));
             break;
         case "light":
             lightMode();
             $(".view-mode-display").text("Light Mode");
-            console.log("initial:" + localStorage.getItem("viewMode"));
+            //console.log("initial:" + localStorage.getItem("viewMode"));
             break;
         case "dark":
             darkMode();
             document.getElementById("view-mode").setAttribute("checked", "");
             $(".view-mode-display").text("Dark Mode");
-            console.log("initial:" + localStorage.getItem("viewMode"));
+            //console.log("initial:" + localStorage.getItem("viewMode"));
             break;
     }
 }
 
-console.log("on LDmode script load: " + localStorage.getItem("viewMode"));
+//console.log("on LDmode script load: " + localStorage.getItem("viewMode"));
