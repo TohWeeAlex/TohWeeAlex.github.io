@@ -39,6 +39,7 @@ loadMeta();
 loadScript("https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js", "");
 loadScript("https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js", "");
 loadScript("https://kit.fontawesome.com/17a7db9b22.js", "anonymous");
+getNavBar("Elements/nav.htm");
 loadScript("Javascript/LightDarkMode.js");
 
 // Load CDNs
@@ -48,7 +49,7 @@ loadCSS("Style/styles.css");
 
 // Load external Javascripts after DOM has finished loading
 document.addEventListener('DOMContentLoaded', function() {
-  getNavBar("Elements/nav.htm");
+  //getNavBar("Elements/nav.htm");
   loadScript("Javascript/MouseOverMtd.js");
 });
 
