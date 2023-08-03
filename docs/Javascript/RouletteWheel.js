@@ -17,7 +17,7 @@ async function initWheel() {
   let data = await fetch("https://valorant-api.com/v1/agents?isPlayableCharacter=true");
   // Parse the response to JSON
   let agents = await data.json();
-  console.log(agents.data);
+  //console.log(agents.data);
   // Get all Agent names
   for (let i = 0; i < agents.data.length; i++) {
     //console.log("from apiFetch: " + i + " " + agents.data[i].displayName + " class: " + agents.data[i].role.displayName );
@@ -25,38 +25,14 @@ async function initWheel() {
     agentsList.push([agents.data[i].displayName, agents.data[i].role.displayName, agents.data[i].displayIcon, agents.data[i].backgroundGradientColors]);
   }
 
-  console.log(agentsList);
+  //console.log(agentsList);
   var $wheel = $(".roulette-wrapper .wheel"),
     row = "";
 
   row += "<div class='row m-0 d-flex flex-nowrap'>";
-  /*
-  row += "  <div class='card red border'>1</div>";
-  row += "  <div class='card black border'>14</div>";
-  row += "  <div class='card red border'>2</div>";
-  row += "  <div class='card black border'>13</div>";
-  row += "  <div class='card red border'>3</div>";
-  row += "  <div class='card black border'>12</div>";
-  row += "  <div class='card red border'>4</div>";
-  row += "  <div class='card green border'>0</div>";
-  row += "  <div class='card black border'>11</div>";
-  row += "  <div class='card red border'>5</div>";
-  row += "  <div class='card black border'>10</div>";
-  row += "  <div class='card red border'>6</div>";
-  row += "  <div class='card black border'>9</div>";
-  row += "  <div class='card red border'>7</div>";
-  row += "  <div class='card black border'>8</div>";
-  */
-  /*
-  for (let i = 0; i < AgentList.length; i++) {
-    row += "  <div style='background-image:" + AgentList[i][3] + "' class='card red border'>1</div>";
-  }
-  */
+
   for (let i = 0; i < agentsList.length; i++) {
-    //console.log(agentsList[i][2]);
-    //row += "  <div class='card border' style='background-image:" + agentsList[i][2] + ";'></div>";
     row += "  <div class='card border border-3'style='background-image:linear-gradient(#" + agentsList[i][3][0] + ", #" + agentsList[i][3][1] + ", #" + agentsList[i][3][2] + ", #" + agentsList[i][3][3] + ");'><img src='" + agentsList[i][2] + "' class='card-img object-fit-cover'></div>";
-    //console.log("  <div class='card border'><img class='agent-icon' src='" + agentsList[i][2] + "></div>")
   }
   row += "</div>";
 
@@ -68,10 +44,9 @@ async function initWheel() {
 function spinWheel() {
   var $wheel = $(".roulette-wrapper .wheel"),
     order = [0, 18, 11, 5, 21, 10, 6, 9, 20, 16, 7, 8, 1, 14, 17, 2, 13, 3, 12, 4, 15, 19],
-    //position = order.indexOf(roll);
     position = order.indexOf(Math.floor(Math.random() * 22));
 
-  //determine position where to land
+  //randomise position to land
   var rows = 12,
     card = 75 + 3.5 * 2,
     landingPosition = rows * 22 * card + position * card;

@@ -64,10 +64,6 @@ function viewChange() {
         $(".view-mode-display").text("Light Mode");
     }
 
-    // if ($('shylily-light').length) {
-    //     shylilyMode();
-    // }
-
     switch (localStorage.getItem("viewMode")) {
         case null:
             darkMode();

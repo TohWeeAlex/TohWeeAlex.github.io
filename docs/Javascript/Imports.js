@@ -17,11 +17,11 @@ function loadCSS(url) {
 }
 
 function loadMeta() {
-  var metaViewport = document.createElement('meta');
+  var metaViewport = document.createElement( 'meta' );
   metaViewport.name = 'viewport';
   metaViewport.content = 'width=device-width, initial-scale=1';
   document.head.appendChild(metaViewport);
-  var metaCharset = document.createElement('meta');
+  var metaCharset = document.createElement( 'meta' );
   metaCharset.charset = 'utf-8';
   document.head.appendChild(metaCharset);
 }
@@ -29,7 +29,10 @@ function loadMeta() {
 async function getNavBar(filePath) {
   let myfile = await fetch(filePath);
   let myText = await myfile.text();
-  document.getElementById("NavBar").innerHTML = myText;
+  var navBar = document.createElement( 'div' );
+  navBar.setAttribute('id', "NavBar");
+  navBar.innerHTML = myText;
+  document.body.insertBefore(navBar, document.body.firstElementChild);
 }
 
 // Load metadata
