@@ -55,6 +55,46 @@ function lightMode() {
     localStorage.setItem("viewMode", "light");
 }
 
+function shylilyMode() {
+    switch (localStorage.getItem("viewMode")) {
+        case null:
+            //Light mode ON
+            $("#shylily-light").show();
+            //Dark mode OFF
+            $("#shylily-dark").hide();
+            break;
+        case "light":
+            //Light mode ON
+            $("#shylily-light").show();
+            //Dark mode OFF
+            $("#shylily-dark").hide();
+            break;
+        case "dark":
+            //Dark mode ON
+            $("#shylily-dark").show();
+            //Light mode OFF
+            $("#shylily-light").hide();
+            break;
+    }
+}
+
+function introNeon() {
+    switch (localStorage.getItem("viewMode")) {
+        case null:
+            //Neon mode OFF
+            $("#intro-primary").removeClass("neon");
+            break;
+        case "light":
+            //Neon mode OFF
+            $("#intro-primary").removeClass("neon");
+            break;
+        case "dark":
+            //Neon mode ON
+            $("#intro-primary").addClass("neon");
+            break;
+    }
+}
+
 function viewChange() {
     // View mode indicator
     if (($(".view-mode-display").text()) === "Light Mode") {
@@ -79,9 +119,15 @@ function viewChange() {
             break;
     }
 
+    //Shylily toggle
     if (($('#shylily-light').length) || ($('#shylily-dark').length)) {
         shylilyMode();
 	}
+
+    //Intro Neon toggle
+    if (($('#intro-primary').length)) {
+        introNeon();
+    }
 }
 
 function initialMode() {
@@ -103,28 +149,15 @@ function initialMode() {
             //console.log("initial:" + localStorage.getItem("viewMode"));
             break;
     }
-}
 
-function shylilyMode() {
-    switch (localStorage.getItem("viewMode")) {
-        case null:
-            //Light mode ON
-            $("#shylily-light").show();
-            //Dark mode OFF
-            $("#shylily-dark").hide();
-            break;
-        case "light":
-            //Light mode ON
-            $("#shylily-light").show();
-            //Dark mode OFF
-            $("#shylily-dark").hide();
-            break;
-        case "dark":
-            //Dark mode ON
-            $("#shylily-dark").show();
-            //Light mode OFF
-            $("#shylily-light").hide();
-            break;
+    //Shylily toggle
+    if (($('#shylily-light').length) || ($('#shylily-dark').length)) {
+        shylilyMode();
+	}
+
+    //Intro Neon toggle
+    if (($('#intro-primary').length)) {
+        introNeon();
     }
 }
 

@@ -28,6 +28,19 @@
                     text-align: center;
                 }
             }
+
+            .neon {
+                animation: glow 1s ease-in-out infinite alternate;
+            }
+
+            @keyframes glow {
+                from {
+                    text-shadow: 0 0 6px #ffffff9f, 0 0 12px #ffffff9f, 0 0 18px #ffffff9f, 0 0 24px #ffffff9f, 0 0 30px #ffffff9f, 0 0 36px #ffffff9f, 0 0 42px #ffffff9f;
+                }
+                to {
+                    text-shadow: 0 0 8px #ffffff9f, 0 0 16px #ffffff9f, 0 0 24px #ffffff9f, 0 0 30px #ffffff9f, 0 0 38px #ffffff9f, 0 0 46px #ffffff9f, 0 0 54px #ffffff9f;
+                }
+            }
        </style> 
     </head>
     
@@ -36,23 +49,23 @@
     <div class="container-fluid d-inline-flex align-items-center p-0" id="introduction-container">
         <div class="row w-100 m-auto">
             <div class="col-sm-8 p-3 m-auto">
-                <h1 class="display-1 lead intro">
+                <h1 class="display-1 lead intro" id="intro-primary">
                     Hello, I'm Alex
                 </h1>
-                <p class="display-6 intro" id="secondary">
+                <p class="display-6 intro" id="intro-secondary">
                     Welcome to my website, where i showcase what i've done.
                 </p> 
             </div>
             <div class="col-sm-4 p-3 m-auto">
                 <div class="d-grid gap-3 m-auto">
-                    <a class="btn btn-primary border p-3" type="button" href="https://www.linkedin.com/in/toh-tze-hsuan-587b4325a">
-                        <i class="bi bi-linkedin"></i> Linkedin
+                    <a class="btn btn-primary border p-2 m-0" type="button" href="https://www.linkedin.com/in/toh-tze-hsuan-587b4325a">
+                        <span class="fs-5 p-0 m-0"><i class="bi bi-linkedin"></i> Linkedin</span>
                     </a>
-                    <a class="btn btn-dark border p-3 text-light " type="button" href="https://github.com/TohWeeAlex">
-                        <i class="bi bi-github"></i> GitHub  
+                    <a class="btn btn-dark border p-2 m-0 text-light " type="button" href="https://github.com/TohWeeAlex">
+                        <span class="fs-5 p-0 m-0"><i class="bi bi-github"></i> GitHub</span>
                     </a>
-                    <a class="btn btn-dark border p-3" type="button" href="https://www.artstation.com/tohtzehsuan">
-                        <i class="fab fa-artstation text-info"></i> ArtStation
+                    <a class="btn btn-dark border p-2 m-0" type="button" href="https://www.artstation.com/tohtzehsuan">
+                        <span class="fs-5 p-0 m-0"><i class="fab fa-artstation text-info"></i> ArtStation</span>
                     </a>
                 </div>
             </div>
