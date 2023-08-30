@@ -1,10 +1,13 @@
 $myGraident-dark: linear-gradient(rgb(52, 60, 94), rgb(89, 99, 148), rgb(52, 60, 94));
 $myGraident-hover-dark: linear-gradient(rgb(89, 99, 148), rgb(159, 173, 233), rgb(89, 99, 148));
 $myBG-dark: rgb(29, 35, 58);
+$myContainer-dark: rgb(65, 73, 104);
+
 
 $myGraident-light: linear-gradient(#cfcfcf, #ffffff, #cfcfcf);
 $myGraident-hover-light: linear-gradient(rgb(255, 255, 255), rgb(255, 237, 187), rgb(255, 255, 255));
 $myBG-light: hsl(55, 100%, 97%);
+$myContainer-light: hsl(0, 0%, 100%);
 
 *{
   margin: 0;
@@ -30,14 +33,28 @@ pre {
   word-wrap: break-word;
 }
 
-footer {
-  background-color: rgba($color: #000000, $alpha: 0.5);
-  margin-top: 50px;
+#footer {
+  background-color: hsla(0, 0%, 0%, 0.301);
+  position: absolute;
+  width: 100vw;
+  margin-top: 70px;
+  margin-left: -10%;
+  padding-left: 10%;
+  padding-top: 50px;
+  padding-bottom: 70px;
+  z-index: -100;
 }
 
 .light-mode {
   background-color: $myBG-light;
   color: rgb(0, 0, 0);
+}
+
+.light-mode .component-container {
+  border-radius: 30px;
+  background-color: $myContainer-light;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 30px;
 }
 
 nav.light-mode {
@@ -49,6 +66,13 @@ nav.light-mode {
 .dark-mode {
   background-color: rgb(29, 35, 58);
   color: rgb(255, 255, 255);
+}
+
+.dark-mode .component-container {
+  border-radius: 30px;
+  background-color: $myContainer-dark;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 30px;
 }
 
 nav.dark-mode {

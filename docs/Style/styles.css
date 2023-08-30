@@ -26,14 +26,29 @@ pre {
   word-wrap: break-word;
 }
 
-footer {
-  background-color: rgba(0, 0, 0, 0.5);
-  margin-top: 50px;
+#footer {
+  background-color: hsla(0, 0%, 0%, 0.301);
+  position: absolute;
+  width: 100vw;
+  margin-top: 70px;
+  margin-left: -10%;
+  padding-left: 10%;
+  padding-top: 50px;
+  padding-bottom: 70px;
+  z-index: -100;
 }
 
 .light-mode {
   background-color: hsl(55, 100%, 97%);
   color: rgb(0, 0, 0);
+}
+
+.light-mode .component-container {
+  border-radius: 30px;
+  background-color: hsl(0, 0%, 100%);
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 30px;
 }
 
 nav.light-mode {
@@ -46,6 +61,14 @@ nav.light-mode {
 .dark-mode {
   background-color: rgb(29, 35, 58);
   color: rgb(255, 255, 255);
+}
+
+.dark-mode .component-container {
+  border-radius: 30px;
+  background-color: rgb(65, 73, 104);
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 30px;
 }
 
 nav.dark-mode {

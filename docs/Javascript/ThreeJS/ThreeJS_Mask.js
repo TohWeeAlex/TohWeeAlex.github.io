@@ -32,10 +32,11 @@ init();
 render();
 
 function init() {
+	const content = document.getElementById( 'content' );
 	// This initiates the main 'div' element
-	var mainContainer = document.createElement( 'div' )
-	mainContainer.className = "container-fluid pt-3 pb-3"
-	document.body.appendChild( mainContainer );
+	var mainContainer = document.createElement( 'div' );
+	mainContainer.className = "container-fluid pt-3 pb-3";
+	content.appendChild( mainContainer );;
 	// Add title to the artwork
 	var title = document.createElement( 'h1' );
 	title.innerHTML = "Crown Clown(Mask)";

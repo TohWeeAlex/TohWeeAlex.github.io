@@ -13,6 +13,8 @@
 
         <script src="Javascript\RouletteWheel.js"></script>
 
+        <script src="Javascript\SpeechToText.js"></script>
+
         <style>
             body{
                 font-family: 'Titillium Web', sans-serif;
@@ -77,6 +79,40 @@
             *{
                 box-sizing:border-box;
             }
+
+            *, *::before, *::after {
+            box-sizing: border-box;
+            }
+
+
+            #audio-visual {
+                margin: 0;
+                padding: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                display: block;
+                position: absolute;
+                z-index: 100;
+                
+                > div {
+                    display: inline-block;
+                    width: 3px;
+                    height: 100px;
+                    margin: 0 7px;
+                    background: currentColor;
+                    transform: scaleY( .5 );
+                    opacity: 0.35;
+                    color: rgb(255, 255, 255);
+                }
+                
+                &.error {
+                    color: #f7451d;
+                    min-width: 20em;
+                    max-width: 30em;
+                    margin: 0 auto;
+                    white-space: pre-line;
+                }
+            }
         </style>
 
         <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
@@ -86,25 +122,40 @@
     
     <body onpageshow="initialMode()">
 
-        <div class="pt-5 pb-5">
-            <h1 class="m-auto p-1">
-                Valorant Agent roulette wheel
-            </h1>
-            <div class='roulette-wrapper border border-4'>
-                <div class='selector border border-5'></div>
-                <div class='wheel'></div>
-            </div>
-        
-            <div class="d-grid gap-2 pt-3">
-                <button class="btn btn-primary" id="spin-wheel">
-                    Spin Wheel
-                </button>
+        <div class="component-container">
+            <div class="p-4">
+                <h1>
+                    Valorant Agent roulette wheel
+                </h1>
+                <div class='roulette-wrapper border border-4'>
+                    <div class='selector border border-5'></div>
+                    <div class='wheel'></div>
+                </div>
+            
+                <div class="d-grid gap-2 pt-3">
+                    <button class="btn btn-primary" id="spin-wheel">
+                        Spin Wheel
+                    </button>
+                </div>
             </div>
         </div>
 
-        <div id="valorant-names">
-
-        </div>
+        <div class="component-container">
+            <div class="p-4">
+                <h1>
+                    Voice to Text
+                </h1>
+                <h4>
+                    Click the "Voice input" button and accept recording permissions to use the function
+                </h4>
+                <div class="container-fluid d-flex justify-content-center align-items-center p-0 m-0" id="audio-visual-container">
+                    <textarea class="form-control" id="prompt" rows="5" name="Prompt" value="blank"></textarea>
+                </div>
+                <a role="button" class="btn btn-primary mt-2 mb-2" id="copyText">Copy</a>
+                <a role="button" class="btn btn-primary mt-2 mb-2" id="VPStartBtn">Voice input</a>
+                <a role="button" class="btn btn-danger mt-2 mb-2 d-none" id="VPStopBtn">Stop</a>
+            </div>
+        <div>
 
     </body>
     
