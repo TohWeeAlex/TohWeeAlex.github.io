@@ -4,10 +4,14 @@ function darkMode() {
     // Navbar desktop
     $("nav.navbar").addClass("dark-mode");
     $("a.nav-link").addClass("text-light");
+    $("nav ul.dropdown-menu.fade-down").addClass("text-bg-dark");
+    $("nav ul.dropdown-menu.fade-down a.dropdown-item").addClass("text-light");
     // Navbar mobile
-    $("button.accordion-button").css("background-image", "linear-gradient(rgb(52, 60, 94), rgb(89, 99, 148), rgb(52, 60, 94))");
-    $("button.accordion-button").addClass("text-light");
-    $("a.list-group-item").addClass("dark-mode");
+    $("nav.fixed-top").addClass("bg-dark navbar-dark");
+    $("nav#nav-mobile div.offcanvas").addClass("text-bg-dark");
+    $("nav#nav-mobile button.btn-close").addClass("btn-close-white");
+    $("nav#nav-mobile ul.dropdown-menu").addClass("text-bg-dark");
+    $("nav#nav-mobile ul.dropdown-menu a.dropdown-item").addClass("text-light");
     // Body elements
     $("body").addClass("dark-mode");
     $(".border").addClass("border-light");
@@ -16,9 +20,8 @@ function darkMode() {
     //Navbar desktop
     $("nav.navbar").removeClass("light-mode");
     $("a.nav-link").removeClass("text-dark");
-    //NavBar mobile
-    $("button.accordion-button").removeClass("text-dark");
-    $("button.accordion-button").removeClass("light-mode");
+    // Navbar mobile
+    $("nav.fixed-top").removeClass("bg-body-tertiary");
     // Body elements
     $("body").removeClass("light-mode");
     $(".border").removeClass("border-dark");
@@ -33,10 +36,7 @@ function lightMode() {
     $("nav.navbar").addClass("light-mode");
     $("a.nav-link").addClass("text-dark");
     // Navbar mobile
-    $("button.accordion-button").css("background-image", "linear-gradient(#cfcfcf, #ffffff, #cfcfcf)");
-    $("button.accordion-button").addClass("text-dark");
-    $("a.list-group-item").addClass("light-mode");
-    
+    $("nav.fixed-top").addClass("bg-body-tertiary");
     // Body elements
     $("body").addClass("light-mode");
     $(".border").addClass("border-dark");
@@ -45,9 +45,14 @@ function lightMode() {
     // Navbar desktop
     $("nav.navbar").removeClass("dark-mode");
     $("a.nav-link").removeClass("text-light");
+    $("nav ul.dropdown-menu.fade-down").removeClass("text-bg-dark");
+    $("nav ul.dropdown-menu.fade-down a.dropdown-item").removeClass("text-light");
     // Navbar mobile
-    $("a.list-group-item").removeClass("dark-mode");
-    $("a.list-group-item").removeClass("text-light");
+    $("nav.fixed-top").removeClass("bg-dark navbar-dark");
+    $("nav div.offcanvas").removeClass("text-bg-dark");
+    $("nav button.btn-close").removeClass("btn-close-white");
+    $("nav#nav-mobile ul.dropdown-menu").removeClass("text-bg-dark");
+    $("nav#nav-mobile ul.dropdown-menu a.dropdown-item").removeClass("text-light");
     // Body elements
     $("body").removeClass("dark-mode");
     $(".border").removeClass("border-light");
@@ -131,6 +136,8 @@ function viewChange() {
 }
 
 function initialMode() {
+    const switchDesktop = document.getElementById("view-mode-desktop");
+    const switchMobile = document.getElementById("view-mode-mobile");
     switch (localStorage.getItem("viewMode")) {
         case null:
             lightMode();
@@ -144,7 +151,8 @@ function initialMode() {
             break;
         case "dark":
             darkMode();
-            document.getElementById("view-mode").setAttribute("checked", "");
+            switchDesktop.setAttribute("checked", "");
+            switchMobile.setAttribute("checked", "");
             $(".view-mode-display").text("Dark Mode");
             //console.log("initial:" + localStorage.getItem("viewMode"));
             break;

@@ -1,6 +1,7 @@
 $myGraident-dark: linear-gradient(rgb(52, 60, 94), rgb(89, 99, 148), rgb(52, 60, 94));
 $myGraident-hover-dark: linear-gradient(rgb(89, 99, 148), rgb(159, 173, 233), rgb(89, 99, 148));
 $myBG-dark: rgb(29, 35, 58);
+$myBG-dark-outline: rgb(105, 105, 105);
 $myContainer-dark: rgb(65, 73, 104);
 
 
@@ -8,6 +9,7 @@ $myGraident-light: linear-gradient(#cfcfcf, #ffffff, #cfcfcf);
 $myGraident-hover-light: linear-gradient(rgb(255, 255, 255), rgb(255, 237, 187), rgb(255, 255, 255));
 $myBG-light: hsl(55, 100%, 97%);
 $myContainer-light: hsl(0, 0%, 100%);
+$myBG-light-outline: rgb(230, 230, 230);
 
 *{
   margin: 0;
@@ -47,7 +49,7 @@ pre {
 
 .light-mode {
   background-color: $myBG-light;
-  color: rgb(0, 0, 0);
+  color: black;
 }
 
 .light-mode .component-container {
@@ -60,12 +62,16 @@ pre {
 nav.light-mode {
   background-image: $myGraident-light;
   color: black;
-  border: 1px solid black;
+  border: 1px solid $myBG-dark-outline;
+}
+
+nav.light-mode .fa-bars {
+  color: $myBG-dark-outline !important;
 }
 
 .dark-mode {
   background-color: rgb(29, 35, 58);
-  color: rgb(255, 255, 255);
+  color: white;
 }
 
 .dark-mode .component-container {
@@ -78,7 +84,11 @@ nav.light-mode {
 nav.dark-mode {
   background-image: $myGraident-dark;
   color: white;
-  border: 1px solid rgb(255, 255, 255);
+  border: 1px solid $myBG-light-outline;
+}
+
+nav.dark-mode .fa-bars {
+  color: $myBG-light-outline !important;
 }
 
 ul.Nav {
@@ -171,7 +181,7 @@ ul.Nav li a:hover {
 
 /* ============ desktop view NavBar ============ */
 
-.navbar .nav-item .dropdown-menu {
+.navbar#nav-desktop .nav-item .dropdown-menu {
     display:block;
     opacity: 0; 
     visibility: hidden;
@@ -179,19 +189,28 @@ ul.Nav li a:hover {
     margin-top:0;  
 }
 
-.navbar .dropdown-menu.fade-down { 
+.navbar#nav-desktop .dropdown-menu.fade-down { 
   top:80%;
   transform: rotateX(-75deg);
   transform-origin: 0% 0%;
 }
 
-.navbar .nav-item:hover .dropdown-menu {
+.navbar#nav-desktop .nav-item:hover .dropdown-menu {
   transition: .3s;
   opacity:1;
   visibility:visible;
   top:100%;
   transform: rotateX(0deg); 
 }
+
+.navbar#nav-desktop .nav-item:hover .dropdown-menu a.dropdown-item:hover {
+  background-color: hsla(0, 0%, 0%, 0.2);
+}
+
+.navbar#nav-desktop .nav-item:hover .dropdown-menu a.dropdown-item.text-light:hover {
+  background-color: hsla(0, 0%, 100%, 0.2);
+}
+
 /* ============ desktop view .end// ============ */
 
 /* ============ mobile view NavBar ============ */
@@ -203,5 +222,9 @@ ul.Nav li a:hover {
 /*changing the orientation of the arrow of the accordion after collapse*/
 .accordion-button:not(.collapsed)::after {
   transform: rotate(0deg);
+}
+
+.offcanvas {
+  width: 300px !important;
 }
 /* ============ mobile view .end// ============ */

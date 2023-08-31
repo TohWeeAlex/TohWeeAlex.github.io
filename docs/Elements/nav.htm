@@ -15,7 +15,7 @@
 
 
 <!--====== Desktop NavBar =====-->
-<nav class="navbar navbar-expand-sm rounded-4 light-mode d-sm-block d-none" id="nav-desktop">
+<nav class="navbar navbar-expand-sm rounded-4 light-mode d-md-block d-none" id="nav-desktop">
   <div class="container-fluid">
     <!-- Links -->
     <ul class="navbar-nav">
@@ -56,68 +56,53 @@
       </li>
     </ul>
     <div class="form-check form-switch float-end">
-      <input onclick="viewChange()" class="form-check-input" type="checkbox" name="darkmode" id="view-mode" value="yes">
-      <label class="form-check-label view-mode-display" id="mode-text" for="view-mode">Light Mode</label>
+      <input onclick="viewChange()" class="form-check-input" type="checkbox" name="darkmode" id="view-mode-desktop" value="yes">
+      <label class="form-check-label view-mode-display" id="mode-text-desktop" for="view-mode-desktop">Light Mode</label>
     </div>
   </div>
 </nav>
 <!--====== Mobile NavBar =====-->
-<nav class="accordion d-sm-none d-block" id="nav-accordion">
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePersonal" aria-expended="true" aria-controls="collapsePersonal">
-        Home/View mode
-      </button>
-    </h2>
-    <div id="collapsePersonal" class="accordion-collapse collapse">
-      <div class="accordion-body p-0">
-        <div class="list-group list-group-flush nav-accordion-bg">
-          <a class="list-group-item" href="index.htm">Home page</a>
-          <a onclick="viewChange()" class="list-group-item view-mode-display">Light Mode</a>
-        </div>
-      </div>
+<nav class="navbar navbar-dark bg-dark fixed-top d-md-none d-block" id="nav-mobile">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+        <i class="fas fa-bars" style="font-size:20px;"></i>
+    </button>
+    <div class="form-check form-switch float-end">
+      <input onclick="viewChange()" class="form-check-input" type="checkbox" name="darkmode" id="view-mode-mobile" value="yes">
+      <label class="form-check-label view-mode-display" id="mode-text-mobile" for="view-mode-mobile">Light Mode</label>
     </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHTML" aria-expended="false" aria-controls="collapseHTML">
-        HTML
-      </button>
-    </h2>
-    <div id="collapseHTML" class="accordion-collapse collapse">
-      <div class="accordion-body p-0">
-        <div class="list-group list-group-flush nav-accordion-bg">
-          <a class="list-group-item" href="HTML_04_login.htm">Login page</a>
-          <a class="list-group-item" href="Art_01_2D.htm">Image Gallary</a>
-        </div>
+    <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Navigate</h5>
+        <button type="button" class="btn-close ms-3" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed text-dark shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThreeJS" aria-expended="false" aria-controls="collapseThreeJS">
-        ThreeJS
-      </button>
-    </h2>
-    <div id="collapseThreeJS" class="accordion-collapse collapse">
-      <div class="accordion-body p-0">
-        <div class="list-group list-group-flush nav-accordion-bg">
-          <a class="list-group-item" href="ThreeJS_01.htm">ThreeJS test Demo</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed text-dark shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseJS" aria-expended="false" aria-controls="collapseJS">
-        Javascript
-      </button>
-    </h2>
-    <div id="collapseJS" class="accordion-collapse collapse">
-      <div class="accordion-body p-0">
-        <div class="list-group list-group-flush nav-accordion-bg">
-          <a class="list-group-item rounded-bottom-3" href="Javascript_01.htm">Component Demo</a>
-        </div>
+      <hr class="p-0 m-0">
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <!--Home button-->
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.htm">Home</a>
+          </li>
+          <!--HTML dropdown-->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              HTML
+            </a>
+            <ul class="dropdown-menu border border-1">
+              <li><a class="dropdown-item" href="#">Login page</a></li>
+              <li><a class="dropdown-item" href="#">Image gallary</a></li>
+            </ul>
+          </li>
+          <!--ThreeJS dropdown-->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              ThreeJS
+            </a>
+            <ul class="dropdown-menu border border-1">
+              <li><a class="dropdown-item" href="ThreeJS_01.htm">ThreeJS test demo</a></li>
+            </ul>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
