@@ -54,7 +54,7 @@ loadMeta();
 loadScriptHead("https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js", "");
 loadScriptHead("https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js", "");
 loadScriptHead("https://kit.fontawesome.com/17a7db9b22.js", "anonymous");
-getNavBar("Elements/nav.htm");
+//getNavBar("Elements/nav.htm");
 
 
 // Load CDNs
@@ -64,6 +64,7 @@ loadCSS("Style/styles.css");
 
 // Load external Javascripts after DOM has finished loading
 document.addEventListener('DOMContentLoaded', function() {
+  getNavBar("Elements/nav.htm");
   loadScriptBody("Javascript/LightDarkMode.js");
 });
 
