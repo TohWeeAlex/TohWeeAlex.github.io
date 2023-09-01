@@ -121,10 +121,9 @@ class AudioVisualizer {
     const visualValueCount = 16;
     let visualElements;
     const createDOMElements = () => {
-      let i;
-      for ( i = 0; i < visualValueCount; ++i ) {
-        const elm = document.createElement( 'div' );
-        visualMainElement.appendChild( elm );
+      for (let i = 0; i < visualValueCount; ++i ) {
+        const container = document.createElement( 'div' );
+        visualMainElement.appendChild( container );
       }
     
       visualElements = document.querySelectorAll( 'main div' );
@@ -138,17 +137,12 @@ class AudioVisualizer {
     };
     initDOM();
   
-    // Swapping values around for a better visual effect
-    const dataMap = {
-                    0:0, 1:1 , 2:2, 3:3, 4:4, 5:5, 6:6, 7:7, 8:8, 9:9, 10:10,
-                    10:10, 11:11 , 12:12, 13:13, 14:14, 15:15
-                    };
+    // Swapping values around for a better visuectal eff
     const processFrame = ( data ) => {
       const values = Object.values( data );
-      let i;
-      for ( i = 0; i < visualValueCount; ++i ) {
-        const value = values[ dataMap[ i ] ] / 255;
-        const elmStyles = visualElements[ i ].style;
+      for (let i = 0; i < visualValueCount; ++i ) {
+        const value = values[i] / 255;
+        const elmStyles = visualElements[i].style;
         elmStyles.transform = `scaleY( ${ value } )`;
         elmStyles.opacity = Math.max( .25, value );
       }

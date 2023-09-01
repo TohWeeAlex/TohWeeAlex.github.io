@@ -1,12 +1,21 @@
 // External resources importer
 
-// Function to load an external JavaScript file
-function loadScript(url, co) {
+// Function to load an external JavaScript file into head element
+function loadScriptHead(url, co) {
   var script = document.createElement('script');
   script.src = url;
   script.crossOrigin = co;
   script.async = true;
   document.head.appendChild(script);
+}
+
+// Function to load an external JavaScript file into head element
+function loadScriptBody(url, co) {
+  var script = document.createElement('script');
+  script.src = url;
+  script.crossOrigin = co;
+  script.async = false;
+  document.body.appendChild(script);
 }
 
 // Function to load an external CSS file
@@ -17,6 +26,7 @@ function loadCSS(url) {
   document.head.appendChild(link);
 }
 
+// Function to load browser metadata
 function loadMeta() {
   var metaViewport = document.createElement( 'meta' );
   metaViewport.name = 'viewport';
@@ -27,6 +37,7 @@ function loadMeta() {
   document.head.appendChild(metaCharset);
 }
 
+// Function to import navbar
 async function getNavBar(filePath) {
   let myfile = await fetch(filePath);
   let myText = await myfile.text();
@@ -40,11 +51,11 @@ async function getNavBar(filePath) {
 loadMeta();
 
 // Load external scripts
-loadScript("https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js", "");
-loadScript("https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js", "");
-loadScript("https://kit.fontawesome.com/17a7db9b22.js", "anonymous");
-//getNavBar("Elements/nav.htm");
-loadScript("Javascript/LightDarkMode.js");
+loadScriptHead("https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js", "");
+loadScriptHead("https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js", "");
+loadScriptHead("https://kit.fontawesome.com/17a7db9b22.js", "anonymous");
+getNavBar("Elements/nav.htm");
+
 
 // Load CDNs
 loadCSS("https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css");
@@ -53,11 +64,8 @@ loadCSS("Style/styles.css");
 
 // Load external Javascripts after DOM has finished loading
 document.addEventListener('DOMContentLoaded', function() {
-  getNavBar("Elements/nav.htm");
-  loadScript("Javascript/MouseOverMtd.js");
+  loadScriptBody("Javascript/LightDarkMode.js");
 });
-
-//console.log("on import script load: " + sessionStorage.getItem("viewMode"));
 
 
 

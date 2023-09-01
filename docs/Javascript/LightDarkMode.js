@@ -1,3 +1,6 @@
+const switchDesktop = document.getElementById("view-mode-desktop");
+const switchMobile = document.getElementById("view-mode-mobile");
+
 function darkMode() {
     // Add Dark classes
     $(".view-mode-display").text("Dark Mode");
@@ -27,6 +30,9 @@ function darkMode() {
     $(".border").removeClass("border-dark");
     // Change session item value
     localStorage.setItem("viewMode", "dark");
+    // switch toggle set
+    switchDesktop.setAttribute("checked", "true");
+    switchMobile.setAttribute("checked", "true");
 }
 
 function lightMode() {
@@ -58,6 +64,9 @@ function lightMode() {
     $(".border").removeClass("border-light");
     // Change session item value
     localStorage.setItem("viewMode", "light");
+    // switch toggle set
+    switchDesktop.removeAttribute("checked");
+    switchMobile.removeAttribute("checked");
 }
 
 function shylilyMode() {
@@ -127,7 +136,7 @@ function viewChange() {
     //Shylily toggle
     if (($('#shylily-light').length) || ($('#shylily-dark').length)) {
         shylilyMode();
-	}
+    }
 
     //Intro Neon toggle
     if (($('#intro-primary').length)) {
@@ -136,8 +145,6 @@ function viewChange() {
 }
 
 function initialMode() {
-    const switchDesktop = document.getElementById("view-mode-desktop");
-    const switchMobile = document.getElementById("view-mode-mobile");
     switch (localStorage.getItem("viewMode")) {
         case null:
             lightMode();
@@ -151,8 +158,6 @@ function initialMode() {
             break;
         case "dark":
             darkMode();
-            switchDesktop.setAttribute("checked", "");
-            switchMobile.setAttribute("checked", "");
             $(".view-mode-display").text("Dark Mode");
             //console.log("initial:" + localStorage.getItem("viewMode"));
             break;
@@ -161,12 +166,24 @@ function initialMode() {
     //Shylily toggle
     if (($('#shylily-light').length) || ($('#shylily-dark').length)) {
         shylilyMode();
-	}
+    }
 
     //Intro Neon toggle
     if (($('#intro-primary').length)) {
         introNeon();
     }
 }
+
+$(function() {
+    initialMode();
+
+    switchDesktop.addEventListener("click" , function() {
+        viewChange();
+    });
+
+    switchMobile.addEventListener("click" , function() {
+        viewChange();
+    });
+});
 
 //console.log("on LDmode script load: " + localStorage.getItem("viewMode"));
