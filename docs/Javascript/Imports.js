@@ -43,6 +43,7 @@ async function getNavBar(filePath) {
   let myText = await myfile.text();
   var navBar = document.createElement( 'div' );
   navBar.setAttribute('id', "NavBar");
+  navBar.onload = loadScriptBody("Javascript/LightDarkMode.js");
   navBar.innerHTML = myText;
   document.body.insertBefore(navBar, document.body.firstElementChild);
 }
@@ -65,7 +66,6 @@ loadCSS("Style/styles.css");
 // Load external Javascripts after DOM has finished loading
 document.addEventListener('DOMContentLoaded', function() {
   getNavBar("Elements/nav.htm");
-  loadScriptBody("Javascript/LightDarkMode.js");
 });
 
 
