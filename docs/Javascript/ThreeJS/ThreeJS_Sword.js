@@ -55,7 +55,7 @@ function init() {
 	loadingIcon.className = "loading-icon";
 	document.getElementById("sword").appendChild(loadingIcon);
 
-	camera = new THREE.PerspectiveCamera( 30, (window.innerWidth/2) / (window.innerHeight/2), 0.01, 20 );
+	camera = new THREE.PerspectiveCamera( 30, (window.innerWidth/1.5) / (window.innerHeight/1.5), 0.01, 20 );
 	camera.position.set( -1, 0.5, 2 );
 
 	scene = new THREE.Scene();
@@ -86,7 +86,7 @@ function init() {
 
 	renderer = new THREE.WebGLRenderer( { antialias: true } );
 	renderer.setPixelRatio( window.devicePixelRatio );
-	renderer.setSize( (window.innerWidth/2), (window.innerHeight/2) );
+	renderer.setSize( (window.innerWidth/1.5), (window.innerHeight/1.5) );
 	renderer.toneMapping = THREE.ACESFilmicToneMapping;
 	renderer.toneMappingExposure = 1;
 	renderer.useLegacyLights = false;
@@ -105,10 +105,10 @@ function init() {
 
 function onWindowResize() {
 
-	camera.aspect = (window.innerWidth/2) / (window.innerHeight/2);
+	camera.aspect = (window.innerWidth/1.5) / (window.innerHeight/1.5);
 	camera.updateProjectionMatrix();
 
-	renderer.setSize( (window.innerWidth/2), (window.innerHeight/2) );
+	renderer.setSize( (window.innerWidth/1.5), (window.innerHeight/1.5) );
 
 	render();
 

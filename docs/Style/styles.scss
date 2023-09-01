@@ -227,4 +227,10 @@ ul.Nav li a:hover {
 .offcanvas {
   width: 300px !important;
 }
+
+@media screen and (max-width: 768px) {
+  .content {
+    margin-top: 50px;
+  }
+}
 /* ============ mobile view .end// ============ */

@@ -32,15 +32,18 @@
                 margin: auto;
             }
 
+            @media screen and (max-width: 768px) {
+                canvas{
+                    width: 100% !important;
+                    height: auto !important;
+                }
+            }
+
             .loading-icon {
                 height: 50px;
                 width: 50px;
                 position: absolute;
                 margin: auto;
-            }
-
-            #content {
-                padding: 0px 50px;
             }
         </style>
 
@@ -48,7 +51,7 @@
 
     <body>
 
-        <div id="content">
+        <div class="content" id="content">
 
         </div>
 

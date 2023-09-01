@@ -129,59 +129,60 @@
     </head>
     
     <body>
-
-        <div class="component-container">
-            <div class="p-4">
-                <h1>
-                    Valorant Agent roulette wheel
-                </h1>
-                <div class='roulette-wrapper border border-4'>
-                    <div class='selector border border-5'></div>
-                    <div class='wheel'></div>
-                </div>
-            
-                <div class="d-grid gap-2 pt-3">
-                    <button class="btn btn-primary" id="spin-wheel">
-                        Spin Wheel
-                    </button>
-                </div>
-
-                <div class="pt-4">
-                    <p class="description">
-                        The roulette wheel is made using JavaScript, Valorant API and Fetch API.
-                        <br>
-                        <br>
-                        The images of the agents are sourced from the Valorant API using Fetch in JavaScript using the <a href="https://dash.valorant-api.com/endpoints/agents" target="_blank">Agent</a> endpoint to ensure the lastest agents are added into the roulette roster.
-                    </p>
+        <div class="content">
+            <div class="component-container">
+                <div class="p-4">
+                    <h1>
+                        Valorant Agent roulette wheel
+                    </h1>
+                    <div class='roulette-wrapper border border-4'>
+                        <div class='selector border border-5'></div>
+                        <div class='wheel'></div>
+                    </div>
+                
+                    <div class="d-grid gap-2 pt-3">
+                        <button class="btn btn-primary" id="spin-wheel">
+                            Spin Wheel
+                        </button>
+                    </div>
+    
+                    <div class="pt-4">
+                        <p class="description">
+                            The roulette wheel is made using JavaScript, Valorant API and Fetch API.
+                            <br>
+                            <br>
+                            The images of the agents are sourced from the Valorant API using Fetch in JavaScript using the <a href="https://dash.valorant-api.com/endpoints/agents" target="_blank">Agent</a> endpoint to ensure the lastest agents are added into the roulette roster.
+                        </p>
+                    </div>
                 </div>
             </div>
+    
+            <div class="component-container">
+                <div class="p-4">
+                    <h1>
+                        Voice to Text
+                    </h1>
+                    <h4>
+                        Click the "Voice input" button and accept recording permissions to use the function
+                    </h4>
+                    <div class="container-fluid d-flex justify-content-center align-items-center p-0 m-0" id="audio-visual-container">
+                        <textarea class="form-control" id="prompt" rows="5" name="Prompt" value="blank"></textarea>
+                    </div>
+                    <a role="button" class="btn btn-primary mt-2 mb-2 me-2" id="copyText">Copy</a>
+                    <a role="button" class="btn btn-primary mt-2 mb-2" id="VPStartBtn">Voice input</a>
+                    <a role="button" class="btn btn-danger mt-2 mb-2 d-none" id="VPStopBtn">Stop</a>
+    
+                    <div class="pt-4">
+                        <p class="description">
+                            "Voice to Text" is made using JavaScript, SpeechRecognition() from the Web Speech API and AudioContext() from the Web Audio API.
+                            <br>
+                            <br>
+                            The audio visualizer streams audio input from the user's microphone and turns the audio input into an array of values in which the lines in the visualizer responds to to indicate usage and functionality. while SpeechRecognition() takes the input and processes any recognized words and outputs them into the text area.
+                        </p>
+                    </div>
+                </div>
+            <div>
         </div>
-
-        <div class="component-container">
-            <div class="p-4">
-                <h1>
-                    Voice to Text
-                </h1>
-                <h4>
-                    Click the "Voice input" button and accept recording permissions to use the function
-                </h4>
-                <div class="container-fluid d-flex justify-content-center align-items-center p-0 m-0" id="audio-visual-container">
-                    <textarea class="form-control" id="prompt" rows="5" name="Prompt" value="blank"></textarea>
-                </div>
-                <a role="button" class="btn btn-primary mt-2 mb-2 me-2" id="copyText">Copy</a>
-                <a role="button" class="btn btn-primary mt-2 mb-2" id="VPStartBtn">Voice input</a>
-                <a role="button" class="btn btn-danger mt-2 mb-2 d-none" id="VPStopBtn">Stop</a>
-
-                <div class="pt-4">
-                    <p class="description">
-                        "Voice to Text" is made using JavaScript, SpeechRecognition() from the Web Speech API and AudioContext() from the Web Audio API.
-                        <br>
-                        <br>
-                        The audio visualizer streams audio input from the user's microphone and turns the audio input into an array of values in which the lines in the visualizer responds to to indicate usage and functionality. while SpeechRecognition() takes the input and processes any recognized words and outputs them into the text area.
-                    </p>
-                </div>
-            </div>
-        <div>
     </body>
     
 </html>
