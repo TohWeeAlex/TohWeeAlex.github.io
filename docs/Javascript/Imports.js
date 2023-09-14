@@ -55,7 +55,7 @@ function runJQFunct(funct) {
       funct;
   } else {
       // wait 50 milliseconds and try again.
-      window.setTimeout( runJQFunct, 50 );
+      window.setTimeout( runJQFunct(funct), 50 );
   }
 
 }
