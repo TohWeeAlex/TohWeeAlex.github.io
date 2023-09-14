@@ -174,16 +174,24 @@ function initialMode() {
     }
 }
 
-$(function() {
-    initialMode();
+function runFunct(funct) {
+    // Script that does something and depends on jQuery being there.
+    if( window.$ ) {
+        console.log("JQ loaded (function)")
+        funct;
+    } else {
+        // wait 50 milliseconds and try again.
+        console.log("JQ not loaded (function)")
+        window.setTimeout( runFunct, 50 );
+    }
+}
 
-    switchDesktop.addEventListener("click" , function() {
-        viewChange();
-    });
+runFunct(initialMode());
 
-    switchMobile.addEventListener("click" , function() {
-        viewChange();
-    });
+switchDesktop.addEventListener("click" , function() {
+    viewChange();
 });
 
-//console.log("on LDmode script load: " + localStorage.getItem("viewMode"));
+switchMobile.addEventListener("click" , function() {
+    viewChange();
+});

@@ -5,7 +5,7 @@ function loadScriptHead(url, co) {
   var script = document.createElement('script');
   script.src = url;
   script.crossOrigin = co;
-  script.async = true;
+  script.async = false;
   document.head.appendChild(script);
 }
 
@@ -43,9 +43,21 @@ async function getNavBar(filePath) {
   let myText = await myfile.text();
   var navBar = document.createElement( 'div' );
   navBar.setAttribute('id', "NavBar");
-  navBar.onload = loadScriptBody("Javascript/LightDarkMode.js");
+  //navBar.onload = runJQFunct(loadScriptBody("Javascript/LightDarkMode.js"));
   navBar.innerHTML = myText;
   document.body.insertBefore(navBar, document.body.firstElementChild);
+}
+
+function runJQFunct(funct) {
+    // Script that does something and depends on jQuery being there.
+    if( window.$ ) {
+      // do your action that depends on jQuery.
+      funct;
+  } else {
+      // wait 50 milliseconds and try again.
+      window.setTimeout( runJQFunct, 50 );
+  }
+
 }
 
 // Load metadata
@@ -65,8 +77,6 @@ loadCSS("Style/styles.css");
 
 // Load external Javascripts after DOM has finished loading
 document.addEventListener('DOMContentLoaded', function() {
-  getNavBar("Elements/nav.htm");
+  runJQFunct(getNavBar("Elements/nav.htm"));
+  runJQFunct(loadScriptBody("Javascript/LightDarkMode.js"));
 });
-
-
-
