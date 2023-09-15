@@ -28,8 +28,8 @@ function darkMode() {
     // Change session item value
     localStorage.setItem("viewMode", "dark");
     // switch toggle set
-    $("#view-mode-desktop").checked = true;
-    $("#view-mode-mobile").checked = true;
+    document.getElementById("view-mode-desktop").checked = true;
+    document.getElementById("view-mode-mobile").checked = true;
     console.log("checked")
 }
 
@@ -63,8 +63,8 @@ function lightMode() {
     // Change session item value
     localStorage.setItem("viewMode", "light");
     // switch toggle set
-    $("#view-mode-desktop").checked = false;
-    $("#view-mode-mobile").checked = false;
+    document.getElementById("view-mode-desktop").checked = false;
+    document.getElementById("view-mode-mobile").checked = false;
     console.log("not checked")
 }
 
@@ -149,17 +149,17 @@ function initialMode() {
         case null:
             lightMode();
             $(".view-mode-display").text("Light Mode");
-            console.log("initial:" + localStorage.getItem("viewMode"));
+            //console.log("initial:" + localStorage.getItem("viewMode"));
             break;
         case "light":
             lightMode();
             $(".view-mode-display").text("Light Mode");
-            console.log("initial:" + localStorage.getItem("viewMode"));
+            //console.log("initial:" + localStorage.getItem("viewMode"));
             break;
         case "dark":
             darkMode();
             $(".view-mode-display").text("Dark Mode");
-            console.log("initial:" + localStorage.getItem("viewMode"));
+            //console.log("initial:" + localStorage.getItem("viewMode"));
             break;
     }
 
