@@ -1,6 +1,3 @@
-const switchDesktop = document.getElementById("view-mode-desktop");
-const switchMobile = document.getElementById("view-mode-mobile");
-
 function darkMode() {
     // Add Dark classes
     $(".view-mode-display").text("Dark Mode");
@@ -31,8 +28,9 @@ function darkMode() {
     // Change session item value
     localStorage.setItem("viewMode", "dark");
     // switch toggle set
-    switchDesktop.setAttribute("checked", "true");
-    switchMobile.setAttribute("checked", "true");
+    $("#view-mode-desktop").checked = true;
+    $("#view-mode-mobile").checked = true;
+    console.log("checked")
 }
 
 function lightMode() {
@@ -65,8 +63,9 @@ function lightMode() {
     // Change session item value
     localStorage.setItem("viewMode", "light");
     // switch toggle set
-    switchDesktop.removeAttribute("checked");
-    switchMobile.removeAttribute("checked");
+    $("#view-mode-desktop").checked = false;
+    $("#view-mode-mobile").checked = false;
+    console.log("not checked")
 }
 
 function shylilyMode() {
@@ -145,21 +144,22 @@ function viewChange() {
 }
 
 function initialMode() {
+    console.log("initialMode called")
     switch (localStorage.getItem("viewMode")) {
         case null:
             lightMode();
             $(".view-mode-display").text("Light Mode");
-            //console.log("initial:" + localStorage.getItem("viewMode"));
+            console.log("initial:" + localStorage.getItem("viewMode"));
             break;
         case "light":
             lightMode();
             $(".view-mode-display").text("Light Mode");
-            //console.log("initial:" + localStorage.getItem("viewMode"));
+            console.log("initial:" + localStorage.getItem("viewMode"));
             break;
         case "dark":
             darkMode();
             $(".view-mode-display").text("Dark Mode");
-            //console.log("initial:" + localStorage.getItem("viewMode"));
+            console.log("initial:" + localStorage.getItem("viewMode"));
             break;
     }
 
@@ -173,25 +173,3 @@ function initialMode() {
         introNeon();
     }
 }
-
-function runFunct(funct) {
-    // Script that does something and depends on jQuery being there.
-    if( window.$ ) {
-        console.log("JQ loaded (function)")
-        funct;
-    } else {
-        // wait 50 milliseconds and try again.
-        console.log("JQ not loaded (function)")
-        window.setTimeout( runFunct, 50 );
-    }
-}
-
-runFunct(initialMode());
-
-switchDesktop.addEventListener("click" , function() {
-    viewChange();
-});
-
-switchMobile.addEventListener("click" , function() {
-    viewChange();
-});

@@ -1,23 +1,15 @@
 // External resources importer
 
-// Function to load an external JavaScript file into the end of body element
-function loadScriptBody(url, co) {
-  var script = document.createElement('script');
-  script.src = url;
-  script.crossOrigin = co;
-  script.async = false;
-  document.body.appendChild(script);
-}
-
 // Function to import navbar
 async function getNavBar(filePath) {
   let myfile = await fetch(filePath);
   let myText = await myfile.text();
   var navBar = document.createElement( 'div' );
   navBar.setAttribute('id', "NavBar");
-  //navBar.onload = runJQFunct(loadScriptBody("Javascript/LightDarkMode.js"));
+  //navBar.onload = initialMode();
   navBar.innerHTML = myText;
   document.body.insertBefore(navBar, document.body.firstElementChild);
+  initialMode()
 }
 
 function runJQFunct(funct) {
@@ -34,5 +26,5 @@ function runJQFunct(funct) {
 // Load external Javascripts after DOM has finished loading
 document.addEventListener('DOMContentLoaded', function() {
   runJQFunct(getNavBar("Elements/nav.htm"));
-  runJQFunct(loadScriptBody("Javascript/LightDarkMode.js"));
+  //initialMode()
 });
