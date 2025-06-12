@@ -25,6 +25,7 @@ function darkMode() {
     // Body elements
     $("body").removeClass("light-mode");
     $(".border").removeClass("border-dark");
+    $("pre").removeClass("light-mode")
     // Change session item value
     localStorage.setItem("viewMode", "dark");
     // switch toggle set
@@ -44,6 +45,7 @@ function lightMode() {
     // Body elements
     $("body").addClass("light-mode");
     $(".border").addClass("border-dark");
+    $("pre").addClass("light-mode")
 
     // Remove Dark classes
     // Navbar desktop
