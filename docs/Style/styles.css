@@ -117,6 +117,17 @@ nav.light-mode .fa-bars {
   margin: 30px;
 }
 
+.dropzone {
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  padding: 2rem;
+  background: repeating-linear-gradient(-45deg, rgb(65, 73, 104), rgb(65, 73, 104) 10px, rgb(29, 35, 58) 10px, rgb(29, 35, 58) 25px);
+  text-align: center;
+  cursor: pointer;
+}
+
 nav.dark-mode {
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(52, 60, 94)), color-stop(rgb(89, 99, 148)), to(rgb(52, 60, 94)));
   background-image: linear-gradient(rgb(52, 60, 94), rgb(89, 99, 148), rgb(52, 60, 94));

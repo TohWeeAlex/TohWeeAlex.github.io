@@ -122,6 +122,23 @@ nav.light-mode .fa-bars {
   margin: 30px;
 }
 
+.dropzone {
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  padding: 2rem;
+  background: repeating-linear-gradient(
+    -45deg,
+    $myContainer-dark,
+    $myContainer-dark 10px,
+    $myBG-dark 10px,
+    $myBG-dark 25px
+  );
+  text-align: center;
+  cursor: pointer;
+}
+
 nav.dark-mode {
   background-image: $myGraident-dark;
   color: white;

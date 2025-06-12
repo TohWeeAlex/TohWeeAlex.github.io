@@ -29,6 +29,7 @@
         <script src="Javascript/LightDarkMode.js"></script>
         <script src="Javascript\RouletteWheel.js"></script>
         <script src="Javascript\SpeechToText.js"></script>
+        
 
         <style>
             body{
@@ -139,6 +140,13 @@
                     white-space: pre-line;
                 }
             }
+
+            .match {
+                color: green;
+            }
+            .mismatch {
+                color: red;
+            }
         </style>
 
         <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
@@ -149,6 +157,50 @@
     <body onload="initialMode()">
 
         <div class="content">
+
+            <div class="component-container" onload="initialMode()">
+                <div class="p-4">
+                    <h1>
+                        Checksum Verifier
+                    </h1>
+                    <h4>
+                        Drag and drop the file which you would like the verifier the checksum for
+                    </h4>
+                        <div class="dropzone container-fluid d-flex justify-content-center align-items-center" id="dropzone_checksum">Drop your file here or click to select</div>
+                        <input type="file" id="fileInput_checksum" hidden />
+                        <textarea class="form-control" id="expectedHash" rows="2" placeholder="Enter expected hash..."></textarea>
+                        <div id="checksumID"></div>
+                        <a role="button" class="btn btn-primary mt-2 mb-2 me-2"onclick="computeChecksum()">Compute Checksum</a>
+                    <div id="result"></div>
+                </div>
+            </div>
+
+            <div class="component-container">
+                <div class="p-4">
+                    <h1>
+                        Voice to Text
+                    </h1>
+                    <h4>
+                        Click the "Voice input" button and accept recording permissions to use the function
+                    </h4>
+                    <div class="container-fluid d-flex justify-content-center align-items-center p-0 m-0" id="audio-visual-container">
+                        <textarea class="form-control" id="prompt" rows="5" name="Prompt" value="blank"></textarea>
+                    </div>
+                    <a role="button" class="btn btn-primary mt-2 mb-2 me-2" id="copyText">Copy</a>
+                    <a role="button" class="btn btn-primary mt-2 mb-2" id="VPStartBtn">Voice input</a>
+                    <a role="button" class="btn btn-danger mt-2 mb-2 d-none" id="VPStopBtn">Stop</a>
+    
+                    <div class="pt-4">
+                        <p class="description">
+                            "Voice to Text" is made using JavaScript, SpeechRecognition() from the Web Speech API and AudioContext() from the Web Audio API.
+                            <br>
+                            <br>
+                            The audio visualizer streams audio input from the user's microphone and turns the audio input into an array of values in which the lines in the visualizer responds to to indicate usage and functionality. while SpeechRecognition() takes the input and processes any recognized words and outputs them into the text area.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
             <div class="component-container">
                 <div class="p-4">
                     <h1>
@@ -175,33 +227,11 @@
                     </div>
                 </div>
             </div>
-    
-            <div class="component-container">
-                <div class="p-4">
-                    <h1>
-                        Voice to Text
-                    </h1>
-                    <h4>
-                        Click the "Voice input" button and accept recording permissions to use the function
-                    </h4>
-                    <div class="container-fluid d-flex justify-content-center align-items-center p-0 m-0" id="audio-visual-container">
-                        <textarea class="form-control" id="prompt" rows="5" name="Prompt" value="blank"></textarea>
-                    </div>
-                    <a role="button" class="btn btn-primary mt-2 mb-2 me-2" id="copyText">Copy</a>
-                    <a role="button" class="btn btn-primary mt-2 mb-2" id="VPStartBtn">Voice input</a>
-                    <a role="button" class="btn btn-danger mt-2 mb-2 d-none" id="VPStopBtn">Stop</a>
-    
-                    <div class="pt-4">
-                        <p class="description">
-                            "Voice to Text" is made using JavaScript, SpeechRecognition() from the Web Speech API and AudioContext() from the Web Audio API.
-                            <br>
-                            <br>
-                            The audio visualizer streams audio input from the user's microphone and turns the audio input into an array of values in which the lines in the visualizer responds to to indicate usage and functionality. while SpeechRecognition() takes the input and processes any recognized words and outputs them into the text area.
-                        </p>
-                    </div>
-                </div>
-            <div>
+
         </div>
+
+        <!-- Load External JS After Components have loaded-->
+        <script src="Javascript\Checksum.js"></script>
 
     </body>
     
