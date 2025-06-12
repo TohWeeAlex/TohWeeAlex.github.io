@@ -60,27 +60,23 @@
                 <h1 class="p-4 pb-0">
                     Enumaration
                 </h1>
-                <!-- Hydra Segment -->
+                <!-- Nmap Segment -->
                 <div class="component-container">
                     <div class="m-0 p-4">
                         <h2>
-                            Hydra
+                            Nmap
                         </h2>
                         <h5>
-                            Hydra Syntax:
+                            Nmap Syntax:
                         </h5>
-                        <pre>hydra [[[-l LOGIN|-L FILE] [-p PASS|-P FILE]] | [-C FILE]] [-e nsr] [-o FILE] [-t TASKS] [-M FILE [-T TASKS]] [-w TIME] [-W TIME] [-f] [-s PORT] [-x MIN:MAX:CHARSET] [-c TIME] [-ISOuvVd46] [MODULE_OPT] [service://server[:PORT][/OPT]]</pre>
+                        <pre>nmap [[[-l LOGIN|-L FILE] [-p PASS|-P FILE]] | [-C FILE]] [-e nsr] [-o FILE] [-t TASKS] [-M FILE [-T TASKS]] [-w TIME] [-W TIME] [-f] [-s PORT] [-x MIN:MAX:CHARSET] [-c TIME] [-ISOuvVd46] [MODULE_OPT] [service://server[:PORT][/OPT]]</pre>
                         <div>
                             <div class="description">
                                 Syntax examples:
-                                <ul style="height: 200px;" class="overflow-auto">
-                                    <li>hydra -l basic-auth-user -P 2023-200_most_used_passwords.txt 127.0.0.1 http-get / -s 81</li>
-                                    <li>hydra -L top-usernames-shortlist.txt -P 2023-200_most_used_passwords.txt -f 127.0.0.1 -s 5000 http-post-form "/:username=^USER^&password=^PASS^:F=Invalid credentials"</li>
-                                    <li>hydra -l user -P passlist.txt ftp://192.168.0.1</li>
-                                    <li>hydra -L userlist.txt -p defaultpw imap://192.168.0.1/PLAIN</li>
-                                    <li>hydra -C defaults.txt -6 pop3s://[2001:db8::1]:143/TLS:DIGEST-MD5</li>
-                                    <li>hydra -l admin -p password ftp://[192.168.0.0/24]/</li>
-                                    <li>hydra -L logins.txt -P pws.txt -M targets.txt ssh</li>
+                                <ul style="height: auto;" class="overflow-auto">
+                                    <li>nmap -sV -sC -T4 192.168.1.1</li>
+                                    <li>nmap -sS -O -T4 192.168.100.0/24</li>
+                                    <li>nmap -A -T4 -v https://webpage.online</li>
                                 </ul>
                             </div>
                             <div class="description mt-4">
