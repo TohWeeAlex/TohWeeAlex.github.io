@@ -1,0 +1,176 @@
+let CybersecurityContent = [
+    {
+        procedureStepTitle: "Enumaration",
+        tools: 
+        [
+            {
+                Name: "Nmap",
+                Details: 
+                [
+                    {
+                        SyntaxHeading: `Nmap Syntax`,
+                        Syntax: `nmap [Scan Type] [Arguments/Options] [Target Domain name/IP Address]`,
+                    },
+                    {
+                        DetailTitle: "Syntax examples",
+                        DetailContent: 
+                        [
+                            `nmap -sV -sC -T4 192.168.1.1`,
+                            `nmap -sS -O -T4 192.168.100.0/24`,
+                            `nmap -A -T4 -v https://webpage.online`,
+                        ],
+                    },
+                    {
+                        DetailTitle: "The following are the Arguments/Options That are widely used:",
+                        DetailContent:
+                        [
+                            `-sV -- scan the version of the programs running on the ports`,
+                            `-sC -- run default script to check for potential vulnerabilities`,
+                            `-sS -- run a discreet scan, might be useful for network with security`,
+                            `-p- -- scan all 65535 ports`,
+                            `-A -- Combines -O, -sV, -sC and taceroute`,
+                            `-T0 -- best intrusion detection system avoidance, slowest`,
+                            `-T4 -- Aggressive scans, more likely to be detected, faster`,
+                        ],
+                    }
+                ],
+                docLink: "https://nmap.org/book/man-briefoptions.html",
+            },
+        ]
+    },
+        {
+        procedureStepTitle: "Login Brute-forcing",
+        tools:
+        [
+            {
+                Name: "Username Anarchy",
+                Details: 
+                [
+                    {
+                        SyntaxHeading: `Username Anarchy Syntax`,
+                        Syntax: `sudo apt install ruby -y
+git clone https://github.com/urbanadventurer/username-anarchy.git
+cd username-anarchy
+./username-anarchy [Name/input method] [Username format] [Output]`,
+                    },
+                    {
+                        DetailTitle: `Syntax examples`,
+                        DetailContent: 
+                        [
+                            `./username-anarchy anna key`,
+                            `./username-anarchy -i namelist.txt`,
+                            `./username-anarchy -a -c france`,
+                            `./username-anarchy -a -i namelist.txt`,
+                        ],
+                    },
+                    {
+                        DetailTitle: "The following are the Arguments/Options That are widely used:",
+                        DetailContent:
+                        [
+                            `-i [file] -- input name list, .csv format accepted`,
+                            `-a -- auto generates name from a country or list`,
+                            `-v -- displays more information while running`,
+                        ],
+                    },
+                ],
+                docLink: "https://github.com/urbanadventurer/username-anarchy",
+            },
+            {
+                Name: "Hydra",
+                Details:
+                [
+                    {
+                        SyntaxHeading: `Hydra Syntax`,
+                        Syntax: `hydra [[[-l LOGIN|-L FILE] [-p PASS|-P FILE]] | [-C FILE]] [-e nsr] [-o FILE] [-t TASKS] [-M FILE [-T TASKS]] [-w TIME] [-W TIME] [-f] [-s PORT] [-x MIN:MAX:CHARSET] [-c TIME] [-ISOuvVd46] [MODULE_OPT] [service://server[:PORT][/OPT]]`,
+                    },
+                    {
+                        DetailTitle: `Syntax examples`,
+                        DetailContent: 
+                        [
+                            `hydra -l basic-auth-user -P 2023-200_most_used_passwords.txt 127.0.0.1 http-get / -s 81`,
+                            `hydra -L top-usernames-shortlist.txt -P 2023-200_most_used_passwords.txt -f 127.0.0.1 -s 5000 http-post-form "/:username=^USER^&password=^PASS^:F=Invalid credentials"`,
+                            `hydra -l user -P passlist.txt ftp://192.168.0.1`,
+                            `hydra -L userlist.txt -p defaultpw imap://192.168.0.1/PLAIN`,
+                            `hydra -C defaults.txt -6 pop3s://[2001:db8::1]:143/TLS:DIGEST-MD5`,
+                            `hydra -l admin -p password ftp://[192.168.0.0/24]/`,
+                            `hydra -L logins.txt -P pws.txt -M targets.txt ssh`,
+                        ],
+                    },
+                    {
+                        DetailTitle: "The following are the Arguments/Options That are widely used:",
+                        DetailContent:
+                        [
+                            `-i [file] -- input name list, .csv format accepted`,
+                            "-a -- auto generates name from a country or list",
+                            "-v -- displays more information while running",
+                        ],
+                    }
+                ],
+                docLink: "https://github.com/urbanadventurer/username-anarchy",
+            }
+        ]
+    },
+]
+
+function contentLayout(CybersecurityContent) {
+    let contentContainer = document.getElementById("contentContainer");
+    for (let i = 0; i < CybersecurityContent.length; i++) {
+        // Create procedure step Container
+        let container = document.createElement("div");
+        // Create procedure step Title
+        let procedureStepTitleElement = document.createElement("h1");
+        procedureStepTitleElement.className = "p-4 pb-0";
+        procedureStepTitleElement.innerHTML = CybersecurityContent[i].procedureStepTitle;
+        container.appendChild(procedureStepTitleElement);
+        // Create for each tool
+        for (let j = 0; j < CybersecurityContent[i].tools.length; j++) {
+            // Create component-container
+            let compContainer = document.createElement("div");
+            compContainer.className = "component-container";
+            container.appendChild(compContainer);
+            // Create div for padding
+            let paddingDiv = document.createElement("div");
+            paddingDiv.className = "m-0 p-4";
+            compContainer.appendChild(paddingDiv);
+            // Create tool name heading
+            let toolNameElement = document.createElement("h2");
+            toolNameElement.innerHTML = CybersecurityContent[i].tools[j].Name;
+            paddingDiv.appendChild(toolNameElement);
+            // Create tool syntax heading
+            let toolSyntaxHeadingElement = document.createElement("h5");
+            toolSyntaxHeadingElement.innerHTML = CybersecurityContent[i].tools[j].Details[0].SyntaxHeading + " Syntax:";
+            paddingDiv.appendChild(toolSyntaxHeadingElement);
+            // Create tool syntax display
+            let toolSyntaxDisplayElement = document.createElement("pre");
+            toolSyntaxDisplayElement.innerHTML = CybersecurityContent[i].tools[j].Details[0].Syntax; 
+            paddingDiv.appendChild(toolSyntaxDisplayElement);
+            //  Create tool syntax example heading
+            let toolSyntaxExampleElement = document.createElement("h5");
+            toolSyntaxExampleElement.innerHTML = "Syntax examples:";
+            paddingDiv.appendChild(toolSyntaxExampleElement);
+            for (let DetailsIndex = 1; DetailsIndex < CybersecurityContent[i].tools[j].Details.length; DetailsIndex++) {
+                // Create description div
+                let toolDetails = document.createElement("div");
+                toolDetails.className = "description";
+                paddingDiv.appendChild(toolDetails)
+                // Create syntax example list
+                let toolDetailList = document.createElement("ul");
+                toolDetailList.className = "list";
+                toolDetails.appendChild(toolDetailList)
+                for (let contentIndex = 0; contentIndex < CybersecurityContent[i].tools[j].Details[DetailsIndex].DetailContent.length; contentIndex++) {
+                    let listElement = document.createElement("li")
+                    listElement.innerHTML = CybersecurityContent[i].tools[j].Details[DetailsIndex].DetailContent[contentIndex]
+                    toolDetailList.appendChild(listElement)
+                };
+            };
+            // Create Documentation link
+            let toolDocLinkElement = document.createElement("p");
+            toolDocLinkElement.innerHTML = ` Link to Documentation: <a href="${CybersecurityContent[i].tools[j].docLink}">${CybersecurityContent[i].tools[j].docLink}</a> `; 
+            paddingDiv.appendChild(toolDocLinkElement);
+            // Append Content into Page
+            contentContainer.appendChild(container)
+        }
+    }
+}
+
+contentLayout(CybersecurityContent)

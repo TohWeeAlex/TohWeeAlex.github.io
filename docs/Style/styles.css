@@ -68,6 +68,24 @@ pre.light-mode {
   word-wrap: break-word;
 }
 
+.description {
+  font-size: 17px;
+  background-color: hsla(0, 0%, 0%, 0.3);
+  border-radius: 5px 5px 20px 20px;
+  margin-bottom: 3%;
+  padding: 20px;
+}
+
+.description > .list {
+  margin: 0;
+  max-height: 200px;
+  overflow: auto;
+}
+
+.content {
+  font-family: "Titillium Web", sans-serif;
+}
+
 #footer {
   background-color: hsla(0, 0%, 0%, 0.301);
   position: absolute;
