@@ -1,11 +1,10 @@
-@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -webkit-user-select: auto;
+     -moz-user-select: auto;
+      -ms-user-select: auto;
+          user-select: auto;
 }
 
 /* width */
@@ -36,8 +35,12 @@ body {
   font-family: Verdana, sans-serif;
 }
 
+img {
+  -webkit-margin-after: 1em;
+          margin-block-end: 1em;
+}
+
 pre {
-  font-size: large;
   padding: 10px;
   width: auto;
   border-radius: 10px;
@@ -53,26 +56,13 @@ pre {
 }
 
 pre.light-mode {
-  font-size: large;
-  padding: 10px;
-  width: auto;
-  border-radius: 10px;
   background-color: rgb(255, 255, 255);
   border: 2px solid rgb(0, 0, 0);
-  /*Word warp properties*/
-  overflow-x: auto;
-  white-space: pre-wrap;
-  white-space: -moz-pre-wrap;
-  white-space: -pre-wrap;
-  white-space: -o-pre-wrap;
-  word-wrap: break-word;
 }
 
 .description {
-  font-size: 17px;
   background-color: hsla(0, 0%, 0%, 0.3);
-  border-radius: 5px 5px 20px 20px;
-  margin-bottom: 3%;
+  border-radius: 20px;
   padding: 20px;
 }
 
@@ -157,6 +147,22 @@ nav.light-mode .fa-bars {
   cursor: pointer;
 }
 
+table.dark-mode > tr:nth-child(even) {
+  background-color: rgb(65, 73, 104) !important;
+}
+
+table.dark-mode > tr:nth-child(odd) {
+  background-color: rgb(44, 53, 87) !important;
+}
+
+table.light-mode > tr:nth-child(even) {
+  background-color: hsl(0, 0%, 100%) !important;
+}
+
+table.light-mode > tr:nth-child(odd) {
+  background-color: hsl(56, 100%, 97%) !important;
+}
+
 nav.dark-mode {
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(52, 60, 94)), color-stop(rgb(89, 99, 148)), to(rgb(52, 60, 94)));
   background-image: linear-gradient(rgb(52, 60, 94), rgb(89, 99, 148), rgb(52, 60, 94));
@@ -204,62 +210,6 @@ ul.Nav li a {
 ul.Nav li a:hover {
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(52, 60, 94)), color-stop(rgb(89, 99, 148)), to(rgb(52, 60, 94)));
   background-image: linear-gradient(rgb(52, 60, 94), rgb(89, 99, 148), rgb(52, 60, 94));
-}
-
-#HiddenNavHTML, #HiddenNavCSS, #HiddenNavJava, #HiddenNavMics {
-  padding: 0;
-  z-index: 100;
-  list-style-type: none;
-  list-style-position: inside;
-  -webkit-transition: visibility 0.1s;
-  transition: visibility 0.1s;
-  visibility: hidden;
-}
-
-#HiddenNavButton {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(52, 60, 94)), color-stop(rgb(89, 99, 148)), to(rgb(52, 60, 94)));
-  background-image: linear-gradient(rgb(52, 60, 94), rgb(89, 99, 148), rgb(52, 60, 94));
-  z-index: 100;
-}
-
-#WebName {
-  font-family: andalé Mono, monospace;
-  font-size: 400%;
-  margin: auto;
-  padding-bottom: 5%;
-  text-align: center;
-}
-
-#headlines {
-  margin: 0px;
-  padding: 0px;
-  font-size: 20px;
-}
-
-#title {
-  margin: 0px;
-  padding: 0px;
-  font-size: 16px;
-}
-
-#text {
-  margin: 0px;
-  padding: 0px;
-  font-size: 14px;
-}
-
-#code-comment {
-  color: greenyellow;
-}
-
-#form {
-  display: block;
-  position: absolute;
-  z-index: -100;
-}
-
-#NavBar {
-  z-index: 100;
 }
 
 /* ============ desktop view NavBar ============ */

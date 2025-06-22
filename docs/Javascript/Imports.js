@@ -25,7 +25,7 @@ function runJQFunct(funct) {
 
 // Load external Javascripts after DOM has finished loading
 document.addEventListener('DOMContentLoaded', function() {
-  runJQFunct(getNavBar("Elements/nav.htm"));
+  runJQFunct(getNavBar("../Elements/nav.htm"));
   //console.log(document.location.hostname + "/docs/Elements/nav.htm")
   //initialMode()
 });

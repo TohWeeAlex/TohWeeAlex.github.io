@@ -9,11 +9,12 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 -->
-        
-
 
 <!--====== Desktop NavBar =====-->
-<nav class="navbar navbar-expand-sm rounded-4 light-mode d-md-block d-none" id="nav-desktop">
+<nav
+  class="navbar navbar-expand-sm rounded-4 light-mode d-md-block d-none"
+  id="nav-desktop"
+>
   <div class="container-fluid">
     <!-- Links -->
     <ul class="navbar-nav">
@@ -23,99 +24,237 @@
       </li>
       <!--==== HTML Menu ====-->
       <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">HTML</a>
-          <ul class="dropdown-menu fade-down">
-              <li><a class="dropdown-item" href="HTML_04_login.htm">Login page</a></li>
-              <li><a class="dropdown-item" href="Art_01_2D.htm">Image Gallary</a></li>
-          </ul>
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">HTML</a>
+        <ul class="dropdown-menu fade-down">
+          <li>
+            <a class="dropdown-item" href="HTML_04_login.htm">Login page</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="Art_01_2D.htm">Image Gallary</a>
+          </li>
+        </ul>
       </li>
       <!--==== ThreeJS Menu ====-->
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">ThreeJS</a>
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
+          >ThreeJS</a
+        >
         <ul class="dropdown-menu fade-down">
-            <li><a class="dropdown-item" href="ThreeJS_01.htm">ThreeJS test demo</a></li>
+          <li>
+            <a class="dropdown-item" href="ThreeJS_01.htm">ThreeJS test demo</a>
+          </li>
         </ul>
       </li>
       <!--==== Javascript Menu ====-->
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Javascript</a>
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
+          >Javascript</a
+        >
         <ul class="dropdown-menu fade-down">
-            <li><a class="dropdown-item" href="Javascript_01.htm">Component Demo</a></li>
+          <li>
+            <a class="dropdown-item" href="Javascript_01.htm">Component Demo</a>
+          </li>
         </ul>
       </li>
       <!--==== Cybersecurity Menu ====-->
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Cybersecurity</a>
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
+          >Cybersecurity</a
+        >
         <ul class="dropdown-menu fade-down">
-            <li><a class="dropdown-item" href="Cybersecurity_homepage.htm">Pentesting</a></li>
-            <li><a class="dropdown-item" href="VulnVM_homepage.htm">VulnVMs</a></li>
+          <li>
+            <a class="dropdown-item" href="Cybersecurity_homepage.htm"
+              >Pentesting</a
+            >
+          </li>
+          <li>
+            <a class="dropdown-item" href="VulnVM_homepage.htm">VulnVMs</a>
+          </li>
+        </ul>
+      </li>
+      <!--==== Networking Menu ====-->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
+          >Networking</a
+        >
+        <ul class="dropdown-menu fade-down">
+          <li><a class="dropdown-item" href="Firewall.htm">Firewall</a></li>
+          <li><a class="dropdown-item" href="Pfsense.htm">Pfsense</a></li>
+          <li><a class="dropdown-item" href="EdgeRouter.htm">Edgerouter</a></li>
         </ul>
       </li>
     </ul>
     <div class="form-check form-switch float-end">
-      <input onclick="viewChange()" class="form-check-input" type="checkbox" name="darkmode" id="view-mode-desktop" value="yes">
-      <label class="form-check-label view-mode-display" id="mode-text-desktop" for="view-mode-desktop">Light Mode</label>
+      <input
+        onclick="viewChange()"
+        class="form-check-input"
+        type="checkbox"
+        name="darkmode"
+        id="view-mode-desktop"
+        value="yes"
+      />
+      <label
+        class="form-check-label view-mode-display"
+        id="mode-text-desktop"
+        for="view-mode-desktop"
+        >Light Mode</label
+      >
     </div>
   </div>
 </nav>
 <!--====== Mobile NavBar =====-->
-<nav class="navbar navbar-dark bg-dark fixed-top d-md-none d-block" id="nav-mobile">
+<nav
+  class="navbar navbar-dark bg-dark fixed-top d-md-none d-block"
+  id="nav-mobile"
+>
   <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
-        <i class="fas fa-bars" style="font-size:20px;"></i>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#offcanvasDarkNavbar"
+      aria-controls="offcanvasDarkNavbar"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars" style="font-size: 20px"></i>
     </button>
     <div class="form-check form-switch float-end">
-      <input onclick="viewChange()" class="form-check-input" type="checkbox" name="darkmode" id="view-mode-mobile" value="yes">
-      <label class="form-check-label view-mode-display" id="mode-text-mobile" for="view-mode-mobile">Light Mode</label>
+      <input
+        onclick="viewChange()"
+        class="form-check-input"
+        type="checkbox"
+        name="darkmode"
+        id="view-mode-mobile"
+        value="yes"
+      />
+      <label
+        class="form-check-label view-mode-display"
+        id="mode-text-mobile"
+        for="view-mode-mobile"
+        >Light Mode</label
+      >
     </div>
-    <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+    <div
+      class="offcanvas offcanvas-start text-bg-dark"
+      tabindex="-1"
+      id="offcanvasDarkNavbar"
+      aria-labelledby="offcanvasDarkNavbarLabel"
+    >
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Navigate</h5>
-        <button type="button" class="btn-close ms-3" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <button
+          type="button"
+          class="btn-close ms-3"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
       </div>
-      <hr class="p-0 m-0">
+      <hr class="p-0 m-0" />
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <!--Home button-->
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="index.htm">Home</a>
+            <a class="nav-link active" aria-current="page" href="index.htm"
+              >Home</a
+            >
           </li>
           <!--HTML dropdown-->
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
               HTML
             </a>
             <ul class="dropdown-menu border border-1">
-              <li><a class="dropdown-item" href="HTML_04_login.htm">Login page</a></li>
-              <li><a class="dropdown-item" href="Art_01_2D.htm">Image gallary</a></li>
+              <li>
+                <a class="dropdown-item" href="HTML_04_login.htm">Login page</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="Art_01_2D.htm">Image gallary</a>
+              </li>
             </ul>
           </li>
           <!--ThreeJS dropdown-->
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
               ThreeJS
             </a>
             <ul class="dropdown-menu border border-1">
-              <li><a class="dropdown-item" href="ThreeJS_01.htm">ThreeJS test demo</a></li>
+              <li>
+                <a class="dropdown-item" href="ThreeJS_01.htm"
+                  >ThreeJS test demo</a
+                >
+              </li>
             </ul>
           </li>
           <!--JavaScript dropdown-->
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
               JavaScript
             </a>
             <ul class="dropdown-menu border border-1">
-              <li><a class="dropdown-item" href="Javascript_01.htm">Component demo</a></li>
+              <li>
+                <a class="dropdown-item" href="Javascript_01.htm"
+                  >Component demo</a
+                >
+              </li>
             </ul>
           </li>
           <!--Cybersecurity dropdown-->
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
               Cybersecurity
             </a>
             <ul class="dropdown-menu border border-1">
-              <li><a class="dropdown-item" href="Cybersecurity_homepage.htm">Pentesting</a></li>
-              <li><a class="dropdown-item" href="VulnVM_homepage.htm">VulnVMs</a></li>
+              <li>
+                <a class="dropdown-item" href="Cybersecurity_homepage.htm"
+                  >Pentesting</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" href="VulnVM_homepage.htm">VulnVMs</a>
+              </li>
+            </ul>
+          </li>
+          <!--Networking dropdown-->
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Networking
+            </a>
+            <ul class="dropdown-menu border border-1">
+              <li><a class="dropdown-item" href="Firewall.htm">Firewall</a></li>
+              <li><a class="dropdown-item" href="Pfsense.htm">Pfsense</a></li>
+              <li>
+                <a class="dropdown-item" href="EdgeRouter.htm">Edgerouter</a>
+              </li>
             </ul>
           </li>
         </ul>

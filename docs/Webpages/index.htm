@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <title>Toh_Tze_Hsuan_Showcase_Website</title>
+
+  <head>
+    <!-- Load Goggle Ads -->
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2034661100761215"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Load Metadata -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Load CDN CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="../Style/styles.css" />
+
+    <!-- Load CDN JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/17a7db9b22.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Load External JS -->
+    <script src="../Javascript/Imports.js"></script>
+    <script src="../Javascript/LightDarkMode.js"></script>
+
+    <style>
+      .intro {
+        margin: auto;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      #secondary {
+        opacity: 0.7;
+      }
+
+      #introduction-container {
+        height: 70vh;
+      }
+
+      @media screen and (max-width: 768px) {
+        .intro {
+          text-align: center;
+        }
+      }
+
+      .neon {
+        animation: glow 1s ease-in-out infinite alternate;
+      }
+
+      @keyframes glow {
+        from {
+          text-shadow: 0 0 6px #ffffff9f, 0 0 12px #ffffff9f, 0 0 18px #ffffff9f,
+            0 0 24px #ffffff9f, 0 0 30px #ffffff9f, 0 0 36px #ffffff9f,
+            0 0 42px #ffffff9f;
+        }
+        to {
+          text-shadow: 0 0 8px #ffffff9f, 0 0 16px #ffffff9f, 0 0 24px #ffffff9f,
+            0 0 30px #ffffff9f, 0 0 38px #ffffff9f, 0 0 46px #ffffff9f,
+            0 0 54px #ffffff9f;
+        }
+      }
+    </style>
+  </head>
+
+  <body onload="initialMode()">
+    <div class="container-fluid d-inline-flex align-items-center p-0 content" id="introduction-container">
+      <div class="row w-100 m-auto">
+        <div class="col-sm-8 p-3 m-auto">
+          <h1 class="display-1 lead intro" id="intro-primary">
+            Hello, I'm Alex
+          </h1>
+          <p class="display-6 intro" id="intro-secondary">
+            Welcome to my website, where I showcase what i've done.
+          </p>
+        </div>
+        <div class="col-sm-4 p-3 m-auto">
+          <div class="d-grid gap-3 m-auto">
+            <a
+              class="btn btn-primary border p-2 m-0"
+              type="button"
+              href="https://www.linkedin.com/in/toh-tze-hsuan-587b4325a"
+            >
+              <span class="fs-5 p-0 m-0"
+                ><i class="bi bi-linkedin"></i> Linkedin</span
+              >
+            </a>
+            <a
+              class="btn btn-dark border p-2 m-0 text-light"
+              type="button"
+              href="https://github.com/TohWeeAlex"
+            >
+              <span class="fs-5 p-0 m-0"
+                ><i class="bi bi-github"></i> GitHub</span
+              >
+            </a>
+            <a
+              class="btn btn-dark border p-2 m-0"
+              type="button"
+              href="https://www.artstation.com/tohtzehsuan"
+            >
+              <span class="fs-5 p-0 m-0"
+                ><i class="fab fa-artstation text-info"></i> ArtStation</span
+              >
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

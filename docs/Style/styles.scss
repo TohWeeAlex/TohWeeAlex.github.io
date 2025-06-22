@@ -1,20 +1,33 @@
-$myGraident-dark: linear-gradient(rgb(52, 60, 94), rgb(89, 99, 148), rgb(52, 60, 94));
-$myGraident-hover-dark: linear-gradient(rgb(89, 99, 148), rgb(159, 173, 233), rgb(89, 99, 148));
+$myGraident-dark: linear-gradient(
+  rgb(52, 60, 94),
+  rgb(89, 99, 148),
+  rgb(52, 60, 94)
+);
+$myGraident-hover-dark: linear-gradient(
+  rgb(89, 99, 148),
+  rgb(159, 173, 233),
+  rgb(89, 99, 148)
+);
 $myBG-dark: rgb(29, 35, 58);
-$myBG-dark-outline: rgb(105, 105, 105);
+$myBG-dark-border-colour: rgb(105, 105, 105);
+$myBG-dark-table: rgb(44, 53, 87);
 $myContainer-dark: rgb(65, 73, 104);
 
-
 $myGraident-light: linear-gradient(#cfcfcf, #ffffff, #cfcfcf);
-$myGraident-hover-light: linear-gradient(rgb(255, 255, 255), rgb(255, 237, 187), rgb(255, 255, 255));
+$myGraident-hover-light: linear-gradient(
+  rgb(255, 255, 255),
+  rgb(255, 237, 187),
+  rgb(255, 255, 255)
+);
 $myBG-light: hsl(55, 100%, 97%);
+$myBG-light-border-colour: rgb(230, 230, 230);
+$myBG-light-table: hsl(56, 100%, 97%);
 $myContainer-light: hsl(0, 0%, 100%);
-$myBG-light-outline: rgb(230, 230, 230);
 
-*{
+* {
   margin: 0;
   padding: 0;
-  user-select: none;
+  user-select: auto;
 }
 
 /* width */
@@ -24,28 +37,31 @@ $myBG-light-outline: rgb(230, 230, 230);
 
 /* Track */
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey; 
+  box-shadow: inset 0 0 5px grey;
   border-radius: 10px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgba(240, 255, 255, 0.616); 
+  background: rgba(240, 255, 255, 0.616);
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(0, 0, 0);  
+  background: rgb(0, 0, 0);
 }
 
 body {
-    padding: 5% 10%;
-    font-family: Verdana, sans-serif;
+  padding: 5% 10%;
+  font-family: Verdana, sans-serif;
+}
+
+img {
+  margin-block-end: 1em;
 }
 
 pre {
-  font-size: large;
   padding: 10px;
   width: auto;
   border-radius: 10px;
@@ -60,37 +76,25 @@ pre {
   word-wrap: break-word;
 }
 
-pre.light-mode{
-  font-size: large;
-  padding: 10px;
-  width: auto;
-  border-radius: 10px;
+pre.light-mode {
   background-color: rgb(255, 255, 255);
   border: 2px solid rgb(0, 0, 0);
-  /*Word warp properties*/
-  overflow-x: auto;
-  white-space: pre-wrap;
-  white-space: -moz-pre-wrap;
-  white-space: -pre-wrap;
-  white-space: -o-pre-wrap;
-  word-wrap: break-word;
 }
 
 .description {
-  font-size: 17px;
   background-color: hsla(0, 0%, 0%, 0.3);
-  border-radius: 5px 5px 20px 20px;
-  margin-bottom: 3%;
+  border-radius: 20px;
+  //margin-bottom: 2%;
   padding: 20px;
 }
-.description > .list{
+.description > .list {
   margin: 0;
   max-height: 200px;
   overflow: auto;
 }
 
 .content {
-  font-family: 'Titillium Web', sans-serif;
+  font-family: "Titillium Web", sans-serif;
 }
 
 #footer {
@@ -120,11 +124,11 @@ pre.light-mode{
 nav.light-mode {
   background-image: $myGraident-light;
   color: black;
-  border: 1px solid $myBG-dark-outline;
+  border: 1px solid $myBG-dark-border-colour;
 }
 
 nav.light-mode .fa-bars {
-  color: $myBG-dark-outline !important;
+  color: $myBG-dark-border-colour !important;
 }
 
 .dark-mode {
@@ -138,6 +142,8 @@ nav.light-mode .fa-bars {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin: 30px;
 }
+
+////////////////////////////// DROPZONE //////////////////////////////
 
 .light-mode .dropzone {
   border: 2px dashed #ccc;
@@ -173,14 +179,32 @@ nav.light-mode .fa-bars {
   cursor: pointer;
 }
 
+////////////////////////////// TABLES //////////////////////////////
+table.dark-mode > tr:nth-child(even) {
+  background-color: $myContainer-dark !important;
+}
+
+table.dark-mode > tr:nth-child(odd) {
+  background-color: $myBG-dark-table !important;
+}
+
+table.light-mode > tr:nth-child(even) {
+  background-color: $myContainer-light !important;
+}
+
+table.light-mode > tr:nth-child(odd) {
+  background-color: $myBG-light-table !important;
+}
+
+////////////////////////////// NAV BAR //////////////////////////////
 nav.dark-mode {
   background-image: $myGraident-dark;
   color: white;
-  border: 1px solid $myBG-light-outline;
+  border: 1px solid $myBG-light-border-colour;
 }
 
 nav.dark-mode .fa-bars {
-  color: $myBG-light-outline !important;
+  color: $myBG-light-border-colour !important;
 }
 
 ul.Nav {
@@ -194,7 +218,7 @@ ul.Nav {
   height: 45px;
   width: 90%;
   background-image: $myGraident-dark;
-  box-shadow: 0px 5px  #363636;
+  box-shadow: 0px 5px #363636;
   border-radius: 20px;
 }
 
@@ -217,89 +241,38 @@ ul.Nav li a:hover {
   background-image: $myGraident-dark;
 }
 
-#HiddenNavHTML, #HiddenNavCSS, #HiddenNavJava, #HiddenNavMics {
-  padding: 0;
-  z-index: 100;
-  list-style-type: none;
-  list-style-position: inside;
-  transition: visibility 0.1s;
-  visibility: hidden;
-}
-
-#HiddenNavButton {
-  background-image: $myGraident-dark;
-  z-index: 100;
-}
-
-#WebName {
-  font-family: andalé Mono,monospace;
-  font-size: 400%;
-  margin: auto;
-  padding-bottom: 5%;
-  text-align: center;
-}
-
-#headlines {
-  margin: 0px;
-  padding: 0px;
-  font-size: 20px;
-}
-
-#title {
-  margin: 0px;
-  padding: 0px;
-  font-size: 16px;
-}
-
-#text {
-  margin: 0px;
-  padding: 0px;  
-  font-size: 14px;
-}
-
-#code-comment {
-  color: greenyellow;
-}
-
-#form {
-  display: block;
-  position: absolute;
-  z-index: -100;
-}
-
-#NavBar {
-  z-index: 100;
-}
-
 /* ============ desktop view NavBar ============ */
 
 .navbar#nav-desktop .nav-item .dropdown-menu {
-    display:block;
-    opacity: 0; 
-    visibility: hidden;
-    transition:.3s;
-    margin-top:0;  
+  display: block;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+  margin-top: 0;
 }
 
-.navbar#nav-desktop .dropdown-menu.fade-down { 
-  top:80%;
+.navbar#nav-desktop .dropdown-menu.fade-down {
+  top: 80%;
   transform: rotateX(-75deg);
   transform-origin: 0% 0%;
 }
 
 .navbar#nav-desktop .nav-item:hover .dropdown-menu {
-  transition: .3s;
-  opacity:1;
-  visibility:visible;
-  top:100%;
-  transform: rotateX(0deg); 
+  transition: 0.3s;
+  opacity: 1;
+  visibility: visible;
+  top: 100%;
+  transform: rotateX(0deg);
 }
 
 .navbar#nav-desktop .nav-item:hover .dropdown-menu a.dropdown-item:hover {
   background-color: hsla(0, 0%, 0%, 0.2);
 }
 
-.navbar#nav-desktop .nav-item:hover .dropdown-menu a.dropdown-item.text-light:hover {
+.navbar#nav-desktop
+  .nav-item:hover
+  .dropdown-menu
+  a.dropdown-item.text-light:hover {
   background-color: hsla(0, 0%, 100%, 0.2);
 }
 

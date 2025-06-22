@@ -16,6 +16,7 @@ function darkMode() {
     $("body").addClass("dark-mode");
     $(".border").addClass("border-light");
     $(".dropzone").addClass("dark-mode");
+    $("table").addClass("dark-mode");
 
     // Remove light class
     //Navbar desktop
@@ -28,6 +29,7 @@ function darkMode() {
     $(".border").removeClass("border-dark");
     $(".dropzone").removeClass("light-mode");
     $("pre").removeClass("light-mode")
+    $("table").removeClass("light-mode");
     // Change session item value
     localStorage.setItem("viewMode", "dark");
     // switch toggle set
@@ -49,6 +51,7 @@ function lightMode() {
     $(".border").addClass("border-dark");
     $(".dropzone").addClass("light-mode");
     $("pre").addClass("light-mode")
+    $("table").addClass("light-mode");
 
     // Remove Dark classes
     // Navbar desktop
@@ -66,6 +69,7 @@ function lightMode() {
     $("body").removeClass("dark-mode");
     $(".border").removeClass("border-light");
     $(".dropzone").removeClass("dark-mode");
+    $("table").removeClass("dark-mode");
     // Change session item value
     localStorage.setItem("viewMode", "light");
     // switch toggle set
