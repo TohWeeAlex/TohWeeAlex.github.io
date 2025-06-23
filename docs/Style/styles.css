@@ -60,10 +60,11 @@ pre.light-mode {
   border: 2px solid rgb(0, 0, 0);
 }
 
-.description {
+div.description {
   background-color: hsla(0, 0%, 0%, 0.3);
   border-radius: 20px;
   padding: 20px;
+  margin-bottom: 1em;
 }
 
 .description > .list {
@@ -147,19 +148,19 @@ nav.light-mode .fa-bars {
   cursor: pointer;
 }
 
-table.dark-mode > tr:nth-child(even) {
+table.dark-mode > tbody > tr:nth-child(even) {
   background-color: rgb(65, 73, 104) !important;
 }
 
-table.dark-mode > tr:nth-child(odd) {
+table.dark-mode > tbody > tr:nth-child(odd) {
   background-color: rgb(44, 53, 87) !important;
 }
 
-table.light-mode > tr:nth-child(even) {
+table.light-mode > tbody > tr:nth-child(even) {
   background-color: hsl(0, 0%, 100%) !important;
 }
 
-table.light-mode > tr:nth-child(odd) {
+table.light-mode > tbody > tr:nth-child(odd) {
   background-color: hsl(56, 100%, 97%) !important;
 }
 

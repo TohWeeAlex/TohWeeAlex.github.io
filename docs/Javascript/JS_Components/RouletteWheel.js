@@ -32,7 +32,7 @@ async function initWheel() {
   row += "<div class='row m-0 d-flex flex-nowrap'>";
 
   for (let i = 0; i < agentsList.length; i++) {
-    row += "  <div class='card border border-3'style='background-image:linear-gradient(#" + agentsList[i][3][0] + ", #" + agentsList[i][3][1] + ", #" + agentsList[i][3][2] + ", #" + agentsList[i][3][3] + ");'><img src='" + agentsList[i][2] + "' class='card-img object-fit-cover'></div>";
+    row += "  <div class='card border border-3'style='background-image:linear-gradient(#" + agentsList[i][3][0] + ", #" + agentsList[i][3][1] + ", #" + agentsList[i][3][2] + ", #" + agentsList[i][3][3] + ");'><img src='" + agentsList[i][2] + "' class='card-img m-0 object-fit-cover'></div>";
   }
   row += "</div>";
 

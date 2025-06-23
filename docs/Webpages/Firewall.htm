@@ -34,10 +34,164 @@
             </p>
         </div>
 
-        <div class="content" id="contentContainer"></div>
+            <div class="content" id="contentContainer1">
+                <div class="component-container table-responsive p-4">
+                    <h1 class="mb-4">What services uses which port?</h1>
+                    <h4 class="">Port and Services Table</h4>
+                    <table class="table-bordered border" id="port-table">
+                        <tr class="p-0">
+                            <th class="col p-2" onclick="sortTable(0)">Port</th>
+                            <th class="col p-2" onclick="sortTable(1)">Protocol</th>
+                            <th class="col p-2" onclick="sortTable(2)">Service</th>
+                            <th class="col-8 p-2" onclick="sortTable(3)">Usage</th>
+                            <th class="col p-2" onclick="sortTable(4)">Further Information(if any)</th>
+                        </tr>
+                        <tr class="p-0">
+                            <td class="col p-2">53</td>
+                            <td class="col p-2">TCP/UDP</td>
+                            <td class="col p-2">DNS</td>
+                            <td class="col-8 p-2">Service to reslove domain names</td>
+                            <td class="col p-2">RFC 1035</td>
+                        </tr>
+                        <tr class="p-0">
+                            <td class="col p-2">67</td>
+                            <td class="col p-2">TCP/UDP</td>
+                            <td class="col p-2">DHCP</td>
+                            <td class="col-8 p-2">DHCP uses UDP as its transport protocol. DHCP messages from a client to a
+                                server are sent to the 'DHCP server' port (67), and DHCP messages from a server to a client are
+                                sent to the 'DHCP client' port(68). For my home network without a sever we will only allow port
+                                67</td>
+                            <td class="col p-2">RFC 2131</td>
+                        </tr>
+                        <tr class="p-0">
+                            <td class="col p-2">80</td>
+                            <td class="col p-2">TCP/UDP</td>
+                            <td class="col p-2">HTTP</td>
+                            <td class="col-8 p-2">Required for access to non-HTTPS websites (many sites auto-redirect to HTTPS,
+                                but some content may break. If you want maximum security, considering opening this port if
+                                certain web services don't work). </td>
+                            <td class="col p-2">RFC 1945(HTTP)</td>
+                        </tr>
+                        <tr class="p-0">
+                            <td class="col p-2">123</td>
+                            <td class="col p-2">TCP/UDP</td>
+                            <td class="col p-2">NTP</td>
+                            <td class="col-8 p-2">NTP (Network Time Protocol) is used to synchronize the clocks of computer
+                                systems across a network</td>
+                            <td class="col p-2">RFC 5905</td>
+                        </tr>
+                        <tr class="p-0">
+                            <td class="col p-2">443</td>
+                            <td class="col p-2">TCP/UDP</td>
+                            <td class="col p-2">HTTPS(TCP), HTTP3/QUIC(UDP)</td>
+                            <td class="col-8 p-2">Used for HTTPS, Which is HTTP over TLS, to encrypt information when
+                                interacting with a web server</td>
+                            <td class="col p-2">RFC 2818(HTTPS), RFC 9000(QUIC)</td>
+                        </tr>
+                        <tr class="p-0">
+                            <td class="col p-2">853</td>
+                            <td class="col p-2">TCP/UDP</td>
+                            <td class="col p-2">DNS over TLS</td>
+                            <td class="col-8 p-2">If you configure clients to use DNS-over-TLS, then port 853 must be allowed.
+                                Otherwise, you can skip it if all DNS is done via 53</td>
+                            <td class="col p-2">RFC 7858</td>
+                        </tr>
+                        <tr class="p-0">
+                            <td class="col p-2">1194</td>
+                            <td class="col p-2">TCP/UDP</td>
+                            <td class="col p-2">OpenVPN</td>
+                            <td class="col-8 p-2">Required for OpenVPN to work(Can be blocked if OpenVPN is not in use)</td>
+                            <td class="col p-2"></td>
+                        </tr>
+                        <tr class="p-0">
+                            <td class="col p-2">5223</td>
+                            <td class="col p-2">TCP</td>
+                            <td class="col p-2">Apple Push Notification Service(APNs)</td>
+                            <td class="col-8 p-2">Needed if there are Apple products in your network, Used for Apple Push
+                                Notification Service otherwise Apple product may not recieve notification</td>
+                            <td class="col p-2"></td>
+                        </tr>
+                        <tr class="p-0">
+                            <td class="col p-2">5228-5230</td>
+                            <td class="col p-2">TCP</td>
+                            <td class="col p-2">Google Play, Google Cloud Messaging(GCM)</td>
+                            <td class="col-8 p-2">Needed if there are Android products in your network, Android products may not
+                                work properly if these ports are blocked</td>
+                            <td class="col p-2"></td>
+                        </tr>
+                        <tr class="p-0">
+                            <td class="col p-2">5235,5236</td>
+                            <td class="col p-2">TCP</td>
+                            <td class="col p-2">Firebase Cloud Messaging(FCM)</td>
+                            <td class="col-8 p-2">Cloud service for messages and notifications for Android, iOS, and web
+                                applications</td>
+                            <td class="col p-2"></td>
+                        </tr>
+                        <tr class="p-0">
+                            <td class="col p-2">8080</td>
+                            <td class="col p-2">TCP</td>
+                            <td class="col p-2">Speedtest.net</td>
+                            <td class="col-8 p-2">Used to test Internet speeds for endhosts(Can be blocked if Speedtest.net is
+                                not in use)</td>
+                            <td class="col p-2"></td>
+                        </tr>
+                        <tr class="p-0">
+                            <td class="col p-2">51820</td>
+                            <td class="col p-2">UDP</td>
+                            <td class="col p-2">WireGuard</td>
+                            <td class="col-8 p-2">Needed for WireGuard VPN to work(Can be blocked if WireGuard is not in use)
+                            </td>
+                            <td class="col p-2"></td>
+                        </tr>
+                    </table>
+                    <p class="description">The above is a table with the service that are being used and the respective ports
+                        and protocols, using this table we can decide which port to close or leave open so that there is a
+                        little unwanted network traffic as possible.</p>
+                </div>
+                <div class="component-container table-responsive p-4">
+                    <h1 class="mb-4">firewall logging using Zabbix on a Raspberry Pi 4</h1>
+                    <h3 class="mt-4">Installing Tailscale for troubleshooting via remote access</h3>
+                    <div class="description">
+                        <p class="description">For the following you will need to create an account for Tailscale. after creating an
+                            account and installing Tailscale on the device which you want to use to remotely access Zabbix. For
+                            installation on the Raspberry Pi input the following command in your terminal</p>
+                        <pre class="user-select-all">1curl -fsSL https://tailscale.com/install.sh | sh</pre>
+                    </div>
+                    <div class="description">
+                        <p class="description">After running the the command Tailscale will be installed and you will need to run
+                            the next command to get start it</p>
+                        <pre class="user-select-all">sudo tailscale up</pre>
+                    </div>
+                    <p class="description">upon starting Tailscale, if you are not logged in you will recieve a link to log in.
+                        Once you log in, the Raspberry will be connect to the Tailscale network and you should be able to see it
+                        on your admin machines dashboard</p>
+                    <h3 class="mt-5">Configuring VNC on the Raspberry Pi for troubleshooting</h3>
+                    <div class="description">
+                        <p class="description">Next, We need to turn on VNC server on the Raspberry Pi so that we can troubleshoot
+                            any issues that occur, remotely. To turn it on, type the following into the terminal:</p>
+                        <pre class="user-select-all">sudo raspi-config</pre>
+                    </div>
+                    <div class="description">
+                        <p class="description">Select "3 Interface Options".</p>
+                        <img class="img-fluid" src="../Elements/Networking/Firewall/01_Firewall.png">
+                    </div>
+                    <div class="description">
+                        <p class="description">Next, select "I3 VNC".</p>
+                        <img class="img-fluid" src="../Elements/Networking/Firewall/02_Firewall.png">
+                    </div>
+                    <div class="description">
+                        <p class="description">Next, select "Yes".</p>
+                        <img class="img-fluid" src="../Elements/Networking/Firewall/03_Firewall.png">
+                    </div>
+                    <div class="description">
+                        <p class="description">Finally, VNC will be enabled(you may need to restart for it to work).</p>
+                        <img class="img-fluid" src="../Elements/Networking/Firewall/04_Firewall.png">
+                    </div>
+                </div>
+            </div>
 
+            <script src="../Javascript/Networking/Firewall_formatting.js"></script>
         <p>To be updated</p>
 
-        <script src="../Javascript/Networking/Firewall_formatting.js"></script>
     </body>
 </html>

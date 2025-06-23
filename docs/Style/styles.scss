@@ -81,12 +81,14 @@ pre.light-mode {
   border: 2px solid rgb(0, 0, 0);
 }
 
-.description {
+div.description {
   background-color: hsla(0, 0%, 0%, 0.3);
   border-radius: 20px;
   //margin-bottom: 2%;
   padding: 20px;
+  margin-bottom: 1em;
 }
+
 .description > .list {
   margin: 0;
   max-height: 200px;
@@ -180,19 +182,19 @@ nav.light-mode .fa-bars {
 }
 
 ////////////////////////////// TABLES //////////////////////////////
-table.dark-mode > tr:nth-child(even) {
+table.dark-mode > tbody > tr:nth-child(even) {
   background-color: $myContainer-dark !important;
 }
 
-table.dark-mode > tr:nth-child(odd) {
+table.dark-mode > tbody > tr:nth-child(odd) {
   background-color: $myBG-dark-table !important;
 }
 
-table.light-mode > tr:nth-child(even) {
+table.light-mode > tbody > tr:nth-child(even) {
   background-color: $myContainer-light !important;
 }
 
-table.light-mode > tr:nth-child(odd) {
+table.light-mode > tbody > tr:nth-child(odd) {
   background-color: $myBG-light-table !important;
 }
 

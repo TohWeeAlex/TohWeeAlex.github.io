@@ -25,7 +25,14 @@ function runJQFunct(funct) {
 
 // Load external Javascripts after DOM has finished loading
 document.addEventListener('DOMContentLoaded', function() {
-  runJQFunct(getNavBar("../Elements/nav.htm"));
+  if (document.getElementById(`introduction-container`)) {
+    runJQFunct(getNavBar("Elements/nav_index.htm"));
+    console.log('index_nav');
+  }
+  else {
+    runJQFunct(getNavBar("../Elements/nav.htm"));
+    console.log('nav');
+  }
   //console.log(document.location.hostname + "/docs/Elements/nav.htm")
   //initialMode()
 });
