@@ -24,6 +24,12 @@
 
         <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
 
+        <style>
+            .user-input {
+                color: rgb(0, 187, 0);
+            }
+        </style>
+
     </head>   
 
     <body onload="initialMode()">
@@ -150,42 +156,140 @@
                 </div>
                 <div class="component-container table-responsive p-4">
                     <h1 class="mb-4">firewall logging using Zabbix on a Raspberry Pi 4</h1>
-                    <h3 class="mt-4">Installing Tailscale for troubleshooting via remote access</h3>
                     <div class="description">
-                        <p class="description">For the following you will need to create an account for Tailscale. after creating an
-                            account and installing Tailscale on the device which you want to use to remotely access Zabbix. For
-                            installation on the Raspberry Pi input the following command in your terminal</p>
-                        <pre class="user-select-all">1curl -fsSL https://tailscale.com/install.sh | sh</pre>
+                        <h3 class="">Installing Tailscale for troubleshooting via remote access</h3>
+                        <div class="description">
+                            <p class="description">For the following you will need to create an account for Tailscale. after creating an
+                                account and installing Tailscale on the device which you want to use to remotely access Zabbix. For
+                                installation on the Raspberry Pi input the following command in your terminal</p>
+                            <pre class="user-select-all">1curl -fsSL https://tailscale.com/install.sh | sh</pre>
+                        </div>
+                        <div class="description">
+                            <p class="description">After running the the command Tailscale will be installed and you will need to run
+                                the next command to get start it</p>
+                            <pre class="user-select-all">sudo tailscale up</pre>
+                        </div>
+                        <p class="description">upon starting Tailscale, if you are not logged in you will recieve a link to log in.
+                            Once you log in, the Raspberry will be connect to the Tailscale network and you should be able to see it
+                            on your admin machines dashboard</p>
                     </div>
                     <div class="description">
-                        <p class="description">After running the the command Tailscale will be installed and you will need to run
-                            the next command to get start it</p>
-                        <pre class="user-select-all">sudo tailscale up</pre>
-                    </div>
-                    <p class="description">upon starting Tailscale, if you are not logged in you will recieve a link to log in.
-                        Once you log in, the Raspberry will be connect to the Tailscale network and you should be able to see it
-                        on your admin machines dashboard</p>
-                    <h3 class="mt-5">Configuring VNC on the Raspberry Pi for troubleshooting</h3>
-                    <div class="description">
-                        <p class="description">Next, We need to turn on VNC server on the Raspberry Pi so that we can troubleshoot
-                            any issues that occur, remotely. To turn it on, type the following into the terminal:</p>
-                        <pre class="user-select-all">sudo raspi-config</pre>
-                    </div>
-                    <div class="description">
-                        <p class="description">Select "3 Interface Options".</p>
-                        <img class="img-fluid" src="../Elements/Networking/Firewall/01_Firewall.png">
-                    </div>
-                    <div class="description">
-                        <p class="description">Next, select "I3 VNC".</p>
-                        <img class="img-fluid" src="../Elements/Networking/Firewall/02_Firewall.png">
-                    </div>
-                    <div class="description">
-                        <p class="description">Next, select "Yes".</p>
-                        <img class="img-fluid" src="../Elements/Networking/Firewall/03_Firewall.png">
-                    </div>
-                    <div class="description">
-                        <p class="description">Finally, VNC will be enabled(you may need to restart for it to work).</p>
-                        <img class="img-fluid" src="../Elements/Networking/Firewall/04_Firewall.png">
+                        <h3 class="">Configuring VNC on the Raspberry Pi for troubleshooting</h3>
+                        <div class="description">
+                            <p class="description">Next, We need to turn on VNC server on the Raspberry Pi so that we can troubleshoot
+                                any issues that occur, remotely. To turn it on, type the following into the terminal:</p>
+                            <pre class="user-select-all">sudo raspi-config</pre>
+                        </div>
+                        <div class="description">
+                            <p class="description">Select "3 Interface Options".</p>
+                            <img class="img-fluid" src="../Elements/Networking/Firewall/01_Firewall.png">
+                        </div>
+                        <div class="description">
+                            <p class="description">Next, select "I3 VNC".</p>
+                            <img class="img-fluid" src="../Elements/Networking/Firewall/02_Firewall.png">
+                        </div>
+                        <div class="description">
+                            <p class="description">Next, select "Yes".</p>
+                            <img class="img-fluid" src="../Elements/Networking/Firewall/03_Firewall.png">
+                        </div>
+                        <div class="description">
+                            <p class="description">Finally, VNC will be enabled(you may need to restart for it to work).</p>
+                            <img class="img-fluid" src="../Elements/Networking/Firewall/04_Firewall.png">
+                        </div>
+                        <div class="description">
+                            <h3>Installing and configuring Zabbix</h3>
+                            <p class="description">For Zabbix to work we need to install and configure a database for the paspberry pi to remotely store the system logs of the router</p>
+                            <div class="description">
+                                <p class="description">For this system we will be using MariaDB to store the logs, to install MariaDB type the following into the terminal:</p>
+                                <pre class="user-select-all">sudo apt install mariadb-server -y</pre>
+                            </div>
+                            <div class="description">
+                                <p class="description">After the installation is complete, type the following to start MariaDB:</p>
+                                <pre class="user-select-all">systemctl start mariadb</pre>
+                                <p class="description">and type the following to ensure that MariaDB starts in boot:</p>
+                                <pre class="user-select-all">systemctl enable mariadb</pre>
+                            </div>
+                            <div class="description">
+                                <p class="description">Now we will be configuring our Raspberry Pi account for logging in to MariaDB so that we can continue the database configuration</p>
+                                <pre class="user-select-all">sudo mysql_secure_installation</pre>
+                                <p class="description">Follow the interactive prompts and change the options as you see fit, but you can follow the steps bellow if you are unsure.</p>
+                                <pre id="pre1"></pre>
+                            </div>
+                            <div class="description">
+                                <p class="description">To create the database follow the command format below and change the parameters as needed:</p>
+                                <pre class="user-select-all">mysql> create database <span class="user-input">[Database Name]</span> character set utf8mb4 collate utf8mb4_bin;</pre>
+                                <p class="description">
+                                    <ul class="list">
+                                        <li>create database <span class="user-input">[Database Name]</span> -- Creates a database with the specified name</li>
+                                        <li>character set utf8mb4 -- Defines that the database will be using the <strong>utf8mb4</strong> Character set.</li>
+                                        <li>collate utf8mb4_bin -- Defines that strings will be sort and compared via <strong>utf8mb4_bin.</strong></li>
+                                    </ul>
+                                </p>
+                            </div>
+                            <div class="description">   
+                                <p class="description">Now we will create an user to access the database.</p>
+                                <pre class="user-select-all">mysql> create user <span class="user-input">[Username]</span>@localhost identified by '<span class="user-input">[Password]</span>';</pre>
+                                <p class="description">
+                                    <ul class="list">
+                                        <li>create user <span class="user-input">[Username]</span> -- Creates an account with the specified username.</li>
+                                        <li>@localhost -- Restricts this account so it can only connect from the local machine.</li>
+                                        <li>identified by '<span class="user-input">[Password]</span>' -- Specifies the account's password.</li>
+                                    </ul>
+                                </p>
+                            </div>
+                            <div class="description">   
+                                <p class="description">Here we will specify the privileges for the user that we have created.</p>
+                                <pre class="user-select-all">mysql> grant all privileges on <span class="user-input">[Database name]</span>.* to <span class="user-input">[Username]</span>@localhost;</pre>
+                                <p class="description">
+                                    <ul class="list">
+                                        <li>grant all privileges -- Grants all privileges to the to the specified account for the specified database which include but are not limited to create, select, insert, update, delete, drop, etc.</li>
+                                        <li>on <span class="user-input">[Database name]</span>.* to <span class="user-input">[Username]</span>@localhost -- Specifies that the privileges are only granted to the user specified connected via the localhost.</li>
+                                    </ul>
+                                </p>
+                            </div> 
+                            <div class="description">   
+                                <p class="description">Here we will specify the privileges for the user that we have created.</p>
+                                <pre class="user-select-all">mysql> set global log_bin_trust_function_creators = 1;</pre>
+                                <p class="description">
+                                    <ul class="list">
+                                        <li>set global -- Changing a system wide variabl, making it persistent.</li>
+                                        <li>log_bin_trust_function_creators = 1 -- Allows non-super user's stored routines (functions and triggers) to use features that normally require binary-logging-safe definitions.</li>
+                                    </ul>
+                                </p>
+                                <p class="description">Next we will need to exit the MySQL CLI.</p>
+                                <pre class="user-select-all">mysql> quit;</pre>
+                            </div>
+                            <div class="description">   
+                                <p class="description">We will now import the initial schema and data using a script provided by Zabbix(Zabbix needs to be installed for this step to work).</p>
+                                <pre class="user-select-all">zcat /usr/share/zabbix-sql-scripts/mysql/server.sql.gz | mysql --default-character-set=utf8mb4 -u <span class="user-input">[Username]</span> -p <span class="user-input">[Database name]</span></pre>
+                                <p class="description">
+                                    <ul class="list">
+                                        <li>zcat /usr/share/zabbix-sql-scripts/mysql/server.sql.gz -- Runs the importing script for the initial schema and data provided by Zabbix</li>
+                                        <li>mysql --default-character-set=utf8mb4 -u <span class="user-input">[Username]</span> -p <span class="user-input">[Database name]</span> -- Tells MySQL to connect as the specified user, and defaulting to the database specified and use <strong>utf8mb4</strong> for all character-encoding for the current session</li>
+                                    </ul>
+                                </p>
+                            </div>
+                            <div class="description">   
+                                <p class="description">Now we will need to disable log_bin_trust_function_creators to ensure that no one else can execute other scripts and alter the settings we have configured.</p>
+                                <pre class="user-select-all" id="pre2">zcat /usr/share/zabbix-sql-scripts/mysql/server.sql.gz | mysql --default-character-set=utf8mb4 -u <span class="user-input">[Username]</span> -p <span class="user-input">[Database name]</span></pre>
+                            </div>
+                            <div class="description">   
+                                <p class="description">To configure the database for Zabbix server, we will need to input the password for the database by altering the .conf file.</p>
+                                <pre class="user-select-all" id="pre3"></pre>
+                            </div>
+                            <div class="description">   
+                                <p class="description">Next we will need to set a port for Zabbix to listen from, and a server name if you have one. We will need to alter the .conf file by uncommenting and changing the following lines:</p>
+                                <pre class="user-select-all" id="pre4"></pre>
+                            </div>
+                            <div class="description">   
+                                <p class="description">To ensure that the Zabbix server and agent process run on startup we need to run the following commands.</p>
+                                <pre class="user-select-all" id="pre5"></pre>
+                            </div>
+                            <div class="description">   
+                                <p class="description">With the steup done for the Zabbix and the database, you can enter the webserver to follow up with the configuration for your router system logs. Just enter <span class="user-input">localhost:[listening port]</span> into the web browser and you will be prompted to login. Use the following credential to log in as the Zabbix superuser, were you will be able to access all configuration menus:</p>
+                                <pre class="user-select-all" id="pre6"></pre>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
