@@ -1,0 +1,5 @@
+"Download Splunk"
+"install splunk in a directory where the account running has access to allow spunk to run"
+"sudo ./splunk start" 
+"sudo ./splunk enable boot-start"
+"For debian", "sudo $SPLUNK_HOME/bin/splunk enable boot-start -user [user] -systemd-managed 1"

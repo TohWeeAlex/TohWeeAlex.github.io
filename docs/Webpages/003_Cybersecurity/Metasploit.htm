@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+    <title>Cyberecurity</title>
+
+    <head>
+
+        <!-- Load Metadata -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Load CDN CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="../../Style/styles.css">
+
+        <!-- Load CDN JS-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://kit.fontawesome.com/17a7db9b22.js" crossorigin="anonymous"></script>
+
+        <!-- Load External JS -->
+        <script src="../../Javascript/Imports.js"></script>
+        <script src="../../Javascript/LightDarkMode.js"></script>
+
+        <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+
+    </head>
+
+    <body onload="initialMode()">
+
+        <div>
+            <p class="m-0 p-4 pb-0">
+                The following is a cheatsheet using my understanding of the tools that have come across while studying and experimenting with pentesting on HackTheBox and TryHackMe.
+            </p>
+        </div>
+
+        <div class="content" id="contentContainer">
+            <div class="component-container table-responsive p-4">
+                <h1 class="mb-4">Metasploit Usage</h1>
+                <div class="description">
+                    <h3>Running MSF</h3>
+                    <p>Start MSF by running the following commands in the terminal.</p>
+                    <pre>msfconsole</pre>
+                </div>
+                <div class="description">
+                    <h3>Checking for existing exploits</h3>
+                    <p>You can use the following commands to check if there are any existing exploits depending in the information that you have.</p>
+                    <pre>#search cve:2009 type:exploit
+#search cve:2009 type:exploit platform:-linux
+#search cve:2009 -s name
+#search type:exploit -s type -r</pre>
+                    <ul>
+                        <li><strong>cve:[CVE number]</strong> -- search by Common Vulnerabilities and Exposures(CVE) number</li>
+                        <li><strong>platform:[OS name]</strong> -- search by OS name</li>
+                        <li><strong>type:[Module type] -- Searches the Module type according to the following types</strong></li>
+                        <ul class="list">
+                            <li><strong>Auxiliary</strong></li>
+                                <ul>
+                                    <li>Administration - Modify, operate, or manipulate something on target machine</li>
+                                    <li>Analyzing - Tools that perform analysis, mostly password cracking</li>
+                                    <li>Gathering - Gather, collect, or enumerate data from a single target</li>
+                                    <li>Denial of Service - Crash or slow a target machine or service</li>
+                                    <li>Scanning - Scan targets for known vulnerabilities</li>
+                                    <li>Server Support - Run Servers for common protocols such as SMB, FTP, etc</li>
+                                </ul>
+                            <li><strong>Encoder</strong></li>
+                                <ul>
+                                    <li>Encoders take the raw bytes of a payload and run some sort of encoding algorithm</li>
+                                </ul>   
+                            <li><strong>Evasion</strong></li>
+                                <ul>
+                                    <li>Allows users to generate payload that can evade Antiviruses</li>
+                                </ul> 
+                            <li><strong>Exploit</strong></li>
+                                <ul>
+                                    <li>Uses known vulnerabilities to execute arbitary code</li>
+                                </ul> 
+                            <li><strong>Nop</strong></li>
+                                <ul>
+                                    <li>Generate "No Operation" instructions that are of then used in conjuncture with stack buffer overflows</li>
+                                </ul> 
+                            <li><strong>Payloads</strong></li>
+                                <ul>
+                                    <li>Usually used with exploit module, this module changes the payload sent by the exploit module</li>
+                                </ul>
+                        </ul>
+                        <li><strong>-h</strong> --Help banner</li>
+                        <li><strong>-I</strong> --Ignore the command if the only match has the same name as the search</li>
+                        <li><strong>-o [filename]</strong> --Send output to a file in csv format</li>
+                        <li><strong>-r [column]</strong> --Reverse the order of search results to descending order</li>
+                        <li><strong>-S [filter]</strong> --Regex pattern used to filter search results</li>
+                        <li><strong>-s [column]</strong> --Sort search results by the specified column in ascending order</li>
+                        <li><strong>-u</strong> --Use module if there is one result</li>
+
+                    </ul>
+                </div>
+                <div class="description">
+                    <h3>Running exploit</h3>
+                    <p>After finding the right module to run, you can use the following command to run the exploit</p>
+                    <pre>msfconsole</pre>
+                </div>
+            </div>
+        </div>
+
+        <script src="../../Javascript/LightDarkMode.js"></script>
+        <p>To be updated</p>
+    </body>
+</html>

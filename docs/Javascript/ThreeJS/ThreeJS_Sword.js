@@ -50,7 +50,7 @@ function init() {
 	mainContainer.appendChild( container );
 	// This initiates Loading 'img' 
 	var loadingIcon = document.createElement( 'img' );
-	loadingIcon.src = "Elements/cupertino_activity_indicator.gif";
+	loadingIcon.src = "../../Elements/cupertino_activity_indicator.gif";
 	loadingIcon.setAttribute("id", "loading-icon-sword");
 	loadingIcon.className = "loading-icon";
 	document.getElementById("sword").appendChild(loadingIcon);
@@ -61,7 +61,7 @@ function init() {
 	scene = new THREE.Scene();
 
 	new RGBELoader(manager)
-		.setPath( 'Elements/3DModels/' )
+		.setPath( '../../Elements/3DModels/' )
 		.load( 'colorful_studio_4k.hdr', function ( texture ) {
 
 			texture.mapping = THREE.EquirectangularReflectionMapping;
@@ -72,7 +72,7 @@ function init() {
 			render();
 
 			// model
-			const loader = new GLTFLoader(manager).setPath( 'Elements/3DModels/' );
+			const loader = new GLTFLoader(manager).setPath( '../../Elements/3DModels/' );
 			loader.load( 'CrownClownSOE.glb', function ( gltf ) {
 
 				scene.add( gltf.scene );

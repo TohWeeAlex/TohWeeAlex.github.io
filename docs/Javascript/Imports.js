@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('index_nav');
   }
   else {
-    runJQFunct(getNavBar("../Elements/nav.htm"));
+    runJQFunct(getNavBar("../../Elements/nav.htm"));
     console.log('nav');
   }
   //console.log(document.location.hostname + "/docs/Elements/nav.htm")

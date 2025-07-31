@@ -1,20 +1,6 @@
-<!-- header info required -->
-
-<!--
-<meta charset="utf-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
--->
 
 <!--====== Desktop NavBar =====-->
-<nav
-  class="navbar navbar-expand-sm rounded-4 light-mode d-md-block d-none"
-  id="nav-desktop"
->
+<nav class="navbar navbar-expand-sm rounded-4 light-mode d-md-block d-none" id="nav-desktop">
   <div class="container-fluid">
     <!-- Links -->
     <ul class="navbar-nav">
@@ -22,68 +8,92 @@
       <li class="nav-item">
         <a class="nav-link" href="index.htm">Home</a>
       </li>
+
       <!--==== HTML Menu ====-->
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">HTML</a>
         <ul class="dropdown-menu fade-down">
           <li>
-            <a class="dropdown-item" href="Webpages/HTML_04_login.htm">Login page</a>
+            <a class="dropdown-item" href="Webpages/000_HTML/Image Gallery.htm">Image Gallery</a>
           </li>
+
           <li>
-            <a class="dropdown-item" href="Webpages/Art_01_2D.htm">Image Gallary</a>
+            <a class="dropdown-item" href="Webpages/000_HTML/Login page demo.htm">Login page demo</a>
           </li>
+
         </ul>
       </li>
+
       <!--==== ThreeJS Menu ====-->
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
-          >ThreeJS</a
-        >
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">ThreeJS</a>
         <ul class="dropdown-menu fade-down">
           <li>
-            <a class="dropdown-item" href="Webpages/ThreeJS_01.htm">ThreeJS test demo</a>
+            <a class="dropdown-item" href="Webpages/001_ThreeJS/ThreeJS test demo.htm">ThreeJS test demo</a>
           </li>
+
         </ul>
       </li>
+
       <!--==== Javascript Menu ====-->
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
-          >Javascript</a
-        >
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Javascript</a>
         <ul class="dropdown-menu fade-down">
           <li>
-            <a class="dropdown-item" href="Webpages/Javascript_01.htm">Component Demo</a>
+            <a class="dropdown-item" href="Webpages/002_Javascript/Component Demo.htm">Component Demo</a>
           </li>
+
         </ul>
       </li>
+
       <!--==== Cybersecurity Menu ====-->
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
-          >Cybersecurity</a
-        >
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Cybersecurity</a>
         <ul class="dropdown-menu fade-down">
           <li>
-            <a class="dropdown-item" href="Webpages/Cybersecurity_homepage.htm"
-              >Pentesting</a
-            >
+            <a class="dropdown-item" href="Webpages/003_Cybersecurity/Linux Commands.htm">Linux Commands</a>
           </li>
+
           <li>
-            <a class="dropdown-item" href="Webpages/VulnVM_homepage.htm">VulnVMs</a>
+            <a class="dropdown-item" href="Webpages/003_Cybersecurity/Metasploit.htm">Metasploit</a>
           </li>
+
+          <li>
+            <a class="dropdown-item" href="Webpages/003_Cybersecurity/Pentesting.htm">Pentesting</a>
+          </li>
+
+          <li>
+            <a class="dropdown-item" href="Webpages/003_Cybersecurity/VulnVMs.htm">VulnVMs</a>
+          </li>
+
         </ul>
       </li>
+
       <!--==== Networking Menu ====-->
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
-          >Networking</a
-        >
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Networking</a>
         <ul class="dropdown-menu fade-down">
-          <li><a class="dropdown-item" href="Webpages/Firewall.htm">Firewall</a></li>
-          <li><a class="dropdown-item" href="Webpages/Pfsense.htm">Pfsense</a></li>
-          <li><a class="dropdown-item" href="Webpages/EdgeRouter.htm">Edgerouter</a></li>
+          <li>
+            <a class="dropdown-item" href="Webpages/004_Networking/EdgeRouter.htm">EdgeRouter</a>
+          </li>
+
+          <li>
+            <a class="dropdown-item" href="Webpages/004_Networking/Firewall.htm">Firewall</a>
+          </li>
+
+          <li>
+            <a class="dropdown-item" href="Webpages/004_Networking/Pfsense.htm">Pfsense</a>
+          </li>
+
+          <li>
+            <a class="dropdown-item" href="Webpages/004_Networking/SIEMs.htm">SIEMs</a>
+          </li>
+
         </ul>
       </li>
+
     </ul>
+  </li> 
     <div class="form-check form-switch float-end">
       <input
         onclick="viewChange()"
@@ -102,6 +112,7 @@
     </div>
   </div>
 </nav>
+
 <!--====== Mobile NavBar =====-->
 <nav
   class="navbar navbar-dark bg-dark fixed-top d-md-none d-block"
@@ -152,12 +163,9 @@
       <hr class="p-0 m-0" />
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-          <!--Home button-->
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="index.htm"
-              >Home</a
-            >
-          </li>
+            <!--Home button-->
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.htm">Home</a></li>
+
           <!--HTML dropdown-->
           <li class="nav-item dropdown">
             <a
@@ -170,14 +178,14 @@
               HTML
             </a>
             <ul class="dropdown-menu border border-1">
-              <li>
-                <a class="dropdown-item" href="Webpages/HTML_04_login.htm">Login page</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="Webpages/Art_01_2D.htm">Image gallary</a>
-              </li>
+
+              <li><a class="dropdown-item" href="Webpages/000_HTML/Image Gallery.htm">Image Gallery</a></li>
+
+              <li><a class="dropdown-item" href="Webpages/000_HTML/Login page demo.htm">Login page demo</a></li>
+
             </ul>
           </li>
+
           <!--ThreeJS dropdown-->
           <li class="nav-item dropdown">
             <a
@@ -190,14 +198,13 @@
               ThreeJS
             </a>
             <ul class="dropdown-menu border border-1">
-              <li>
-                <a class="dropdown-item" href="Webpages/ThreeJS_01.htm"
-                  >ThreeJS test demo</a
-                >
-              </li>
+
+              <li><a class="dropdown-item" href="Webpages/001_ThreeJS/ThreeJS test demo.htm">ThreeJS test demo</a></li>
+
             </ul>
           </li>
-          <!--JavaScript dropdown-->
+
+          <!--Javascript dropdown-->
           <li class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle"
@@ -206,16 +213,15 @@
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              JavaScript
+              Javascript
             </a>
             <ul class="dropdown-menu border border-1">
-              <li>
-                <a class="dropdown-item" href="Webpages/Javascript_01.htm"
-                  >Component demo</a
-                >
-              </li>
+
+              <li><a class="dropdown-item" href="Webpages/002_Javascript/Component Demo.htm">Component Demo</a></li>
+
             </ul>
           </li>
+
           <!--Cybersecurity dropdown-->
           <li class="nav-item dropdown">
             <a
@@ -228,16 +234,18 @@
               Cybersecurity
             </a>
             <ul class="dropdown-menu border border-1">
-              <li>
-                <a class="dropdown-item" href="Webpages/Cybersecurity_homepage.htm"
-                  >Pentesting</a
-                >
-              </li>
-              <li>
-                <a class="dropdown-item" href="Webpages/VulnVM_homepage.htm">VulnVMs</a>
-              </li>
+
+              <li><a class="dropdown-item" href="Webpages/003_Cybersecurity/Linux Commands.htm">Linux Commands</a></li>
+
+              <li><a class="dropdown-item" href="Webpages/003_Cybersecurity/Metasploit.htm">Metasploit</a></li>
+
+              <li><a class="dropdown-item" href="Webpages/003_Cybersecurity/Pentesting.htm">Pentesting</a></li>
+
+              <li><a class="dropdown-item" href="Webpages/003_Cybersecurity/VulnVMs.htm">VulnVMs</a></li>
+
             </ul>
           </li>
+
           <!--Networking dropdown-->
           <li class="nav-item dropdown">
             <a
@@ -250,17 +258,18 @@
               Networking
             </a>
             <ul class="dropdown-menu border border-1">
-              <li>
-                <a class="dropdown-item" href="Webpages/Firewall.htm">Firewall</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="Webpages/Pfsense.htm">Pfsense</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="Webpages/EdgeRouter.htm">Edgerouter</a>
-              </li>
+
+              <li><a class="dropdown-item" href="Webpages/004_Networking/EdgeRouter.htm">EdgeRouter</a></li>
+
+              <li><a class="dropdown-item" href="Webpages/004_Networking/Firewall.htm">Firewall</a></li>
+
+              <li><a class="dropdown-item" href="Webpages/004_Networking/Pfsense.htm">Pfsense</a></li>
+
+              <li><a class="dropdown-item" href="Webpages/004_Networking/SIEMs.htm">SIEMs</a></li>
+
             </ul>
           </li>
+
         </ul>
       </div>
     </div>

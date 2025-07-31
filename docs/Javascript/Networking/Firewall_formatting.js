@@ -107,8 +107,8 @@ Reload privilege tables now? [Y/n]: <span class="user-input">[y]</span>`
   let preElement2 = document.getElementById("pre2")
   preElement2.innerHTML = `mysql -u root -p
 [Input Password]
-mysql> set global log_bin_trust_function_creators = 0;
-mysql> quit;`
+set global log_bin_trust_function_creators = 0;
+quit;`
   let preElement3 = document.getElementById("pre3")
   preElement3.innerHTML = `sudo nano /etc/zabbix/zabbix_server.conf
 [uncomment and change the "DBPassword" variable to your <span class="user-input">[database password]</span>]
@@ -121,7 +121,10 @@ server_name <span class="user-input">[Server Name]</span>;`
   preElement5.innerHTML = `systemctl restart zabbix-server zabbix-agent nginx php8.2-fpm
 systemctl enable zabbix-server zabbix-agent nginx php8.2-fpm`
   let preElement6 = document.getElementById("pre6")
-  preElement6.innerHTML = `*The inputs are case sensitive*
+  preElement6.innerHTML = `sudo locale-gen en_US en_US.UTF-8
+sudo dpkg-reconfigure locales`
+  let preElement7 = document.getElementById("pre7")
+  preElement7.innerHTML = `*The inputs are case sensitive*
 Username=Admin
 Password=zabbix`
 }

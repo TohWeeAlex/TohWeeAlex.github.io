@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <title>Firewall Rules</title>
+
+    <head>
+
+        <!-- Load Metadata -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Load CDN CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="../../Style/styles.css">
+
+        <!-- Load CDN JS-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://kit.fontawesome.com/17a7db9b22.js" crossorigin="anonymous"></script>
+
+        <!-- Load External JS -->
+        <script src="../../Javascript/Imports.js"></script>
+        <script src="../../Javascript/LightDarkMode.js"></script>
+
+        <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+
+        <style>
+            .user-input {
+                color: rgb(0, 187, 0);
+            }
+        </style>
+
+    </head>   
+
+    <body onload="initialMode()">
+
+        <div>
+            <p class="m-0 p-4 pb-0">
+                The following is a cheatsheet for well known linux commands.
+            </p>
+        </div>
+
+            <div class="content" id="contentContainer1">
+                <div class="component-container table-responsive p-4">
+                    <h1 class="mb-4">Linux Command List</h1>
+                    <table class="table-bordered border" id="port-table">
+                        <tr>
+                            <th colspan="3">
+                                <h4 class="m-0 p-2 text-center"><strong>OS commands</strong></h4>
+                            </th>
+                        </tr>      
+                        <tr class="p-0">
+                            <th class="col p-2" onclick="sortTable(0)">Command</th>
+                            <th class="col-8 p-2" onclick="sortTable(3)">Usage</th>
+                            <th class="col p-2" onclick="sortTable(4)">Further Information/Documentation(if any)</th>
+                        </tr>
+                        <!--APT-->
+                        <tr class="p-0">
+                            <td class="col p-2">Apt</td>
+                            <td class="col-8 p-2">
+                                <p class="m-0">Package manager for linux distros</p>
+                                <ul class="m-0">
+                                    <li><strong>apt install [package name] -y</strong> <i>-- Installs package</i></li>
+                                    <li><strong>apt list --installed</strong> <i>-- list installed packages</i></li>
+                                    <li><strong>sudo apt update -y && sudo apt full-upgrade -y && sudo apt autoremove -y && sudo apt clean -y && sudo apt autoclean -y</strong> <i>-- One line package updates</i></li>
+                                </ul>
+                            </td>
+                            <td class="col p-2"></td>
+                        </tr>
+                        <tr class="p-0">
+                            <td class="col p-2">man [command]</td>
+                            <td class="col-8 p-2">
+                                <p class="m-0">Displays information on other commands and how they work</p>
+                            </td>
+                            <td class="col p-2"></td>
+                        </tr>
+                        <tr class="p-0">
+                            <td class="col p-2">apropos [string]</td>
+                            <td class="col-8 p-2">
+                                <p class="m-0">Searches the man page descriptions for a specified string</p>
+                            </td>
+                            <td class="col p-2"></td>
+                        </tr>
+                        <tr class="p-0">
+                            <td class="col p-2">whatis [command]</td>
+                            <td class="col-8 p-2">
+                                <p class="m-0">Displays a description of a command on a single line</p>
+                            </td>
+                            <td class="col p-2"></td>
+                        </tr>
+                        <tr>
+                            <th colspan="3">
+                                <h4 class="m-0 p-2 text-center"><strong>User permissions commands</strong></h4>
+                            </th>
+                        </tr>
+                        <!--whoami-->
+                        <tr class="p-0">
+                            <td class="col p-2">whoami</td>
+                            <td class="col-8 p-2">Check who the current user is</td>
+                            <td class="col p-2"></td>
+                        </tr>
+                        <tr class="p-0">
+                            <td class="col p-2">useradd</td>
+                            <td class="col-8 p-2">
+                                <p class="m-0">Add a user to the system</p>
+                                <ul class="m-0">
+                                    <li><strong>-g [group name]</strong> <i>-- specify main group, GROUP MUST EXIST BEFOREHAND</i></li>
+                                    <li><strong>-G [group1,group2,group3,...]</strong> <i>-- Specifies which EXISTING group to add the new user to</i></li>
+                                </ul>
+                            </td>
+                            <td class="col p-2"></td>
+                        </tr>
+                        <tr class="p-0">
+                            <td class="col p-2">usermod </td>
+                            <td class="col-8 p-2">
+                                <p class="m-0">Modifies an existing user</p>
+                                <ul class="m-0">
+                                    <li><strong>-g [group name]</strong> <i>-- Changes the user's main group, GROUP MUST EXIST BEFOREHAND</i></li>
+                                    <li><strong>-a -G [group1,group2,group3,...]</strong> <i>-- Specifies which EXISTING group to add the new user to</i></li>
+                                    <li><strong>-d [new directory]</strong> <i>-- changes the user's home directory</i></li>
+                                    <li><strong>-l [new username]</strong> <i>-- Changes the user's login name</i></li>
+                                    <li><strong>-L</strong> <i>-- Locks the account so the user can't log in</i></li>
+                                    <li><strong>-r</strong> <i>-- delete all files in the user's home directory</i></li>
+                                </ul>
+                            </td>
+                            <td class="col p-2"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <script src="../../Javascript/Networking/Firewall_formatting.js"></script>
+        <p>To be updated</p>
+
+    </body>
+</html>
