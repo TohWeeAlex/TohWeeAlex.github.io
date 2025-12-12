@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html>
+
+    <title>Cyberecurity</title>
+
+    <head>
+
+        <!-- Load Metadata -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Load CDN CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="Style/styles.css">
+
+        <!-- Load CDN JS-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://kit.fontawesome.com/17a7db9b22.js" crossorigin="anonymous"></script>
+
+        <!-- Load External JS -->
+        <script src="Javascript/Imports.js"></script>
+        <script src="Javascript/LightDarkMode.js"></script>
+
+        <style>
+            body{
+                background:#191B28;
+            }
+
+            .content {
+                font-family: 'Titillium Web', sans-serif;
+            }
+
+            .description {
+                font-size: 17px;
+                background-color: hsla(0, 0%, 0%, 0.3);
+                border-radius: 5px 5px 20px 20px;
+                margin: 0;
+                padding: 20px;
+            }
+        </style>
+
+        <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+
+    </head>
+
+    <body onload="initialMode()">
+
+        <div>
+            <p class="m-0 p-4 pb-0">
+                The following is a cheatsheet using my understanding of the tools that have come across while studying and experimenting with pentesting on HackTheBox and TryHackMe.
+            </p>
+        </div>
+
+        <div class="content">
+
+            <div>
+                <!-- Enumaration Title -->
+                <h1 class="p-4 pb-0">
+                    Enumaration
+                </h1>
+                <!-- Hydra Segment -->
+                <div class="component-container">
+                    <div class="m-0 p-4">
+                        <h2>
+                            Hydra
+                        </h2>
+                        <h5>
+                            Hydra Syntax:
+                        </h5>
+                        <pre>hydra [[[-l LOGIN|-L FILE] [-p PASS|-P FILE]] | [-C FILE]] [-e nsr] [-o FILE] [-t TASKS] [-M FILE [-T TASKS]] [-w TIME] [-W TIME] [-f] [-s PORT] [-x MIN:MAX:CHARSET] [-c TIME] [-ISOuvVd46] [MODULE_OPT] [service://server[:PORT][/OPT]]</pre>
+                        <div>
+                            <div class="description">
+                                Syntax examples:
+                                <ul style="height: 200px;" class="overflow-auto">
+                                    <li>hydra -l basic-auth-user -P 2023-200_most_used_passwords.txt 127.0.0.1 http-get / -s 81</li>
+                                    <li>hydra -L top-usernames-shortlist.txt -P 2023-200_most_used_passwords.txt -f 127.0.0.1 -s 5000 http-post-form "/:username=^USER^&password=^PASS^:F=Invalid credentials"</li>
+                                    <li>hydra -l user -P passlist.txt ftp://192.168.0.1</li>
+                                    <li>hydra -L userlist.txt -p defaultpw imap://192.168.0.1/PLAIN</li>
+                                    <li>hydra -C defaults.txt -6 pop3s://[2001:db8::1]:143/TLS:DIGEST-MD5</li>
+                                    <li>hydra -l admin -p password ftp://[192.168.0.0/24]/</li>
+                                    <li>hydra -L logins.txt -P pws.txt -M targets.txt ssh</li>
+                                </ul>
+                            </div>
+                            <div class="description mt-4">
+                                The follow are the service/applications that are supported:
+                                <ul style="height: 200px;" class="overflow-auto">
+                                    <li>adam6500</li>
+                                    <li>asterisk</li>
+                                    <li>cisco</li>
+                                    <li>cisco-enable</li>
+                                    <li>cobaltstrike</li>
+                                    <li>cvs</li>
+                                    <li>firebird</li>
+                                    <li>ftp[s]</li>
+                                    <li>http[s]-{head|get|post}</li>
+                                    <li>http[s]-{get|post}-form</li>
+                                    <li>http-proxy</li>
+                                    <li>http-proxy-urlenum</li>
+                                    <li>icq</li>
+                                    <li>imap[s]</li>
+                                    <li>irc</li>
+                                    <li>ldap2[s]</li>
+                                    <li>ldap3[-{cram|digest}md5][s]</li>
+                                    <li>memcached</li>
+                                    <li>mongodb</li>
+                                    <li>mssql</li>
+                                    <li>mysql</li>
+                                    <li>nntp</li>
+                                    <li>oracle-listener</li>
+                                    <li>oracle-sid</li>
+                                    <li>pcanywhere</li>
+                                    <li>pcnfs</li>
+                                    <li>pop3[s]</li>
+                                    <li>postgres</li>
+                                    <li>radmin2</li>
+                                    <li>rdp</li>
+                                    <li>redis</li>
+                                    <li>rexec</li>
+                                    <li>rlogin</li>
+                                    <li>rpcap</li>
+                                    <li>rsh</li>
+                                    <li>rtsp</li>
+                                    <li>s7-300</li>
+                                    <li>sip</li>
+                                    <li>smb</li>
+                                    <li>smtp[s]</li>
+                                    <li>smtp-enum</li>
+                                    <li>snmp</li>
+                                    <li>socks5</li>
+                                    <li>ssh</li>
+                                    <li>sshkey</li>
+                                    <li>svn</li>
+                                    <li>teamspeak</li>
+                                    <li>telnet[s]</li>
+                                    <li>vmauthd</li>
+                                    <li>vnc</li>
+                                    <li>xmpp</li>
+                                </ul>
+                            </div>
+                            <p class="p-3 pb-0">
+                                Link to Documentation on Kali Docs: <a href="https://www.kali.org/tools/hydra/">https://www.kali.org/tools/hydra/</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Medusa Segment -->
+                <div class="component-container">
+                    <div class="m-0 p-4">
+                        <h2>
+                            Medusa
+                        </h2>
+                        <h5>
+                            Medusa Syntax:
+                        </h5>
+                        <pre>Medusa [-h host|-H file] [-u username|-U file] [-p password|-P file] [-C file] -M module [OPT]</pre>
+                        <div>
+                            <div class="description">
+                                Syntax examples:
+                                <ul style="height: 200px;" class="overflow-auto">
+                                    <li>hydra -l basic-auth-user -P 2023-200_most_used_passwords.txt 127.0.0.1 http-get / -s 81</li>
+                                    <li>hydra -L top-usernames-shortlist.txt -P 2023-200_most_used_passwords.txt -f 127.0.0.1 -s 5000 http-post-form "/:username=^USER^&password=^PASS^:F=Invalid credentials"</li>
+                                    <li>hydra -l user -P passlist.txt ftp://192.168.0.1</li>
+                                    <li>hydra -L userlist.txt -p defaultpw imap://192.168.0.1/PLAIN</li>
+                                    <li>hydra -C defaults.txt -6 pop3s://[2001:db8::1]:143/TLS:DIGEST-MD5</li>
+                                    <li>hydra -l admin -p password ftp://[192.168.0.0/24]/</li>
+                                    <li>hydra -L logins.txt -P pws.txt -M targets.txt ssh</li>
+                                </ul>
+                                The follow are some of the popular service/applications that are supported:
+                                <ul style="height: 200px;" class="overflow-auto">
+                                    <li>CVS</li>
+                                    <li>FTP</li>
+                                    <li>HTTP</li>
+                                    <li>IMAP</li>
+                                    <li>MySQL</li>
+                                    <li>MSSQL</li>
+                                    <li>NNTP</li>
+                                    <li>PcAnywhere</li>
+                                    <li>POP3</li>
+                                    <li>PostgreSQL</li>
+                                    <li>REXEC</li>
+                                    <li>RDP(Remote Desktop Protocol)</li>
+                                    <li>RLOGIN</li>
+                                    <li>RSH</li>
+                                    <li>SMB</li>
+                                    <li>SMTP</li>
+                                    <li>SNMP</li>
+                                    <li>SSH</li>
+                                    <li>Subversion</li>
+                                    <li>Telnet</li>
+                                    <li>VMware Authentication Daemon</li>
+                                    <li>VNC</li>                                
+                                </ul>
+                            </div>
+                            <p class="p-3 pb-0">
+                                Link to Documentation on Kali Docs: <a href="https://www.kali.org/tools/medusa/">https://www.kali.org/tools/medusa/</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <!-- Login Brute-forcing Title -->
+                <h1 class="p-4 pb-0">
+                    Login Brute-forcing
+                </h1>
+                <!-- Username Anarchy Segment -->
+                <div class="component-container">
+                    <div class="m-0 p-4">
+                        <h2>
+                            Username Anarchy
+                        </h2>
+                        <h5>
+                            installation
+                        </h5>
+                        <pre>sudo apt install ruby -y
+git clone https://github.com/urbanadventurer/username-anarchy.git
+cd username-anarchy</pre>
+                        <h5>
+                            Username Anarchy Syntax:
+                        </h5>
+                        <pre>./username-anarchy <first>> > jane_smith_usernames.txt</pre>
+                        <div>
+                            <div class="description">
+                                Syntax examples:
+                                <ul style="height: 200px;" class="overflow-auto">
+                                    <li>hydra -l basic-auth-user -P 2023-200_most_used_passwords.txt 127.0.0.1 http-get / -s 81</li>
+                                    <li>hydra -L top-usernames-shortlist.txt -P 2023-200_most_used_passwords.txt -f 127.0.0.1 -s 5000 http-post-form "/:username=^USER^&password=^PASS^:F=Invalid credentials"</li>
+                                    <li>hydra -l user -P passlist.txt ftp://192.168.0.1</li>
+                                    <li>hydra -L userlist.txt -p defaultpw imap://192.168.0.1/PLAIN</li>
+                                    <li>hydra -C defaults.txt -6 pop3s://[2001:db8::1]:143/TLS:DIGEST-MD5</li>
+                                    <li>hydra -l admin -p password ftp://[192.168.0.0/24]/</li>
+                                    <li>hydra -L logins.txt -P pws.txt -M targets.txt ssh</li>
+                                </ul>
+                            </div>
+                            <div class="description mt-4">
+                                The follow are the service/applications that are supported:
+                                <ul style="height: 200px;" class="overflow-auto">
+                                    <li>adam6500</li>
+                                    <li>asterisk</li>
+                                    <li>cisco</li>
+                                    <li>cisco-enable</li>
+                                    <li>cobaltstrike</li>
+                                    <li>cvs</li>
+                                    <li>firebird</li>
+                                    <li>ftp[s]</li>
+                                    <li>http[s]-{head|get|post}</li>
+                                    <li>http[s]-{get|post}-form</li>
+                                    <li>http-proxy</li>
+                                    <li>http-proxy-urlenum</li>
+                                    <li>icq</li>
+                                    <li>imap[s]</li>
+                                    <li>irc</li>
+                                    <li>ldap2[s]</li>
+                                    <li>ldap3[-{cram|digest}md5][s]</li>
+                                    <li>memcached</li>
+                                    <li>mongodb</li>
+                                    <li>mssql</li>
+                                    <li>mysql</li>
+                                    <li>nntp</li>
+                                    <li>oracle-listener</li>
+                                    <li>oracle-sid</li>
+                                    <li>pcanywhere</li>
+                                    <li>pcnfs</li>
+                                    <li>pop3[s]</li>
+                                    <li>postgres</li>
+                                    <li>radmin2</li>
+                                    <li>rdp</li>
+                                    <li>redis</li>
+                                    <li>rexec</li>
+                                    <li>rlogin</li>
+                                    <li>rpcap</li>
+                                    <li>rsh</li>
+                                    <li>rtsp</li>
+                                    <li>s7-300</li>
+                                    <li>sip</li>
+                                    <li>smb</li>
+                                    <li>smtp[s]</li>
+                                    <li>smtp-enum</li>
+                                    <li>snmp</li>
+                                    <li>socks5</li>
+                                    <li>ssh</li>
+                                    <li>sshkey</li>
+                                    <li>svn</li>
+                                    <li>teamspeak</li>
+                                    <li>telnet[s]</li>
+                                    <li>vmauthd</li>
+                                    <li>vnc</li>
+                                    <li>xmpp</li>
+                                </ul>
+                            </div>
+                            <p class="p-3 pb-0">
+                                Link to Documentation on Kali Docs: <a href="https://www.kali.org/tools/hydra/">https://www.kali.org/tools/hydra/</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Hydra Segment -->
+                <div class="component-container">
+                    <div class="m-0 p-4">
+                        <h2>
+                            Hydra
+                        </h2>
+                        <h5>
+                            Hydra Syntax:
+                        </h5>
+                        <pre>hydra [[[-l LOGIN|-L FILE] [-p PASS|-P FILE]] | [-C FILE]] [-e nsr] [-o FILE] [-t TASKS] [-M FILE [-T TASKS]] [-w TIME] [-W TIME] [-f] [-s PORT] [-x MIN:MAX:CHARSET] [-c TIME] [-ISOuvVd46] [MODULE_OPT] [service://server[:PORT][/OPT]]</pre>
+                        <div>
+                            <div class="description">
+                                Syntax examples:
+                                <ul style="height: 200px;" class="overflow-auto">
+                                    <li>hydra -l basic-auth-user -P 2023-200_most_used_passwords.txt 127.0.0.1 http-get / -s 81</li>
+                                    <li>hydra -L top-usernames-shortlist.txt -P 2023-200_most_used_passwords.txt -f 127.0.0.1 -s 5000 http-post-form "/:username=^USER^&password=^PASS^:F=Invalid credentials"</li>
+                                    <li>hydra -l user -P passlist.txt ftp://192.168.0.1</li>
+                                    <li>hydra -L userlist.txt -p defaultpw imap://192.168.0.1/PLAIN</li>
+                                    <li>hydra -C defaults.txt -6 pop3s://[2001:db8::1]:143/TLS:DIGEST-MD5</li>
+                                    <li>hydra -l admin -p password ftp://[192.168.0.0/24]/</li>
+                                    <li>hydra -L logins.txt -P pws.txt -M targets.txt ssh</li>
+                                </ul>
+                            </div>
+                            <div class="description mt-4">
+                                The follow are the service/applications that are supported:
+                                <ul style="height: 200px;" class="overflow-auto">
+                                    <li>adam6500</li>
+                                    <li>asterisk</li>
+                                    <li>cisco</li>
+                                    <li>cisco-enable</li>
+                                    <li>cobaltstrike</li>
+                                    <li>cvs</li>
+                                    <li>firebird</li>
+                                    <li>ftp[s]</li>
+                                    <li>http[s]-{head|get|post}</li>
+                                    <li>http[s]-{get|post}-form</li>
+                                    <li>http-proxy</li>
+                                    <li>http-proxy-urlenum</li>
+                                    <li>icq</li>
+                                    <li>imap[s]</li>
+                                    <li>irc</li>
+                                    <li>ldap2[s]</li>
+                                    <li>ldap3[-{cram|digest}md5][s]</li>
+                                    <li>memcached</li>
+                                    <li>mongodb</li>
+                                    <li>mssql</li>
+                                    <li>mysql</li>
+                                    <li>nntp</li>
+                                    <li>oracle-listener</li>
+                                    <li>oracle-sid</li>
+                                    <li>pcanywhere</li>
+                                    <li>pcnfs</li>
+                                    <li>pop3[s]</li>
+                                    <li>postgres</li>
+                                    <li>radmin2</li>
+                                    <li>rdp</li>
+                                    <li>redis</li>
+                                    <li>rexec</li>
+                                    <li>rlogin</li>
+                                    <li>rpcap</li>
+                                    <li>rsh</li>
+                                    <li>rtsp</li>
+                                    <li>s7-300</li>
+                                    <li>sip</li>
+                                    <li>smb</li>
+                                    <li>smtp[s]</li>
+                                    <li>smtp-enum</li>
+                                    <li>snmp</li>
+                                    <li>socks5</li>
+                                    <li>ssh</li>
+                                    <li>sshkey</li>
+                                    <li>svn</li>
+                                    <li>teamspeak</li>
+                                    <li>telnet[s]</li>
+                                    <li>vmauthd</li>
+                                    <li>vnc</li>
+                                    <li>xmpp</li>
+                                </ul>
+                            </div>
+                            <p class="p-3 pb-0">
+                                Link to Documentation on Kali Docs: <a href="https://www.kali.org/tools/hydra/">https://www.kali.org/tools/hydra/</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Medusa Segment -->
+                <div class="component-container">
+                    <div class="m-0 p-4">
+                        <h2>
+                            Medusa
+                        </h2>
+                        <h5>
+                            Medusa Syntax:
+                        </h5>
+                        <pre>Medusa [-h host|-H file] [-u username|-U file] [-p password|-P file] [-C file] -M module [OPT]</pre>
+                        <div>
+                            <div class="description">
+                                Syntax examples:
+                                <ul style="height: 200px;" class="overflow-auto">
+                                    <li>hydra -l basic-auth-user -P 2023-200_most_used_passwords.txt 127.0.0.1 http-get / -s 81</li>
+                                    <li>hydra -L top-usernames-shortlist.txt -P 2023-200_most_used_passwords.txt -f 127.0.0.1 -s 5000 http-post-form "/:username=^USER^&password=^PASS^:F=Invalid credentials"</li>
+                                    <li>hydra -l user -P passlist.txt ftp://192.168.0.1</li>
+                                    <li>hydra -L userlist.txt -p defaultpw imap://192.168.0.1/PLAIN</li>
+                                    <li>hydra -C defaults.txt -6 pop3s://[2001:db8::1]:143/TLS:DIGEST-MD5</li>
+                                    <li>hydra -l admin -p password ftp://[192.168.0.0/24]/</li>
+                                    <li>hydra -L logins.txt -P pws.txt -M targets.txt ssh</li>
+                                </ul>
+                                The follow are some of the popular service/applications that are supported:
+                                <ul style="height: 200px;" class="overflow-auto">
+                                    <li>CVS</li>
+                                    <li>FTP</li>
+                                    <li>HTTP</li>
+                                    <li>IMAP</li>
+                                    <li>MySQL</li>
+                                    <li>MSSQL</li>
+                                    <li>NNTP</li>
+                                    <li>PcAnywhere</li>
+                                    <li>POP3</li>
+                                    <li>PostgreSQL</li>
+                                    <li>REXEC</li>
+                                    <li>RDP(Remote Desktop Protocol)</li>
+                                    <li>RLOGIN</li>
+                                    <li>RSH</li>
+                                    <li>SMB</li>
+                                    <li>SMTP</li>
+                                    <li>SNMP</li>
+                                    <li>SSH</li>
+                                    <li>Subversion</li>
+                                    <li>Telnet</li>
+                                    <li>VMware Authentication Daemon</li>
+                                    <li>VNC</li>                                
+                                </ul>
+                            </div>
+                            <p class="p-3 pb-0">
+                                Link to Documentation on Kali Docs: <a href="https://www.kali.org/tools/medusa/">https://www.kali.org/tools/medusa/</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <script src="Javascript/LightDarkMode.js"></script>
+    </body>
+</html>
